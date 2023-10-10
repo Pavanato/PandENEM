@@ -10,7 +10,7 @@ def graf_pizza(df, coluna, titulo):
 
     Parâmetros
     ----------
-    df : df
+    df : dataframe
     
     coluna : str
         Coluna que será retirado os dados para fazer o gráfico em pizza    
@@ -47,7 +47,7 @@ def graf_hist_desvpad(df, coluna, titulo):
 
     Parâmetros
     ----------
-    df : df
+    df : dataframe
     
     coluna : str
         Coluna que será retirado os dados para fazer o histograma e a curva de distribuição normal
