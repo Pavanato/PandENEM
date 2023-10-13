@@ -44,7 +44,7 @@ class TestAnalise(unittest.TestCase):
         with self.assertRaises(ValueError):
             analise.separar_regiao(df, "nordeste")
 
-#FUNÇAÕ NOTA_1000_ANO
+#FUNÇÃO NOTA_1000_ANO
     def test_raises_coluna_redacao_nao_existe(self):
         data = {"NU_ANO": [2020,2020,2021]}
         df = pd.DataFrame(data)
@@ -57,6 +57,41 @@ class TestAnalise(unittest.TestCase):
         with self.assertRaises(ValueError):
             analise.nota_1000_ano(df, [2020])
 
+# FUNÇÃO RENDA_MEDIA_PER_CAPITA_FAMILIAR
+class TestRendaMediaPerCapitaFamiliar(unittest.TestCase):
+
+    def test_renda_media_per_capita(self):
+        # Caso de teste com colunas corretas
+        df = pd.DataFrame({'Q006': ['A', 'D', 'I'], 'Q005': [4, 3, 5]})
+        colunas_extras = ['outra_coluna']
+        resultado = analise.renda_media_per_capita_familiar(df, colunas_extras)
+        
+        # Verifica se as colunas esperadas estão presentes no resultado
+        self.assertIn('Renda_Per_Capita', resultado.columns)
+        self.assertIn('outra_coluna', resultado.columns)
+        
+        # Verifica os valores calculados
+        self.assertAlmostEqual(resultado.loc[0, 'Renda_Per_Capita'], 0.0, places=2)
+        self.assertAlmostEqual(resultado.loc[1, 'Renda_Per_Capita'], 665.33, places=2)
+        self.assertAlmostEqual(resultado.loc[2, 'Renda_Per_Capita'], 1996.0, places=2)
+
+    def test_renda_media_per_capita_colunas_faltantes(self):
+        # Caso de teste com colunas faltantes
+        df = pd.DataFrame({'Q006': ['A', 'D', 'I'], 'outra_coluna': ['X', 'Y', 'Z']})
+        colunas_extras = ['mais_uma_coluna']
+        
+        # Verifica se a função lança uma exceção ValueError
+        with self.assertRaises(ValueError):
+            analise.renda_media_per_capita_familiar(df, colunas_extras)
+
+    def test_renda_media_per_capita_coluna_nao_encontrada(self):
+        # Caso de teste com coluna 'Q006' não encontrada
+        df = pd.DataFrame({'Q005': [4, 3, 5], 'outra_coluna': ['X', 'Y', 'Z']})
+        colunas_extras = ['mais_uma_coluna']
+        
+        # Verifica se a função lança uma exceção KeyError
+        with self.assertRaises(KeyError):
+            analise.renda_media_per_capita_familiar(df, colunas_extras)
 
 if __name__ == "__main__":
     unittest.main(verbosity = 3)
