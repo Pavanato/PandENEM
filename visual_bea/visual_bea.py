@@ -114,3 +114,55 @@ def grafico_linha_barra(df, x_col, y1_col, y2_col, titulo):
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
+
+def grafico_pizza(df, colunas, titulo):
+    '''
+    Cria um gráfico de pizza a partir de um DataFrame.
+
+    Parameters:
+    ----------
+    df (pd.DataFrame): 
+        O DataFrame de onde os dados serão extraídos.
+    colunas (list): 
+        Lista das colunas específicas a serem usadas para o gráfico de pizza.
+    titulo (str): 
+        Título do gráfico.
+
+    Returns:
+    None
+
+    Example:
+    >>> data = {'Categoria': ['A', 'B', 'C', 'D'],
+    ...         'Valores': [30, 20, 15, 35]}
+    >>> df = pd.DataFrame(data)
+    >>> colunas = ['Categoria', 'Valores']
+    >>> titulo = 'Distribuição de Valores por Categoria'
+    >>> plot_pie_chart(df, colunas, titulo)  # Este comando deve exibir o gráfico
+    '''
+    try:
+        # Seleciona as colunas específicas do DataFrame
+        dados = df[colunas]
+
+        # Verifica se as colunas selecionadas existem no DataFrame
+        if not all(coluna in df.columns for coluna in colunas):
+            raise ValueError("Uma ou mais colunas não foram encontradas no DataFrame.")
+
+        # Cria um gráfico de pizza com base nos dados
+        plt.figure(figsize=(6, 6))
+        plt.pie(dados['Valores'], labels=dados['Categoria'], autopct='%1.1f%%', startangle=90)
+        plt.title(titulo)
+        plt.axis('equal')  # Aspecto igual para que o gráfico seja uma pizza
+
+        # Exibe o gráfico
+        plt.show()
+
+    except Exception as e:
+        print(f"Erro ao criar o gráfico de pizza: {e}")
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+
+
+
+
