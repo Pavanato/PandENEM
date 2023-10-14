@@ -27,7 +27,7 @@ def plot_notas_por_estado(df):
     erros na junção.
     """
     # Carrega o shapefile dos estados brasileiros usando geopandas
-    estados_brasil = gpd.read_file('C:/Users/rober/Downloads/BR_UF_2022/BR_UF_2022.shp')
+    estados_brasil = gpd.read_file('BR_UF_2022/BR_UF_2022.shp')
 
     estados_brasileiros = [
         'Acre', 'Alagoas', 'Amapá', 'Amazonas', 'Bahia', 'Ceará', 'Distrito Federal',
@@ -62,3 +62,84 @@ def plot_notas_por_estado(df):
         plt.show()
     else:
         print("Os valores na coluna 'Estado' não correspondem aos valores na coluna 'NM_UF'.")
+
+def plot_grafico_linhas(dataframe, coluna_x, coluna_y, titulo):
+    """
+    Gera um gráfico de linhas usando dados de um DataFrame.
+
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        O DataFrame que contém os dados a serem plotados.
+    coluna_x : str
+        O nome da coluna a ser usada como eixo X.
+    coluna_y : str
+        O nome da coluna a ser usada como eixo Y.
+    titulo : str
+        O título do gráfico.
+
+    Returns
+    -------
+    None
+    """ 
+    # Tamanho da figura
+    plt.figure(figsize=(8, 6))
+    plt.plot(dataframe[coluna_x], dataframe[coluna_y], marker='o', linestyle='-', color='b', label=coluna_y)
+    
+    # Adiciona rótulos e título ao gráfico
+    plt.xlabel(coluna_x)
+    plt.ylabel(coluna_y)
+    plt.title(titulo)
+    
+    plt.legend()
+    
+    plt.grid(True)
+    plt.show()
+
+def plot_bar_chart(dataframe, column_names, title):
+    # Verifica se as colunas estão presentes no DataFrame
+    if not all(col in dataframe.columns for col in column_names):
+        print("Uma ou mais colunas não estão presentes no DataFrame.")
+        return
+
+    # Seleciona as colunas desejadas
+    data = dataframe[column_names]
+
+    # Cria um gráfico de barras
+    data.plot(kind='bar')
+
+    plt.title(title)
+    
+    plt.show()
+
+def criar_grafico_setores(df, coluna):
+    """
+    Cria um gráfico de pizza a partir de uma coluna de um DataFrame.
+
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        O DataFrame contendo os dados a serem usados para criar o gráfico de pizza.
+    coluna : str
+        O nome da coluna do DataFrame que será usada para criar o gráfico.
+
+    Returns
+    -------
+    None
+    """
+    try:
+        contagem = df[coluna].value_counts()
+
+        if not contagem.empty:
+            plt.figure(figsize=(8, 8))
+            plt.pie(contagem, labels=contagem.index, autopct='%1.1f%%', startangle=140)
+            plt.axis('equal')
+            plt.title(f'Distribuição de {coluna}')
+            plt.show()
+        else:
+            raise ValueError(f"A coluna '{coluna}' não contém dados para criar o gráfico de pizza.")
+
+    except (KeyError, ValueError) as e:
+        print(f"Erro: {e}")
+    except Exception as e:
+        print(f"Ocorreu um erro inesperado: {e}")
