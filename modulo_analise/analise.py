@@ -74,11 +74,11 @@ def separar_regiao(df: pd.DataFrame, regiao: str) -> pd.DataFrame:
     Exemplos
     --------
     >>> import pandas as pd
-    >>> data = {'CO_UF_PROVA': ['AM', 'SP', 'BA', 'SC', 'GO', 'RS'],
+    >>> data = {'SG_UF_PROVA': ['AM', 'SP', 'BA', 'SC', 'GO', 'RS'],
     ...         'OutrosDados': [1, 2, 3, 4, 5, 6]}
     >>> df = pd.DataFrame(data)
     >>> separar_regiao(df, 'sudeste')
-      CO_UF_PROVA  OutrosDados
+      SG_UF_PROVA  OutrosDados
     1          SP            2
     """
     
@@ -89,12 +89,12 @@ def separar_regiao(df: pd.DataFrame, regiao: str) -> pd.DataFrame:
                "sudeste": ["SP", "RJ", "ES", "MG"],
                "sul": ["PR", "SC", "RS"]}
 
-    if "CO_UF_PROVA" not in df.columns:
-        raise ValueError("A DataFrame fornecido não é tem a coluna 'CO_UF_PROVA'")
+    if "SG_UF_PROVA" not in df.columns:
+        raise ValueError("A DataFrame fornecido não é tem a coluna 'SG_UF_PROVA'")
     if regiao not in regioes:
         raise ValueError("A entrada fornecida não é uma região válida")
     
-    filt = df["CO_UF_PROVA"].isin(regioes[regiao])
+    filt = df["SG_UF_PROVA"].isin(regioes[regiao])
     return df.loc[filt]
 
 
@@ -362,24 +362,24 @@ def nota_unificada_por_estado(df):
         Um novo DataFrame que contém as médias das notas e os estados correspondentes.
 
     Example:
-    >>> data = {'CO_UF_PROVA': ['MG', 'SP', 'RJ', 'MG', 'SP', 'MG'],
+    >>> data = {'SG_UF_PROVA': ['MG', 'SP', 'RJ', 'MG', 'SP', 'MG'],
     ...         'media': [80, 85, 90, 78, 88, 92]}
     >>> df = pd.DataFrame(data)
     >>> medias_df = nota_unificada_por_estado(df)
     >>> print(medias_df)
-    CO_UF_PROVA  Nota_unificada
+    SG_UF_PROVA  Nota_unificada
     MG       83.333333
     RJ       90.000000
     SP       86.500000
     '''
     try:
-        # Verifica se as colunas 'CO_UF_PROVA' e 'media' existem no DataFrame
-        if 'CO_UF_PROVA' not in df.columns or 'media' not in df.columns:
-            raise ValueError("Colunas 'CO_UF_PROVA' e 'media' não encontradas no DataFrame.")
+        # Verifica se as colunas 'SG_UF_PROVA' e 'media' existem no DataFrame
+        if 'SG_UF_PROVA' not in df.columns or 'media' not in df.columns:
+            raise ValueError("Colunas 'SG_UF_PROVA' e 'media' não encontradas no DataFrame.")
 
         # Calcula a média das notas por estado
-        medias = df.groupby('CO_UF_PROVA')['media'].mean().reset_index()
-        medias.columns = ['CO_UF_PROVA', 'Nota_unificada']
+        medias = df.groupby('SG_UF_PROVA')['media'].mean().reset_index()
+        medias.columns = ['SG_UF_PROVA', 'Nota_unificada']
 
         return medias
 
@@ -395,43 +395,43 @@ def renda_unificada_por_estado(df):
     Parameters
     ----------
     df : pd.DataFrame
-        DataFrame contendo as colunas "CO_UF_PROVA" (código do estado) e "Renda_Per_Capita" (média da renda per capita).
+        DataFrame contendo as colunas "SG_UF_PROVA" (código do estado) e "Renda_Per_Capita" (média da renda per capita).
 
     Returns
     -------
     df_renda_unificada_por_estado: pd.DataFrame
-        Retorna um novo DataFrame com a coluna "CO_UF_PROVA" e a média unificada de renda por estado (coluna "Renda_Unificada").
+        Retorna um novo DataFrame com a coluna "SG_UF_PROVA" e a média unificada de renda por estado (coluna "Renda_Unificada").
 
     Raises
     ------
     ValueError
-        Se o DataFrame não contiver as colunas "CO_UF_PROVA" e "Renda_Per_Capita."
+        Se o DataFrame não contiver as colunas "SG_UF_PROVA" e "Renda_Per_Capita."
 
     Examples
     --------
     >>> df_exemplo = pd.DataFrame({
-    ...     'CO_UF_PROVA': [1, 2, 1, 2],
+    ...     'SG_UF_PROVA': [1, 2, 1, 2],
     ...     'Renda_Per_Capita': [500, 600, 700, 800],
     ...     'Outra_Coluna': [10, 20, 30, 40]
     ... })
     >>> resultado = renda_unificada_por_estado(df_exemplo)
     >>> resultado
-       CO_UF_PROVA  Renda_unificada
+       SG_UF_PROVA  Renda_unificada
     0           1             600.0
     1           2             700.0
     '''
     try:
         # Verifica se as colunas necessárias estão presentes no DataFrame
-        if 'CO_UF_PROVA' not in df.columns or 'Renda_Per_Capita' not in df.columns:
-            raise ValueError("O DataFrame deve conter as colunas 'CO_UF_PROVA' e 'Renda_Per_Capita'.")
+        if 'SG_UF_PROVA' not in df.columns or 'Renda_Per_Capita' not in df.columns:
+            raise ValueError("O DataFrame deve conter as colunas 'SG_UF_PROVA' e 'Renda_Per_Capita'.")
 
         # Calcula a média da renda per capita por estado
-        df_renda_unificada_por_estado = df.groupby('CO_UF_PROVA').agg({'Renda_Per_Capita': 'mean'}).reset_index()
+        df_renda_unificada_por_estado = df.groupby('SG_UF_PROVA').agg({'Renda_Per_Capita': 'mean'}).reset_index()
 
         # Renomeia a coluna "Renda_Per_Capita" para "Renda_unificada"
         df_renda_unificada_por_estado.rename(columns={'Renda_Per_Capita': 'Renda_unificada'}, inplace=True)
 
-        return df_renda_unificada_por_estado[['CO_UF_PROVA', 'Renda_unificada']]
+        return df_renda_unificada_por_estado[['SG_UF_PROVA', 'Renda_unificada']]
 
     except KeyError as e:
         raise ValueError(f"Erro ao acessar coluna: {str(e)}")
