@@ -117,7 +117,7 @@ class TestFuncoes(unittest.TestCase):
 # FUNÇÃO NOTA_UNIFICADA_POR_ESTADO
     def test_nota_unificada_por_estado(self):
         # Teste para a função nota_unificada_por_estado
-        data = {'CO_UF_PROVA': ['MG', 'SP', 'RJ', 'MG', 'SP', 'MG'],
+        data = {'SG_UF_NOTA': ['MG', 'SP', 'RJ', 'MG', 'SP', 'MG'],
                 'media': [80, 85, 90, 78, 88, 92]}
         df = pd.DataFrame(data)
         medias_df = analise.nota_unificada_por_estado(df)
@@ -133,16 +133,16 @@ class TestFuncoes(unittest.TestCase):
     def test_renda_unificada_por_estado(self):
         # Teste para a função renda_unificada_por_estado
         df_exemplo = pd.DataFrame({
-            'CO_UF_PROVA': [1, 2, 1, 2],
+            'SG_UF_NOTA': [1, 2, 1, 2],
             'Renda_Per_Capita': [500, 600, 700, 800],
             'Outra_Coluna': [10, 20, 30, 40]
         })
         resultado = analise.renda_unificada_por_estado(df_exemplo)
         # Verifica se o estado 1 tem uma renda unificada de 600.0
-        self.assertEqual(resultado['CO_UF_PROVA'].iloc[0], 1)
+        self.assertEqual(resultado['SG_UF_NOTA'].iloc[0], 1)
         self.assertEqual(resultado['Renda_unificada'].iloc[0], 600.0)
         # Verifica se o estado 2 tem uma renda unificada de 700.0
-        self.assertEqual(resultado['CO_UF_PROVA'].iloc[1], 2)
+        self.assertEqual(resultado['SG_UF_NOTA'].iloc[1], 2)
         self.assertEqual(resultado['Renda_unificada'].iloc[1], 700.0)
 
 if __name__ == "__main__":
