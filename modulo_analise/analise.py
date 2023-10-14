@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-#SEPARAR O DATAFRAME POR ESTADO
+# SEPARAR O DATAFRAME POR ESTADO
 def separar_ufs(df: pd.DataFrame, ufs: list) -> pd.DataFrame:
     """
     Toma o DataFrame e o filtra por qualquer quantidade de estados
@@ -48,7 +48,7 @@ def separar_ufs(df: pd.DataFrame, ufs: list) -> pd.DataFrame:
 
     return df[df['SG_UF_PROVA'].isin(ufs)]
 
-#SEPARAR O DATAFRAME POR REGIAO
+# SEPARAR O DATAFRAME POR REGIAO
 def separar_regiao(df: pd.DataFrame, regiao: str) -> pd.DataFrame:
     """
     Toma o DataFrame e o filtra de acordo com a região escolhida
@@ -138,7 +138,7 @@ def media(df: pd.DataFrame) -> float:
 
 
 
-#NOTAS 1000 DOS ALUNOS 
+# NOTAS 1000 DOS ALUNOS 
 def nota_1000_ano(df : pd.DataFrame, anos : list) -> pd.DataFrame:
     """
     Toma o DataFrame e retorna um DataFrame com os anos e a quantidade de notas 1000
@@ -173,7 +173,7 @@ def nota_1000_ano(df : pd.DataFrame, anos : list) -> pd.DataFrame:
     return pd.DataFrame(resultados)
 
 
-#RENDA FAMILIAR MEDIA PER CAPITA 
+# RENDA FAMILIAR MEDIA PER CAPITA 
 def renda_media_per_capita_familiar(df, colunas_extras):
     '''
     Calcula a renda média per capita familiar de cada participante.
@@ -248,6 +248,190 @@ def renda_media_per_capita_familiar(df, colunas_extras):
         df_renda_e_colunas_específicas = df[['Renda_Per_Capita'] + colunas_extras]
     
         return df_renda_e_colunas_específicas
+
+    except KeyError as e:
+        raise ValueError(f"Erro ao acessar coluna: {str(e)}")
+        
+# CRIA DATAFRAME COM 1000 LINHAS CONTENDO AS MAIORES NOTAS
+def obter_top_1000_maiores_medias(df):
+    """
+    Retorna as 1000 linhas do DataFrame com as maiores médias de notas.
+
+    Esta função calcula a média das colunas 'NU_NOTA_CN', 'NU_NOTA_CH', 'NU_NOTA_LC',
+    'NU_NOTA_MT' e 'NU_NOTA_REDACAO' em cada linha do DataFrame e retorna as 1000 linhas
+    com as maiores médias em ordem decrescente.
+
+    Args:
+        df (pd.DataFrame): O DataFrame de entrada com as notas.
+
+    Returns:
+        pd.DataFrame: Um novo DataFrame contendo as 1000 linhas com as maiores médias com nova coluna 'media'
+
+    Example:
+        >>> import pandas as pd
+        >>> df = pd.DataFrame({'NU_NOTA_CN': [80, 90, 70, 85], 'NU_NOTA_CH': [75, 88, 92, 78], 'NU_NOTA_LC': [82, 79, 88, 85], 'NU_NOTA_MT': [87, 92, 78, 90], 'NU_NOTA_REDACAO': [80, 85, 88, 92]})
+        >>> resultado = obter_top_1000_maiores_medias(df)
+        >>> resultado.shape[0]
+        4
+        >>> resultado['media'].iloc[0] >= resultado['media'].iloc[1]
+        True
+    """
+    try:
+        if df is None:
+            raise ValueError("O DataFrame 'df' não pode ser nulo.")
+
+        colunas_com_notas = ['NU_NOTA_CN', 'NU_NOTA_CH', 'NU_NOTA_LC', 'NU_NOTA_MT', 'NU_NOTA_REDACAO']
+
+        if not all(coluna in df.columns for coluna in colunas_com_notas):
+            raise ValueError("O DataFrame não contém todas as colunas necessárias para calcular a média.")
+
+        # Calcula a média das colunas especificadas em cada linha
+        df['media'] = df[colunas_com_notas].mean(axis=1)
+
+        # Ordena o dataframe pelo valor da coluna 'media' em ordem decrescente
+        df = df.sort_values(by='media', ascending=False)
+
+        # Pega as primeiras 1000 linhas
+        top_1000 = df.head(1000)
+
+        return top_1000
+
+    except ValueError as e:
+        print(f"Erro ao calcular as maiores médias: {str(e)}")
+
+# CRIA DATAFRAME COM 1000 LINHAS CONTENDO AS MENORES NOTAS
+def obter_top_1000_menores_medias(df):
+    """
+    Retorna as 1000 linhas do DataFrame com as menores médias de notas.
+
+    Esta função calcula a média das colunas 'NU_NOTA_CN', 'NU_NOTA_CH', 'NU_NOTA_LC',
+    'NU_NOTA_MT' e 'NU_NOTA_REDACAO' em cada linha do DataFrame e retorna as 1000 linhas
+    com as menores médias em ordem crescente.
+
+    Args:
+        df (pd.DataFrame): O DataFrame de entrada com as notas.
+
+    Returns:
+        pd.DataFrame: Um novo DataFrame contendo as 1000 linhas com as menores médias com nova coluna 'media'
+
+    Example:
+        >>> import pandas as pd
+        >>> df = pd.DataFrame({'NU_NOTA_CN': [80, 90, 70, 85], 'NU_NOTA_CH': [75, 88, 92, 78], 'NU_NOTA_LC': [82, 79, 88, 85], 'NU_NOTA_MT': [87, 92, 78, 90], 'NU_NOTA_REDACAO': [80, 85, 88, 92]})
+        >>> resultado = obter_top_1000_menores_medias(df)
+        >>> resultado.shape[0]
+        4
+        >>> resultado['media'].iloc[0] <= resultado['media'].iloc[1]
+        True
+    """
+    try:
+        if df is None:
+            raise ValueError("O DataFrame 'df' não pode ser nulo.")
+
+        colunas_com_notas = ['NU_NOTA_CN', 'NU_NOTA_CH', 'NU_NOTA_LC', 'NU_NOTA_MT', 'NU_NOTA_REDACAO']
+
+        if not all(coluna in df.columns for coluna in colunas_com_notas):
+            raise ValueError("O DataFrame não contém todas as colunas necessárias para calcular a média.")
+
+        # Calcula a média das colunas especificadas em cada linha
+        df['media'] = df[colunas_com_notas].mean(axis=1)
+
+        # Ordena o dataframe pelo valor da coluna 'media' em ordem crescente
+        df = df.sort_values(by='media')
+
+        # Pega as primeiras 1000 linhas
+        top_1000 = df.head(1000)
+
+        return top_1000
+
+    except ValueError as e:
+        print(f"Erro ao calcular as menores médias: {str(e)}")
+        
+        
+# MEDIA ÚNICA DAS NOTAS DOS PARTICIPANTES DE CADA ESTADO
+def nota_unificada_por_estado(df):
+    '''
+    Calcula a média das notas por estado em um DataFrame.
+
+    Parameters:
+    ----------
+    df (pd.DataFrame): 
+        O DataFrame contendo colunas de estados e as médias de cada participante.
+
+    Returns:
+    pd.DataFrame
+        Um novo DataFrame que contém as médias das notas e os estados correspondentes.
+
+    Example:
+    >>> data = {'CO_UF_PROVA': ['MG', 'SP', 'RJ', 'MG', 'SP', 'MG'],
+    ...         'media': [80, 85, 90, 78, 88, 92]}
+    >>> df = pd.DataFrame(data)
+    >>> medias_df = nota_unificada_por_estado(df)
+    >>> print(medias_df)
+    CO_UF_PROVA  Nota_unificada
+    MG       83.333333
+    RJ       90.000000
+    SP       86.500000
+    '''
+    try:
+        # Verifica se as colunas 'CO_UF_PROVA' e 'media' existem no DataFrame
+        if 'CO_UF_PROVA' not in df.columns or 'media' not in df.columns:
+            raise ValueError("Colunas 'CO_UF_PROVA' e 'media' não encontradas no DataFrame.")
+
+        # Calcula a média das notas por estado
+        medias = df.groupby('CO_UF_PROVA')['media'].mean().reset_index()
+        medias.columns = ['CO_UF_PROVA', 'Nota_unificada']
+
+        return medias
+
+    except ValueError as e:
+        print(f"Erro ao calcular a média unificada das notas por estado: {str(e)}")
+
+
+# MEDIA ÚNICA DAS NOTAS DOS PARTICIPANTES DE CADA ESTADO
+def renda_unificada_por_estado(df):
+    '''
+    Calcula a média unificada das rendas per capita familiar por estado.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        DataFrame contendo as colunas "CO_UF_PROVA" (código do estado) e "Renda_Per_Capita" (média da renda per capita).
+
+    Returns
+    -------
+    df_renda_unificada_por_estado: pd.DataFrame
+        Retorna um novo DataFrame com a coluna "CO_UF_PROVA" e a média unificada de renda por estado (coluna "Renda_Unificada").
+
+    Raises
+    ------
+    ValueError
+        Se o DataFrame não contiver as colunas "CO_UF_PROVA" e "Renda_Per_Capita."
+
+    Examples
+    --------
+    >>> df_exemplo = pd.DataFrame({
+    ...     'CO_UF_PROVA': [1, 2, 1, 2],
+    ...     'Renda_Per_Capita': [500, 600, 700, 800],
+    ...     'Outra_Coluna': [10, 20, 30, 40]
+    ... })
+    >>> resultado = renda_unificada_por_estado(df_exemplo)
+    >>> resultado
+       CO_UF_PROVA  Renda_unificada
+    0           1             600.0
+    1           2             700.0
+    '''
+    try:
+        # Verifica se as colunas necessárias estão presentes no DataFrame
+        if 'CO_UF_PROVA' not in df.columns or 'Renda_Per_Capita' not in df.columns:
+            raise ValueError("O DataFrame deve conter as colunas 'CO_UF_PROVA' e 'Renda_Per_Capita'.")
+
+        # Calcula a média da renda per capita por estado
+        df_renda_unificada_por_estado = df.groupby('CO_UF_PROVA').agg({'Renda_Per_Capita': 'mean'}).reset_index()
+
+        # Renomeia a coluna "Renda_Per_Capita" para "Renda_unificada"
+        df_renda_unificada_por_estado.rename(columns={'Renda_Per_Capita': 'Renda_unificada'}, inplace=True)
+
+        return df_renda_unificada_por_estado[['CO_UF_PROVA', 'Renda_unificada']]
 
     except KeyError as e:
         raise ValueError(f"Erro ao acessar coluna: {str(e)}")
