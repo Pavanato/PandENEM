@@ -1,6 +1,5 @@
 import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
+
 
 # SEPARAR O DATAFRAME POR ESTADO
 def separar_ufs(df: pd.DataFrame, ufs: list) -> pd.DataFrame:
@@ -97,46 +96,21 @@ def separar_regiao(df: pd.DataFrame, regiao: str) -> pd.DataFrame:
     filt = df["SG_UF_PROVA"].isin(regioes[regiao])
     return df.loc[filt]
 
-
-def media(df: pd.DataFrame) -> float:
+# FUNÇÃO MODIFICADA (RETORNA DATAFRAME)
+def media(df):
     """
-    Toma o DataFrame e tira a média dos participantes
+    Calcula a média de colunas específicas e adiciona uma nova coluna ao DataFrame.
 
-    Parâmetros
-    ----------
-    df : pd.DataFrame
-    
-    Returns
-    -------
-    float
-        Média das médias das colunas especificadas
+    Args:
+        df (pandas.DataFrame): O DataFrame que você deseja modificar.
+        nome_nova_coluna (str): O nome da nova coluna que conterá as médias.
 
-    Raises
-    ------
-    ValueError
-        Se o DataFrame não contiver todas as colunas necessárias
-
-    Exemplo
-    --------
-    >>> import pandas as pd
-    >>> data = {'NU_NOTA_CN': [70, 80, 90],
-    ...         'NU_NOTA_CH': [75, 85, 95],
-    ...         'NU_NOTA_LC': [72, 82, 92],
-    ...         'NU_NOTA_MT': [68, 78, 88],
-    ...         'NU_NOTA_REDACAO': [80, 85, 90]}
-    >>> df = pd.DataFrame(data)
-    >>> media(df)
-    82.0
+    Returns:
+        pandas.DataFrame: O DataFrame modificado com a nova coluna de médias.
     """
     colunas_media = ["NU_NOTA_CN", "NU_NOTA_CH", "NU_NOTA_LC", "NU_NOTA_MT", "NU_NOTA_REDACAO"]
-
-    if not set(colunas_media).issubset(df.columns):
-        raise ValueError("O DataFrame não contém todas as colunas necessárias para calcular a média.")
-    
-    df_media = df[colunas_media].mean().mean()
-    return df_media
-
-
+    df['media'] = df[colunas_media].mean(axis=1)
+    return df
 
 # NOTAS 1000 DOS ALUNOS 
 def nota_1000_ano(df : pd.DataFrame, anos : list) -> pd.DataFrame:
@@ -196,7 +170,10 @@ def renda_media_per_capita_familiar(df, colunas_extras):
         Se o DataFrame não contiver as colunas "Q006" e "Q005".
     KeyError
         Se os nomes das colunas não existirem no DataFrame
-
+    TypeError
+        se o tipo de argumento dado for errado
+    
+    
     Examples
     --------
     >>> df_exemplo = pd.DataFrame({'Q006': ['A', 'D', 'I'], 'Q005': [4, 3, 5]})
@@ -232,7 +209,7 @@ def renda_media_per_capita_familiar(df, colunas_extras):
             'N': (9980.00, 11976.00),
             'O': (11976.00, 14970.00),
             'P': (14970.00, 19960.00),
-            'Q': (19961.00, 999999.00)  # Valor máximo padrão para Q
+            'Q': (19961.00, 50000.00)  # Valor máximo padrão para Q
         }
     
         # Calcule as médias das rendas com base no dicionário de valores mínimos e máximos
@@ -252,10 +229,13 @@ def renda_media_per_capita_familiar(df, colunas_extras):
     except KeyError as e:
         raise ValueError(f"Erro ao acessar coluna: {str(e)}")
         
-# CRIA DATAFRAME COM 1000 LINHAS CONTENDO AS MAIORES NOTAS
-def obter_top_1000_maiores_medias(df):
+    except TypeError as typeerro:
+        raise TypeError(f"Erro ao acessar coluna: {str(typeerro)}")
+        
+# CRIA DATAFRAME COM 500000 LINHAS CONTENDO AS MAIORES NOTAS
+def obter_top_500000_maiores_medias(df):
     """
-    Retorna as 1000 linhas do DataFrame com as maiores médias de notas.
+    Retorna as 500000 linhas do DataFrame com as maiores médias de notas.
 
     Esta função calcula a média das colunas 'NU_NOTA_CN', 'NU_NOTA_CH', 'NU_NOTA_LC',
     'NU_NOTA_MT' e 'NU_NOTA_REDACAO' em cada linha do DataFrame e retorna as 1000 linhas
@@ -292,17 +272,17 @@ def obter_top_1000_maiores_medias(df):
         df = df.sort_values(by='media', ascending=False)
 
         # Pega as primeiras 1000 linhas
-        top_1000 = df.head(1000)
+        top_500000 = df.head(500000)
 
-        return top_1000
+        return top_500000
 
     except ValueError as e:
         print(f"Erro ao calcular as maiores médias: {str(e)}")
 
-# CRIA DATAFRAME COM 1000 LINHAS CONTENDO AS MENORES NOTAS
-def obter_top_1000_menores_medias(df):
+# CRIA DATAFRAME COM 500000 LINHAS CONTENDO AS MENORES NOTAS
+def obter_top_500000_menores_medias(df):
     """
-    Retorna as 1000 linhas do DataFrame com as menores médias de notas.
+    Retorna as 100000 linhas do DataFrame com as menores médias de notas.
 
     Esta função calcula a média das colunas 'NU_NOTA_CN', 'NU_NOTA_CH', 'NU_NOTA_LC',
     'NU_NOTA_MT' e 'NU_NOTA_REDACAO' em cada linha do DataFrame e retorna as 1000 linhas
@@ -335,13 +315,10 @@ def obter_top_1000_menores_medias(df):
         # Calcula a média das colunas especificadas em cada linha
         df['media'] = df[colunas_com_notas].mean(axis=1)
 
-        # Ordena o dataframe pelo valor da coluna 'media' em ordem crescente
-        df = df.sort_values(by='media')
-
         # Pega as primeiras 1000 linhas
-        top_1000 = df.head(1000)
+        top_500000 = df.head(500000)
 
-        return top_1000
+        return top_500000
 
     except ValueError as e:
         print(f"Erro ao calcular as menores médias: {str(e)}")
@@ -350,7 +327,7 @@ def obter_top_1000_menores_medias(df):
 # MEDIA ÚNICA DAS NOTAS DOS PARTICIPANTES DE CADA ESTADO
 def nota_unificada_por_estado(df):
     '''
-    Calcula a média das notas por estado em um DataFrame.
+    Calcula a média das notas por estado em um DataFrame. 
 
     Parameters:
     ----------
@@ -380,7 +357,7 @@ def nota_unificada_por_estado(df):
         # Calcula a média das notas por estado
         medias = df.groupby('SG_UF_PROVA')['media'].mean().reset_index()
         medias.columns = ['SG_UF_PROVA', 'Nota_unificada']
-
+        
         return medias
 
     except ValueError as e:
@@ -430,6 +407,7 @@ def renda_unificada_por_estado(df):
 
         # Renomeia a coluna "Renda_Per_Capita" para "Renda_unificada"
         df_renda_unificada_por_estado.rename(columns={'Renda_Per_Capita': 'Renda_unificada'}, inplace=True)
+        
 
         return df_renda_unificada_por_estado[['SG_UF_PROVA', 'Renda_unificada']]
 
