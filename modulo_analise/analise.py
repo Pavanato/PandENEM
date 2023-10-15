@@ -1,10 +1,12 @@
+Find what you need faster … 
+Home is your new landing page and surfaces your most relevant files and folders
+
 import pandas as pd
 
-
 # SEPARAR O DATAFRAME POR ESTADO
-def separar_ufs(df: pd.DataFrame, ufs: list) -> pd.DataFrame:
+def separar_ufs_e_anos(df: pd.DataFrame, ufs: list, anos: list) -> pd.DataFrame:
     """
-    Toma o DataFrame e o filtra por qualquer quantidade de estados
+    Toma o DataFrame e o filtra por qualquer quantidade de estados e anos.
 
     Parâmetros
     ----------
@@ -14,38 +16,46 @@ def separar_ufs(df: pd.DataFrame, ufs: list) -> pd.DataFrame:
     ufs : list
         Lista com estados que queira separar do DataFrame original. Os estados devem ser
         escritos pela sigla UF.
+
+    anos : list
+        Lista com anos que queira separar do DataFrame original.
     
     Returns
     -------
     pd.DataFrame
-        DataFrame filtrado pelos estados escolhidos
+        DataFrame filtrado pelos estados e anos escolhidos.
 
     Raises
     ------
     ValueError
-        Se a entrada fornecida não tiver estados válidos
+        Se a entrada fornecida não tiver estados ou anos válidos.
 
     Exemplos
     --------
     >>> import pandas as pd
     >>> data = {'SG_UF_PROVA': ['SP', 'RJ', 'MG', 'SP', 'RJ'],
+    ...         'NU_ANO': [2020, 2020, 2021, 2021, 2021],
     ...         'Nota': [70, 80, 90, 85, 95]}
     >>> df = pd.DataFrame(data)
     >>> estados_para_filtrar = ['SP', 'MG']
-    >>> separar_ufs(df, estados_para_filtrar)
-      Cidade  Nota
-    0     SP    70
-    2     MG    90
-    3     SP    85
+    >>> anos_para_filtrar = [2020]
+    >>> separar_ufs_e_anos(df, estados_para_filtrar, anos_para_filtrar)
+      SG_UF_PROVA   Ano  Nota
+    0          SP  2020    70
+    1          RJ  2020    80
     """
     ufs = [uf.upper() for uf in ufs]
 
-    if 'SG_UF_PROVA' not in df.columns:
-        raise ValueError("A coluna 'SG_UF_PROVA' deve estar presente no DataFrame.")
+    if 'SG_UF_PROVA' not in df.columns or 'NU_ANO' not in df.columns:
+        raise ValueError("As colunas 'SG_UF_PROVA' e 'NU_ANO' devem estar presentes no DataFrame.")
+
     if not set(ufs).issubset(df['SG_UF_PROVA']):
         raise ValueError("A entrada fornecida não contém estados válidos.")
 
-    return df[df['SG_UF_PROVA'].isin(ufs)]
+    if not set(anos).issubset(df['NU_ANO']):
+        raise ValueError("A entrada fornecida não contém anos válidos.")
+
+    return df[(df['SG_UF_PROVA'].isin(ufs)) & (df['NU_ANO'].isin(anos))]
 
 # SEPARAR O DATAFRAME POR REGIAO
 def separar_regiao(df: pd.DataFrame, regiao: str) -> pd.DataFrame:
@@ -325,43 +335,46 @@ def obter_top_500000_menores_medias(df):
         
         
 # MEDIA ÚNICA DAS NOTAS DOS PARTICIPANTES DE CADA ESTADO
-def nota_unificada_por_estado(df):
-    '''
-    Calcula a média das notas por estado em um DataFrame. 
+def nota_unificada_por_estado_e_ano(df):
+    """
+    Calcula a média das notas por estado em um DataFrame, também separado por ano.
 
-    Parameters:
+    Parâmetros:
     ----------
     df (pd.DataFrame): 
-        O DataFrame contendo colunas de estados e as médias de cada participante.
+        O DataFrame contendo colunas de estados, anos e as médias de cada participante.
 
-    Returns:
+    Retorna:
     pd.DataFrame
-        Um novo DataFrame que contém as médias das notas e os estados correspondentes.
+        Um novo DataFrame que contém as médias das notas, os estados correspondentes e, opcionalmente, os anos.
 
-    Example:
+    Exemplo:
     >>> data = {'SG_UF_PROVA': ['MG', 'SP', 'RJ', 'MG', 'SP', 'MG'],
+    ...         'Ano': [2020, 2020, 2021, 2021, 2021, 2021],
     ...         'media': [80, 85, 90, 78, 88, 92]}
     >>> df = pd.DataFrame(data)
-    >>> medias_df = nota_unificada_por_estado(df)
+    >>> medias_df = nota_unificada_por_estado_e_ano(df)
     >>> print(medias_df)
-    SG_UF_PROVA  Nota_unificada
-    MG       83.333333
-    RJ       90.000000
-    SP       86.500000
-    '''
+      SG_UF_PROVA   Ano  Nota_unificada
+    0          MG  2020       81.000000
+    1          MG  2021       90.000000
+    2          RJ  2021       90.000000
+    3          SP  2020       85.000000
+    4          SP  2021       90.000000
+    """
     try:
-        # Verifica se as colunas 'SG_UF_PROVA' e 'media' existem no DataFrame
-        if 'SG_UF_PROVA' not in df.columns or 'media' not in df.columns:
-            raise ValueError("Colunas 'SG_UF_PROVA' e 'media' não encontradas no DataFrame.")
+        # Verifica se as colunas necessárias existem no DataFrame
+        if 'SG_UF_PROVA' not in df.columns or 'media' not in df.columns or 'NU_ANO' not in df.columns:
+            raise ValueError("Colunas 'SG_UF_PROVA', 'NU_ANO' e 'media' não encontradas no DataFrame.")
 
-        # Calcula a média das notas por estado
-        medias = df.groupby('SG_UF_PROVA')['media'].mean().reset_index()
-        medias.columns = ['SG_UF_PROVA', 'Nota_unificada']
-        
+        # Calcula a média das notas por estado e ano
+        medias = df.groupby(['SG_UF_PROVA', 'NU_ANO'])['media'].mean().reset_index()
+        medias.columns = ['SG_UF_PROVA', 'NU_ANO', 'Nota_unificada']
+
         return medias
 
     except ValueError as e:
-        print(f"Erro ao calcular a média unificada das notas por estado: {str(e)}")
+        print(f"Erro ao calcular a média unificada das notas por estado e ano: {str(e)}")
 
 
 # MEDIA ÚNICA DAS NOTAS DOS PARTICIPANTES DE CADA ESTADO
