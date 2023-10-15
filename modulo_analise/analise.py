@@ -1,9 +1,5 @@
-Find what you need faster … 
-Home is your new landing page and surfaces your most relevant files and folders
-
 import pandas as pd
 
-# SEPARAR O DATAFRAME POR ESTADO
 def separar_ufs_e_anos(df: pd.DataFrame, ufs: list, anos: list) -> pd.DataFrame:
     """
     Toma o DataFrame e o filtra por qualquer quantidade de estados e anos.
@@ -57,7 +53,6 @@ def separar_ufs_e_anos(df: pd.DataFrame, ufs: list, anos: list) -> pd.DataFrame:
 
     return df[(df['SG_UF_PROVA'].isin(ufs)) & (df['NU_ANO'].isin(anos))]
 
-# SEPARAR O DATAFRAME POR REGIAO
 def separar_regiao(df: pd.DataFrame, regiao: str) -> pd.DataFrame:
     """
     Toma o DataFrame e o filtra de acordo com a região escolhida
@@ -106,7 +101,6 @@ def separar_regiao(df: pd.DataFrame, regiao: str) -> pd.DataFrame:
     filt = df["SG_UF_PROVA"].isin(regioes[regiao])
     return df.loc[filt]
 
-# FUNÇÃO MODIFICADA (RETORNA DATAFRAME)
 def media(df):
     """
     Calcula a média de colunas específicas e adiciona uma nova coluna ao DataFrame.
@@ -122,7 +116,6 @@ def media(df):
     df['media'] = df[colunas_media].mean(axis=1)
     return df
 
-# NOTAS 1000 DOS ALUNOS 
 def nota_1000_ano(df : pd.DataFrame, anos : list) -> pd.DataFrame:
     """
     Toma o DataFrame e retorna um DataFrame com os anos e a quantidade de notas 1000
@@ -156,8 +149,6 @@ def nota_1000_ano(df : pd.DataFrame, anos : list) -> pd.DataFrame:
 
     return pd.DataFrame(resultados)
 
-
-# RENDA FAMILIAR MEDIA PER CAPITA 
 def renda_media_per_capita_familiar(df, colunas_extras):
     '''
     Calcula a renda média per capita familiar de cada participante.
@@ -242,7 +233,6 @@ def renda_media_per_capita_familiar(df, colunas_extras):
     except TypeError as typeerro:
         raise TypeError(f"Erro ao acessar coluna: {str(typeerro)}")
         
-# CRIA DATAFRAME COM 500000 LINHAS CONTENDO AS MAIORES NOTAS
 def obter_top_500000_maiores_medias(df):
     """
     Retorna as 500000 linhas do DataFrame com as maiores médias de notas.
@@ -289,7 +279,6 @@ def obter_top_500000_maiores_medias(df):
     except ValueError as e:
         print(f"Erro ao calcular as maiores médias: {str(e)}")
 
-# CRIA DATAFRAME COM 500000 LINHAS CONTENDO AS MENORES NOTAS
 def obter_top_500000_menores_medias(df):
     """
     Retorna as 100000 linhas do DataFrame com as menores médias de notas.
@@ -333,8 +322,6 @@ def obter_top_500000_menores_medias(df):
     except ValueError as e:
         print(f"Erro ao calcular as menores médias: {str(e)}")
         
-        
-# MEDIA ÚNICA DAS NOTAS DOS PARTICIPANTES DE CADA ESTADO
 def nota_unificada_por_estado_e_ano(df):
     """
     Calcula a média das notas por estado em um DataFrame, também separado por ano.
@@ -376,8 +363,6 @@ def nota_unificada_por_estado_e_ano(df):
     except ValueError as e:
         print(f"Erro ao calcular a média unificada das notas por estado e ano: {str(e)}")
 
-
-# MEDIA ÚNICA DAS NOTAS DOS PARTICIPANTES DE CADA ESTADO
 def renda_unificada_por_estado(df):
     '''
     Calcula a média unificada das rendas per capita familiar por estado.
@@ -427,7 +412,6 @@ def renda_unificada_por_estado(df):
     except KeyError as e:
         raise ValueError(f"Erro ao acessar coluna: {str(e)}")
 
-
 def media_internet(df):
     """
     Calcula a média de colunas específicas para linhas com "A" e "B" na coluna "Q025" e retorna um DataFrame com a média dessas médias.
@@ -462,3 +446,108 @@ def media_internet(df):
 
     except ValueError as e:
         print(f"Erro ao calcular médias por 'Q025': {str(e)}")
+
+def media_por_estado(df, coluna_media):
+    """
+    Calcula a média das notas por estado e cria um DataFrame.
+
+    Parameters
+    ----------
+    df : DataFrame
+        Um DataFrame contendo as notas por estado.
+    coluna_media : str
+        O nome da coluna que contém as notas a serem usadas para o cálculo da média.
+
+    Returns
+    -------
+    DataFrame
+        Um DataFrame com a média das notas por estado.
+
+    Description
+    -----------
+    Esta função calcula a média das notas por estado a partir de um DataFrame fornecido. Ela usa uma lista de siglas dos
+    estados brasileiros para iterar e calcular a média das notas para cada estado. O resultado é um novo DataFrame com
+    duas colunas: 'UF' (siglas dos estados) e 'media' (média das notas).
+
+    Exemplo
+    -------
+    >>> import pandas as pd
+    >>> data = {'UF': ['AC', 'AL', 'AP', 'AM', 'BA'],
+    ...         'nota': [7.8, 6.5, 8.2, 7.1, 6.9]}
+    >>> df = pd.DataFrame(data)
+    >>> media_por_estado(df, 'nota')
+       UF  media
+    0  AC   7.8
+    1  AL   6.5
+    2  AP   8.2
+    3  AM   7.1
+    4  BA   6.9
+    """
+    list_uf = [
+        'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF',
+        'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA',
+        'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS',
+        'RO', 'RR', 'SC', 'SP', 'SE', 'TO'
+    ]
+
+    # Define um índice no DataFrame com base nos anos e nas siglas dos estados
+    df.set_index(['NU_ANO', 'SG_UF_PROVA'], inplace=True)
+
+    data_dict = {}
+    # Calcula a média de notas para cada estado e armazena em um dicionário
+    for uf in list_uf:
+        data_dict[uf] = df.xs(uf, level=1)[str(coluna_media)].mean(axis=0)
+
+    data = {
+        'UF': list(data_dict.keys()),
+        'media': list(data_dict.values())
+    }
+
+    # Converte o dicionário em um DataFrame
+    df_result = pd.DataFrame(data)
+
+    return df_result
+
+def media_por_area_de_conhecimento(df):
+    """
+    Calcula a média das notas por área de conhecimento e cria um DataFrame.
+
+    Parameters
+    ----------
+    df : DataFrame
+        Um DataFrame contendo as notas por área de conhecimento.
+
+    Returns
+    -------
+    DataFrame
+        Um DataFrame contendo a média das notas por área de conhecimento, com as seguintes colunas: "CN", "CH", "LC", "MT", "RD"
+        (Ciências da Natureza, Ciências Humanas, Linguagens e Códigos, Matemática, Redação).
+
+    Examples
+    --------
+    >>> import pandas as pd
+    >>> data = {'NU_NOTA_CN': [650.0, 720.0, 680.0],
+    ...         'NU_NOTA_CH': [700.0, 680.0, 720.0],
+    ...         'NU_NOTA_LC': [710.0, 690.0, 730.0],
+    ...         'NU_NOTA_MT': [720.0, 710.0, 690.0],
+    ...         'NU_NOTA_REDACAO': [800, 750, 820]}
+    >>> df = pd.DataFrame(data)
+    >>> media_por_area_de_conhecimento(df)
+          CN     CH     LC     MT   RD
+    0  683.333333  700.0  710.0  710.0  790.0
+    """
+    if not isinstance(df, pd.DataFrame):
+        raise ValueError("O parâmetro 'df' deve ser um DataFrame.")
+    
+    # Lista de colunas que serão usadas para calcular a média
+    colunas_media = ["NU_NOTA_CN", "NU_NOTA_CH", "NU_NOTA_LC", "NU_NOTA_MT", "NU_NOTA_REDACAO"]
+
+    for coluna in colunas_media:
+        if coluna not in df.columns:
+            raise ValueError(f"A coluna {coluna} não está presente no DataFrame.")
+        
+    # Calcula a média das notas em cada coluna e transforma o resultado em um DataFrame
+    df = df[colunas_media].mean().to_frame().T
+    df.columns = ["CN", "CH", "LC", "MT", "RD"]
+
+    return df
