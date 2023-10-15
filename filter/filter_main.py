@@ -20,7 +20,7 @@ def filtragem(df, name, remove_dict, check_dict):
     df.to_csv(f'{name}_filtrado.csv', index=False)
 
 # Cria variáveis de controle
-columns_to_maintain = ['NU_ANO', 'TP_ESCOLA', 'IN_TREINEIRO', 'SG_UF_PROVA', 'TP_PRESENCA_CN', 'TP_PRESENCA_CH', 
+columns_to_maintain = ['NU_ANO', 'TP_COR_RACA', 'IN_TREINEIRO', 'SG_UF_PROVA', 'TP_PRESENCA_CN', 'TP_PRESENCA_CH', 
                        'TP_PRESENCA_LC', 'TP_PRESENCA_MT', 'NU_NOTA_CN', 'NU_NOTA_CH', 'NU_NOTA_LC', 
                        'NU_NOTA_MT', 'NU_NOTA_REDACAO', 'Q005', 'Q006', 'Q025']
 
@@ -28,13 +28,15 @@ ufs_brasil = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO",
               "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", 
               "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"]
 
-# Crie um dicionário combinando as duas listas
-check_entries_dict = dict(zip(columns_to_maintain, columns_entries))
-
-columns_entries = [list(range(2019, 2023)), [1, 2, 3], [0, 1], ufs_brasil, 
+columns_entries = [list(range(2019, 2023)), [0, 1, 2, 3, 4, 5, 6], [0, 1], ufs_brasil, 
                    [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], (0.0, 1000.0), (0.0, 1000.0), 
                    (0.0, 1000.0), (0.0, 1000.0), (0.0, 1000.0), list(range(1, 21)), 
                    ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q'], ['A', 'B']]
+
+# Crie um dicionário combinando as duas listas
+check_entries_dict = dict(zip(columns_to_maintain, columns_entries))
+
+
 
 rows_to_remove = {
     'IN_TREINEIRO': 1,

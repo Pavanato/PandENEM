@@ -11,8 +11,6 @@ zip_urls = [
     "https://download.inep.gov.br/microdados/microdados_enem_2022.zip",
 ]
 
-zip_urls = ["https://download.inep.gov.br/microdados/microdados_enem_2022.zip"]
-
 # Names of the files to extract from each ZIP
 files_to_extract = ["DADOS/MICRODADOS_ENEM_2019.csv", "DADOS/MICRODADOS_ENEM_2020.csv", "DADOS/MICRODADOS_ENEM_2021.csv", "DADOS/MICRODADOS_ENEM_2022.csv"]
 
