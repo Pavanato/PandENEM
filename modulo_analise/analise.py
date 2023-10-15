@@ -426,3 +426,39 @@ def renda_unificada_por_estado(df):
 
     except KeyError as e:
         raise ValueError(f"Erro ao acessar coluna: {str(e)}")
+
+
+def media_internet(df):
+    """
+    Calcula a média de colunas específicas para linhas com "A" e "B" na coluna "Q025" e retorna um DataFrame com a média dessas médias.
+
+    Parâmetros:
+        df (pandas.DataFrame): O DataFrame que você deseja modificar.
+
+    Retorna:
+        pandas.DataFrame: Um DataFrame com a média das colunas "media_A" e "media_B".
+    """
+    try:
+        # Verifica se a coluna "Q025" está presente no DataFrame
+        if 'Q025' not in df.columns:
+            raise ValueError("A coluna 'Q025' não está presente no DataFrame.")
+
+        # Colunas a serem consideradas para o cálculo da média
+        colunas_media = ["NU_NOTA_CN", "NU_NOTA_CH", "NU_NOTA_LC", "NU_NOTA_MT", "NU_NOTA_REDACAO"]
+
+        # Filtra as linhas com "A" na coluna "Q025" e calcula a média das colunas desejadas
+        df['media_A'] = df[df['Q025'] == 'A'][colunas_media].mean(axis=1)
+
+        # Filtra as linhas com "B" na coluna "Q025" e calcula a média das colunas desejadas
+        df['media_B'] = df[df['Q025'] == 'B'][colunas_media].mean(axis=1)
+
+        # Calcula a média das colunas "media_A" e "media_B"
+        media_final = df[['media_A', 'media_B']].mean()
+
+        # Cria um novo DataFrame com as médias
+        df_resultado = pd.DataFrame({'media_sem_internet': [media_final['media_A']], 'media_com_internet': [media_final['media_B']]})
+
+        return df_resultado
+
+    except ValueError as e:
+        print(f"Erro ao calcular médias por 'Q025': {str(e)}")
