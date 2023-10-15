@@ -1,67 +1,24 @@
 import pandas as pd
 
-def merge_dataframes(*dfs):
-    """
-    Mescla vários dataframes em um único dataframe com um índice múltiplo.
-
-    Parameters
-    ----------
-        *dfs: Número variável de dataframes para mesclar.
-    
-    Returns
-    -------
-        pd.DataFrame: Dataframe mesclado com um índice múltiplo.
-
-    Example
-    -------
-    >>> df1 = pd.DataFrame({'NU_ANO': [2019, 2019], 'A': [1, 2], 'B': [3, 4]})
-    >>> df2 = pd.DataFrame({'A': [5, 6], 'B': [7, 8]})
-    >>> df3 = pd.DataFrame({'NU_ANO': [2021, 2021], 'C': [9, 10], 'D': [11, 12]})
-    >>> merge_dataframes(df1, df2, df3)
-            NU_ANO    A    B     C     D
-    Ano
-    2019 0  2019.0  1.0  3.0   NaN   NaN
-         1  2019.0  2.0  4.0   NaN   NaN
-    1    0     NaN  5.0  7.0   NaN   NaN
-         1     NaN  6.0  8.0   NaN   NaN
-    2021 0  2021.0  NaN  NaN   9.0  11.0
-         1  2021.0  NaN  NaN  10.0  12.0
-    """
-
-    if not dfs:
-        raise ValueError("Pelo menos um dataframe deve ser fornecido.")
-
-    years = []
-
-    for index, df in enumerate(dfs):
-        if 'NU_ANO' in df.columns:
-            years.append(df['NU_ANO'].iloc[0])
-        else:
-            years.append(index)
-
-    if len(years) != len(dfs):
-        raise ValueError("O número de anos deve corresponder ao número de dataframes.")
-
-    multi_index = pd.MultiIndex.from_tuples([(ano,) for ano in years])
-    merged_dataframe = pd.concat(dfs, keys=multi_index)
-    
-    return merged_dataframe
-
-
-import pandas as pd
-
 def remover_linhas(df, dict_remover):
     """
     Remove linhas de um DataFrame onde as colunas especificadas coincidem com os valores fornecidos.
 
-    Args:
-        df (pd.DataFrame): O DataFrame a ser processado.
-        dict_remover (dict): Um dicionário com os nomes das colunas como chaves e valores para coincidir.
+    Parameters
+    ----------
+    df : pd.DataFrame 
+        O DataFrame a ser processado.
+            
+    dict_remover : dict
+        Um dicionário com os nomes das colunas como chaves e valores para coincidir.
+        
+    Returns
+    -------
+    pd.DataFrame
+        Um novo DataFrame com as linhas removidas conforme especificado.
 
-    Returns:
-        pd.DataFrame: Um novo DataFrame com as linhas removidas conforme especificado.
-
-    Exemplos:
+    Examples
+    --------
         >>> dados = {
         ...     'IN_TREINEIRO': [0, 1, 0, 0, 2, 0],
         ...     'TP_PRESENCA_CN': [0, 0, 1, 0, 0, 0],
@@ -71,7 +28,7 @@ def remover_linhas(df, dict_remover):
         ... }
         >>> df = pd.DataFrame(dados)
         >>> dict_remover = {
-        ...     'IN_TREINEIRO': 1,
+        ...     'IN_TREINEIRO': [1, 2],
         ...     'TP_PRESENCA_CN': 1,
         ...     'TP_PRESENCA_CH': 1,
         ...     'TP_PRESENCA_LC': 1,
@@ -80,53 +37,75 @@ def remover_linhas(df, dict_remover):
         >>> resultado_df = remover_linhas(df, dict_remover)
         >>> resultado_df
            IN_TREINEIRO  TP_PRESENCA_CN  TP_PRESENCA_CH  TP_PRESENCA_LC  TP_PRESENCA_MT
-        0              0              0              0              0              0
-        4              2              0              0              0              0
+        0             0               0               0               0               0
+        3             0               0               0               0               0
+        5             0               0               0               0               0
 
-    Nota:
-        A função remove as linhas onde qualquer par coluna-valor especificado coincide.
+    Note
+    ----
+    A função remove as linhas onde qualquer par coluna-valor especificado coincide.
     """
-    for coluna, valor in dict_remover.items():
-        df = df[df[coluna] != valor]
+    for coluna, valores in dict_remover.items():
+        if not isinstance(valores, list):
+            valores = [valores]
+        df = df[~df[coluna].isin(valores)]
     return df
 
+class InvalidEntryError(Exception):
+    pass
 
+def checa_entradas(df, column_entry_dict):
+    """
+    Verifica se todos os valores não-NaN nas colunas especificadas de um DataFrame estão dentro do respectivo intervalo de entradas válidas.
 
-# class InvalidEntryError(Exception):
-#     pass
+    Parameters
+    ----------
+    df : pd.DataFrame
+        O DataFrame de entrada.
+    column_entry_dict : dict
+        Um dicionário em que as chaves são os nomes das colunas e os valores são:
+            - uma lista de entradas válidas, ou
+            - uma tupla de (min_value, max_value) para definir o intervalo de entradas válidas.
 
-# def check_entry(df, column_name, entry_list):
-#     """
-#     Check if all values in a DataFrame column are in the specified list of valid entries.
+    Raises
+    ------
+    InvalidEntryError
+        Se algum valor não-NaN em uma coluna estiver fora do intervalo de entradas válidas.
 
-#     Parameters:
-#     - df: DataFrame
-#         The input DataFrame.
-#     - column_name: str
-#         The name of the column to check.
-#     - entry_list: list
-#         The list of valid entries.
-
-#     Raises:
-#     - InvalidEntryError: If any value in the column is not in the entry_list.
-#     """
-#     column = df[column_name]
-#     invalid_entries = column[~column.isin(entry_list)]
+    Examples
+    --------
+    >>> import pandas as pd
+    >>> data = {'Coluna1': ['A', 'B', 'C', 'D', 'E'], 'Coluna2': [1.5, 2.0, 3.7, 999.9, 5.5]}
+    >>> df = pd.DataFrame(data)
+    >>> entradas_validas = {'Coluna1': ['A', 'B', 'C', 'D'], 'Coluna2': (0.0, 1000.0)}
+    >>> check_entries(df, entradas_validas)  # Nenhuma exceção deve ser lançada
+    >>> entradas_validas = {'Coluna1': ['A', 'B', 'C', 'X'], 'Coluna2': (0.0, 1000.0)}
+    >>> try:
+    ...     check_entries(df, entradas_validas)  # Entradas inválidas na 'Coluna1'
+    ... except InvalidEntryError as e:
+    ...     str(e)
+    "Entradas inválidas encontradas na coluna 'Coluna1': ['X']"
+    >>> entradas_validas = {'Coluna1': ['A', 'B', 'C', 'D'], 'Coluna2': (0.0, 10.0)}
+    >>> try:
+    ...     check_entries(df, entradas_validas)  # Entradas inválidas na 'Coluna2'
+    ... except InvalidEntryError as e:
+    ...     str(e)
+    "Entradas inválidas encontradas na coluna 'Coluna2': [999.9, 5.5]"
+    """
+    for column_name, entry_range in column_entry_dict.items():
+        column = df[column_name]
+        
+        if isinstance(entry_range, list):
+            # Verifica uma lista de entradas válidas
+            entradas_validas = column[pd.notna(column)]
+            entradas_invalidas = entradas_validas[~entradas_validas.isin(entry_range)]
+        elif isinstance(entry_range, tuple) and len(entry_range) == 2:
+            # Verifica um intervalo de entradas válidas
+            min_value, max_value = entry_range
+            entradas_validas = column[pd.notna(column)]
+            entradas_invalidas = entradas_validas[(entradas_validas < min_value) | (entradas_validas > max_value)]
+        else:
+            raise ValueError(f"Tipo de entrada inválido para a coluna '{column_name}'")
     
-#     if not invalid_entries.empty:
-#         raise InvalidEntryError(f"Invalid entries found in column '{column_name}': {invalid_entries.tolist()}")
-
-# # Example usage:
-# import pandas as pd
-
-# data = {'Column1': ['A', 'B', 'C', 'D', 'E']}
-# df = pd.DataFrame(data)
-
-# valid_entries = ['A', 'B', 'C', 'D']
-
-# try:
-#     check_entry(df, 'Column1', valid_entries)
-#     print("All entries are valid.")
-# except InvalidEntryError as e:
-#     print(e)
-
+        if not entradas_invalidas.empty:
+            raise InvalidEntryError(f"Entradas inválidas encontradas na coluna '{column_name}': {entradas_invalidas.tolist()}")
