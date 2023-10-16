@@ -52,7 +52,6 @@ def separar_ufs_e_anos(df: pd.DataFrame, ufs: list, anos: list) -> pd.DataFrame:
 
     return df[(df['SG_UF_PROVA'].isin(ufs)) & (df['NU_ANO'].isin(anos))]
 
-
 def separar_regiao(df: pd.DataFrame, regiao: str) -> pd.DataFrame:
     """
     Toma o DataFrame e o filtra de acordo com a região escolhida
@@ -262,8 +261,7 @@ def renda_media_per_capita_familiar(df : pd.DataFrame, colunas_extras : list) ->
         raise ValueError(f"Erro ao acessar coluna: {str(e)}")
     except TypeError as typeerro:
         raise TypeError(f"Erro ao acessar coluna: {str(typeerro)}")
-        
-              
+                  
 def nota_unificada_por_estado_e_ano(df : pd.DataFrame) -> pd.DataFrame:
     """
     Calcula a média das notas por estado em um DataFrame, também separado por ano.
@@ -399,8 +397,6 @@ def media_internet(df : pd.DataFrame) -> pd.DataFrame:
     except ValueError as e:
         print(f"Erro ao calcular médias por 'Q025': {str(e)}")
         
-import pandas as pd
-
 def calcular_medias_regiao_ano(df : pd.DataFrame) -> pd.DataFrame:
     """
     Calcula as médias das notas por ano e região.
