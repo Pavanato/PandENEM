@@ -296,8 +296,8 @@ def nota_unificada_por_estado_e_ano(df : pd.DataFrame) -> pd.DataFrame:
     4          SP    2021            88.0
     """
     try:
-        if 'SG_UF_PROVA' not in df.columns or 'media' not in df.columns or 'NU_ANO' not in df.columns:
-            raise ValueError("Colunas 'SG_UF_PROVA', 'NU_ANO' e 'media' não encontradas no DataFrame.")
+        if all(item not in ['SG_UF_PROVA', 'media', 'NU_ANO'] for item in df.columns):
+            raise KeyError("Colunas 'SG_UF_PROVA', 'NU_ANO' e 'media' não encontradas no DataFrame.")
 
         medias = df.groupby(['SG_UF_PROVA', 'NU_ANO'])['media'].mean().reset_index()
         medias.columns = ['SG_UF_PROVA', 'NU_ANO', 'Nota_unificada']
@@ -381,23 +381,13 @@ def media_internet(df : pd.DataFrame) -> pd.DataFrame:
     0                86.6                87.4
     """
     try:
-        # Verifica se a coluna "Q025" está presente no DataFrame
         if 'Q025' not in df.columns:
             raise ValueError("A coluna 'Q025' não está presente no DataFrame.")
-
-        # Colunas a serem consideradas para o cálculo da média
+        
         colunas_media = ["NU_NOTA_CN", "NU_NOTA_CH", "NU_NOTA_LC", "NU_NOTA_MT", "NU_NOTA_REDACAO"]
-
-        # Filtra as linhas com "A" na coluna "Q025" e calcula a média das colunas desejadas
         df['media_A'] = df[df['Q025'] == 'A'][colunas_media].mean(axis=1)
-
-        # Filtra as linhas com "B" na coluna "Q025" e calcula a média das colunas desejadas
         df['media_B'] = df[df['Q025'] == 'B'][colunas_media].mean(axis=1)
-
-        # Calcula a média das colunas "media_A" e "media_B"
         media_final = df[['media_A', 'media_B']].mean()
-
-        # Cria um novo DataFrame com as médias
         df_resultado = pd.DataFrame({'media_sem_internet': [media_final['media_A']], 'media_com_internet': [media_final['media_B']]})
 
         return df_resultado
