@@ -18,19 +18,19 @@ Com base nisso, podemos analisar o gráfico abaixo, que relaciona a média de to
 
 ![](imagens\media_materia.png)
 
-Podemos observar (observação).
+Podemos observar que de todas os tópicos o único que não foi decrescente foi o de Linguagens, Códigos e suas Tecnologias. Então apenas neste critério gera algo congruente com a hipótese de que o desempenho caiu de 2019 para 2020 e depois se elevou.
 
 <h3>Acesso internet</h3>
 
 
-Porém, durante a pandemia, outro critério muito importante foi a presença do acesso à internet, pois, como as aulas presenciais foram impossibilitadas, alunos sem acesso à internet tiveram menor acesso ao estudo. Como podemos ver abaixo (gráfico ou tabela).
+Durante a pandemia, outro critério muito importante foi a presença do acesso à internet, pois, como as aulas presenciais foram impossibilitadas, alunos sem acesso à internet tiveram menor acesso ao estudo. Observe os gráficos abaixo:
 
 ![](imagens\internet_2019.png)
 ![](imagens\internet_2020.png)
 ![](imagens\internet_2021.png)
 ![](imagens\internet_2022.png)
 
-
+Vemos um pequeno aumento em relação da média com os participantes que possuem internet, porém não significativas para chegar em alguma conclusão.
 
 <h3>Relação renda</h3>
 
@@ -42,12 +42,6 @@ Algo que também pode ser analisado, porém incerto qual será o impacto, é a r
 ![](imagens\disper_2021.png)
 ![](imagens\disper_2022.png)
 
+Os gráficos gerados nos indicam que quanto maior a renda menor é a nota de corte inferior, ou seja, apenas podemos deduzir que pessoas de classe mais alta tendem, ou a terem uma educação melhor, ou a não participar do ENEM, o que faria sentido, pois esses participantes teriam a possibilidade de pagar uma universidade particular, diminuindo o interesso pelo ENEM. 
 
 **Aviso Legal:** Para realizar uma análise nesse tópico, seria necessário um maior embasamento social e educacional. Com o auxílio de um especialista ou estudante de ciências sociais, poderíamos gerar hipóteses e análises mais robustas.
-
-Os números de faltantes não treineiros foram os seguintes:
-
-- Número de faltantes não treineiros de 2019: 1.304.292
-- Número de faltantes não treineiros de 2020: 2.983.515
-- Número de faltantes não treineiros de 2021: 1.081.908
-- Número de faltantes não treineiros de 2022: 1.035.620
