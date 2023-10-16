@@ -460,3 +460,44 @@ def calcular_medias_regiao_ano(df : pd.DataFrame) -> pd.DataFrame:
     except ValueError as e:
         raise ValueError(f"Erro ao calcular as médias por ano e região: {str(e)}")
     
+def media_por_area_de_conhecimento(df):
+    """
+    Calcula a média das notas por área de conhecimento e cria um DataFrame.
+
+    Parameters
+    ----------
+    df : DataFrame
+        Um DataFrame contendo as notas por área de conhecimento.
+
+    Returns
+    -------
+    DataFrame
+        Um DataFrame contendo a média das notas por área de conhecimento, com as seguintes colunas: "CN", "CH", "LC", "MT", "RD"
+        (Ciências da Natureza, Ciências Humanas, Linguagens e Códigos, Matemática, Redação).
+
+    Examples
+    --------
+    >>> import pandas as pd
+    >>> data = {'NU_NOTA_CN': [650.0, 720.0, 680.0],
+    ...         'NU_NOTA_CH': [700.0, 680.0, 720.0],
+    ...         'NU_NOTA_LC': [710.0, 690.0, 730.0],
+    ...         'NU_NOTA_MT': [720.0, 710.0, 690.0],
+    ...         'NU_NOTA_REDACAO': [800, 750, 820]}
+    >>> df = pd.DataFrame(data)
+    >>> media_por_area_de_conhecimento(df)
+          CN     CH     LC     MT   RD
+    0  683.333333  700.0  710.0  710.0  790.0
+    """
+    if not isinstance(df, pd.DataFrame):
+        raise ValueError("O parâmetro 'df' deve ser um DataFrame.")
+    
+    colunas_media = ["NU_NOTA_CN", "NU_NOTA_CH", "NU_NOTA_LC", "NU_NOTA_MT", "NU_NOTA_REDACAO"]
+
+    for coluna in colunas_media:
+        if coluna not in df.columns:
+            raise ValueError(f"A coluna {coluna} não está presente no DataFrame.")
+
+    df = df[colunas_media].mean().to_frame().T
+    df.columns = ["CN", "CH", "LC", "MT", "RD"]
+
+    return df
