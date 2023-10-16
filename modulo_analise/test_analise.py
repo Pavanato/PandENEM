@@ -135,7 +135,28 @@ class TestAnalise(unittest.TestCase):
         df = pd.DataFrame(data)
         with self.assertRaises(ValueError):
             analise.calcular_medias_regiao_ano(df)
-            
+
+#   função media_por_area_de_conhecimento
+    def test_raises_coluna_inexistente(self):
+        data = {'NU_NOTA_CN': [650.0, 720.0, 680.0],
+                'NU_NOTA_CH': [700.0, 680.0, 720.0],
+                'NU_NOTA_LC': [710.0, 690.0, 730.0],
+                'NU_NOTA_MT': [720.0, 710.0, 690.0],
+                'NU_NOTA_REDACAO': [800, 750, 820]}
+        self.df = pd.DataFrame(data)
+        invalid_df = self.df.drop(columns='NU_NOTA_MT')
+        with self.assertRaises(ValueError):
+            analise.media_por_area_de_conhecimento(invalid_df)
+
+    def test_raises_tipo_invalido(self):
+        data = {'NU_NOTA_CN': [650.0, 720.0, 680.0],
+                'NU_NOTA_CH': [700.0, 680.0, 720.0],
+                'NU_NOTA_LC': [710.0, 690.0, 730.0],
+                'NU_NOTA_MT': [720.0, 710.0, 690.0],
+                'NU_NOTA_REDACAO': [800, 750, 820]}
+        self.df = pd.DataFrame(data)
+        with self.assertRaises(ValueError):
+            analise.media_por_area_de_conhecimento("invalid_input")
             
 if __name__ == "__main__":
     unittest.main()

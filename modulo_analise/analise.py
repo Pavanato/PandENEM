@@ -1,4 +1,5 @@
 import pandas as pd
+import doctest
 
 def separar_ufs_e_anos(df: pd.DataFrame, ufs: list, anos: list) -> pd.DataFrame:
     """
@@ -460,23 +461,23 @@ def calcular_medias_regiao_ano(df : pd.DataFrame) -> pd.DataFrame:
     except ValueError as e:
         raise ValueError(f"Erro ao calcular as médias por ano e região: {str(e)}")
     
-def media_por_area_de_conhecimento(df):
+def media_por_area_de_conhecimento(df : pd.DataFrame) -> pd.DataFrame:
     """
     Calcula a média das notas por área de conhecimento e cria um DataFrame.
 
-    Parameters
+    Parâmetros
     ----------
-    df : DataFrame
+    df : pd.DataFrame
         Um DataFrame contendo as notas por área de conhecimento.
 
-    Returns
+    Retorna
     -------
-    DataFrame
+    pd.DataFrame
         Um DataFrame contendo a média das notas por área de conhecimento, com as seguintes colunas: "CN", "CH", "LC", "MT", "RD"
         (Ciências da Natureza, Ciências Humanas, Linguagens e Códigos, Matemática, Redação).
 
-    Examples
-    --------
+    Exemplo
+    -------
     >>> import pandas as pd
     >>> data = {'NU_NOTA_CN': [650.0, 720.0, 680.0],
     ...         'NU_NOTA_CH': [700.0, 680.0, 720.0],
@@ -485,8 +486,8 @@ def media_por_area_de_conhecimento(df):
     ...         'NU_NOTA_REDACAO': [800, 750, 820]}
     >>> df = pd.DataFrame(data)
     >>> media_por_area_de_conhecimento(df)
-          CN     CH     LC     MT   RD
-    0  683.333333  700.0  710.0  710.0  790.0
+               CN     CH     LC          MT     RD
+    0  683.333333  700.0  710.0  706.666667  790.0
     """
     if not isinstance(df, pd.DataFrame):
         raise ValueError("O parâmetro 'df' deve ser um DataFrame.")
@@ -501,3 +502,5 @@ def media_por_area_de_conhecimento(df):
     df.columns = ["CN", "CH", "LC", "MT", "RD"]
 
     return df
+
+doctest.testmod()
