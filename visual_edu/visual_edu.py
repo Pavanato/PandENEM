@@ -15,14 +15,12 @@ def graf_pizza(df : pd.DataFrame, coluna : str, titulo : str):
     coluna : str
         Coluna que será retirado os dados para fazer o gráfico em pizza    
     
-    Returns
+    Retorna
     -------
     None.
 
     """
-
     try:
-        # Verifica se a coluna especificada está presente no DataFrame
         if coluna not in df.columns:
             raise KeyError(f"A coluna '{coluna}' não foi encontrada no DataFrame dado.")
 
@@ -49,7 +47,7 @@ def graf_hist_desvpad(df : pd.DataFrame, coluna : str, titulo : str):
     coluna : str
         Coluna que será retirado os dados para fazer o histograma e a curva de distribuição normal
     
-    Returns
+    Retorna
     -------
     None.
 
@@ -99,7 +97,7 @@ def graf_bar_par(df : pd.DataFrame, coluna_x : str, coluna_y : list, title : str
 
     ylabel : str
     
-    Returns
+    Retorna
     -------
     None.
 
@@ -156,7 +154,7 @@ def graf_curvas(df : pd.DataFrame, coluna_x: str, coluna_y: list, title : str, x
 
     ylabel : str
     
-    Returns
+    Retorna
     -------
     None.
 
