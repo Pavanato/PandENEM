@@ -16,7 +16,7 @@ Temos como hipótese se houve uma queda no desempenho de 2019 para 2020 dos part
 
 Com base nisso, podemos analisar o gráfico abaixo, que relaciona a média de todos os alunos em cada matéria em seus respectivos anos.
 
-![](imagens\media_materia.png)
+<img src="imagens\media_materia.png" alt="Descrição da imagem" width="80%"/>
 
 Podemos observar que de todas os tópicos o único que não foi decrescente foi o de Linguagens, Códigos e suas Tecnologias. Então apenas neste critério gera algo congruente com a hipótese de que o desempenho caiu de 2019 para 2020 e depois se elevou.
 
@@ -24,11 +24,14 @@ Podemos observar que de todas os tópicos o único que não foi decrescente foi 
 
 
 Durante a pandemia, outro critério muito importante foi a presença do acesso à internet, pois, como as aulas presenciais foram impossibilitadas, alunos sem acesso à internet tiveram menor acesso ao estudo. Observe os gráficos abaixo:
-
-![](imagens\internet_2019.png)
-![](imagens\internet_2020.png)
-![](imagens\internet_2021.png)
-![](imagens\internet_2022.png)
+<p float="left">
+<img src="imagens\internet_2019.png" alt="Descrição da imagem" width="48%"/>
+<img src="imagens\internet_2020.png" alt="Descrição da imagem" width="50%"/>
+</p>
+<p float="left">
+<img src="imagens\internet_2021.png" alt="Descrição da imagem" width="47%"/>
+<img src="imagens\internet_2022.png" alt="Descrição da imagem" width="50%"/>
+</p>
 
 Vemos um pequeno aumento em relação da média com os participantes que possuem internet, porém não significativas para chegar em alguma conclusão.
 
@@ -37,10 +40,14 @@ Vemos um pequeno aumento em relação da média com os participantes que possuem
 
 Algo que também pode ser analisado, porém incerto qual será o impacto, é a relação entre a renda dos alunos e o desempenho. Alunos de renda mais baixa possivelmente abandonaram os estudos ou estudaram menos para auxiliarem seus pais durante os tempos difíceis da pandemia. No entanto, continua sendo incerto, pois esses mesmos participantes poderiam já estar auxiliando os pais mesmo antes da pandemia.
 
-![](imagens\disper_2019.png)
-![](imagens\disper_2020.png)
-![](imagens\disper_2021.png)
-![](imagens\disper_2022.png)
+<p float="left">
+<img src="imagens\disper_2019.png" alt="Descrição da imagem" width="49%"/>
+<img src="imagens\disper_2020.png" alt="Descrição da imagem" width="49%"/>
+</p>
+<p float="left">
+<img src="imagens\disper_2021.png" alt="Descrição da imagem" width="49%"/>
+<img src="imagens\disper_2022.png" alt="Descrição da imagem" width="49%"/>
+</p>
 
 Os gráficos gerados nos indicam que quanto maior a renda menor é a nota de corte inferior, ou seja, apenas podemos deduzir que pessoas de classe mais alta tendem, ou a terem uma educação melhor, ou a não participar do ENEM, o que faria sentido, pois esses participantes teriam a possibilidade de pagar uma universidade particular, diminuindo o interesso pelo ENEM. 
 
