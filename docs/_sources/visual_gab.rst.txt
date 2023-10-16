@@ -1,0 +1,7 @@
+visual\_gab module
+==================
+
+.. automodule:: visual_gab
+   :members:
+   :undoc-members:
+   :show-inheritance:

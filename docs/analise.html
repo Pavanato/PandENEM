@@ -1,0 +1,863 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pt" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>analise module &#8212; Documentação PandENEM </title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script src="_static/documentation_options.js?v=f5018ca3"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=3b002d5c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'analise';</script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Pesquisar" href="search.html" />
+    <link rel="next" title="filter module" href="filter.html" />
+    <link rel="prev" title="modulos" href="modules.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pt"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Documentação PandENEM </p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="modules.html">
+                        modulos
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Pesquisar" aria-label="Pesquisar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Pesquisar</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Pesquisar" aria-label="Pesquisar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Pesquisar</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="modules.html">
+                        modulos
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">analise module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filter.html">filter module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visual_bea.html">visual_bea module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visual_edu.html">visual_edu module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visual_gab.html">visual_gab module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visual_rob.html">visual_rob module</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="modules.html" class="nav-link">modulos</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">analise module</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="module-analise">
+<span id="analise-module"></span><h1>analise module<a class="headerlink" href="#module-analise" title="Link to this heading">#</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="analise.calcular_medias_regiao_ano">
+<span class="sig-prename descclassname"><span class="pre">analise.</span></span><span class="sig-name descname"><span class="pre">calcular_medias_regiao_ano</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/analise.html#calcular_medias_regiao_ano"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#analise.calcular_medias_regiao_ano" title="Link to this definition">#</a></dt>
+<dd><p>Calcula as médias das notas por ano e região.</p>
+<section id="parametros">
+<h2>Parâmetros<a class="headerlink" href="#parametros" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame </span></dt><dd><p>DataFrame contendo os dados das notas.</p>
+</dd>
+</dl>
+</section>
+<section id="retorna">
+<h2>Retorna<a class="headerlink" href="#retorna" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>pd.DataFrame    </dt><dd><p>DataFrame com as médias por ano e região.</p>
+</dd>
+</dl>
+</section>
+<section id="raises">
+<h2>Raises<a class="headerlink" href="#raises" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>Se o DataFrame não tem todas as colunas necessárias</p>
+</dd>
+</dl>
+</section>
+<section id="exemplo">
+<h2>Exemplo<a class="headerlink" href="#exemplo" title="Link to this heading">#</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;NU_ANO&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2021</span><span class="p">,</span> <span class="mi">2022</span><span class="p">,</span> <span class="mi">2022</span><span class="p">,</span> <span class="mi">2023</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;SP&#39;</span><span class="p">,</span> <span class="s1">&#39;RJ&#39;</span><span class="p">,</span> <span class="s1">&#39;SP&#39;</span><span class="p">,</span> <span class="s1">&#39;RJ&#39;</span><span class="p">,</span> <span class="s1">&#39;SP&#39;</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;media&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">7.8</span><span class="p">,</span> <span class="mf">8.2</span><span class="p">,</span> <span class="mf">7.9</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calcular_medias_regiao_ano</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="go">        Sudeste  Média Brasil</span>
+<span class="go">NU_ANO                       </span>
+<span class="go">2021       7.75          7.75</span>
+<span class="go">2022       8.00          8.00</span>
+<span class="go">2023       7.90          7.90</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="analise.media">
+<span class="sig-prename descclassname"><span class="pre">analise.</span></span><span class="sig-name descname"><span class="pre">media</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/analise.html#media"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#analise.media" title="Link to this definition">#</a></dt>
+<dd><p>Calcula a média de colunas específicas e adiciona-a ao DataFrame.</p>
+<section id="id1">
+<h2>Parâmetros<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>df: pd.DataFrame</dt><dd><p>O DataFrame que você deseja modificar.</p>
+</dd>
+</dl>
+</section>
+<section id="id2">
+<h2>Retorna<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>pd.DataFrame: </dt><dd><p>O DataFrame modificado com a nova coluna de médias.</p>
+</dd>
+</dl>
+</section>
+<section id="id3">
+<h2>Exemplo<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;NU_NOTA_CN&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">75</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">92</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;NU_NOTA_CH&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">88</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;NU_NOTA_LC&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">92</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">85</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;NU_NOTA_MT&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">87</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">92</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;NU_NOTA_REDACAO&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">88</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">87</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">media</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="go">   NU_NOTA_CN  NU_NOTA_CH  NU_NOTA_LC  NU_NOTA_MT  NU_NOTA_REDACAO  media</span>
+<span class="go">0          75          80          92          87               88   84.4</span>
+<span class="go">1          85          78          89          90               92   86.8</span>
+<span class="go">2          90          92          78          85               85   86.0</span>
+<span class="go">3          88          87          90          88               90   88.6</span>
+<span class="go">4          92          88          85          92               87   88.8</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="analise.media_internet">
+<span class="sig-prename descclassname"><span class="pre">analise.</span></span><span class="sig-name descname"><span class="pre">media_internet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/analise.html#media_internet"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#analise.media_internet" title="Link to this definition">#</a></dt>
+<dd><p>Calcula a média de colunas específicas para linhas com «A» e «B» na coluna «Q025» e retorna um DataFrame com a média dessas médias.</p>
+<section id="id4">
+<h2>Parâmetros<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame </span></dt><dd><p>O DataFrame que você deseja modificar.</p>
+</dd>
+</dl>
+</section>
+<section id="id5">
+<h2>Retorna<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>pd.DataFrame    </dt><dd><p>Um DataFrame com a média das colunas «media_A» e «media_B».</p>
+</dd>
+</dl>
+</section>
+<section id="id6">
+<h2>Raises<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>Se a coluna Q025 não pertence ao DataFrame dado.</p>
+</dd>
+</dl>
+</section>
+<section id="id7">
+<h2>Exemplo<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Q025&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;NU_NOTA_CN&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">75</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">92</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;NU_NOTA_CH&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">88</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;NU_NOTA_LC&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">92</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">85</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;NU_NOTA_MT&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">87</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">92</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;NU_NOTA_REDACAO&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">88</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">87</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">media_internet</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="go">   media_sem_internet  media_com_internet</span>
+<span class="go">0                86.6                87.4</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="analise.media_por_area_de_conhecimento">
+<span class="sig-prename descclassname"><span class="pre">analise.</span></span><span class="sig-name descname"><span class="pre">media_por_area_de_conhecimento</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/analise.html#media_por_area_de_conhecimento"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#analise.media_por_area_de_conhecimento" title="Link to this definition">#</a></dt>
+<dd><p>Calcula a média das notas por área de conhecimento e cria um DataFrame.</p>
+<section id="id8">
+<h2>Parâmetros<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>Um DataFrame contendo as notas por área de conhecimento.</p>
+</dd>
+</dl>
+</section>
+<section id="id9">
+<h2>Retorna<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>Um DataFrame contendo a média das notas por área de conhecimento, com as seguintes colunas: «CN», «CH», «LC», «MT», «RD»
+(Ciências da Natureza, Ciências Humanas, Linguagens e Códigos, Matemática, Redação).</p>
+</dd>
+</dl>
+</section>
+<section id="id10">
+<h2>Exemplo<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;NU_NOTA_CN&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">650.0</span><span class="p">,</span> <span class="mf">720.0</span><span class="p">,</span> <span class="mf">680.0</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;NU_NOTA_CH&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">700.0</span><span class="p">,</span> <span class="mf">680.0</span><span class="p">,</span> <span class="mf">720.0</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;NU_NOTA_LC&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">710.0</span><span class="p">,</span> <span class="mf">690.0</span><span class="p">,</span> <span class="mf">730.0</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;NU_NOTA_MT&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">720.0</span><span class="p">,</span> <span class="mf">710.0</span><span class="p">,</span> <span class="mf">690.0</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;NU_NOTA_REDACAO&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">750</span><span class="p">,</span> <span class="mi">820</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">media_por_area_de_conhecimento</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="go">           CN     CH     LC          MT     RD</span>
+<span class="go">0  683.333333  700.0  710.0  706.666667  790.0</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="analise.nota_1000_ano">
+<span class="sig-prename descclassname"><span class="pre">analise.</span></span><span class="sig-name descname"><span class="pre">nota_1000_ano</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/analise.html#nota_1000_ano"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#analise.nota_1000_ano" title="Link to this definition">#</a></dt>
+<dd><p>Toma o DataFrame e retorna um DataFrame com os anos e a quantidade de notas 1000</p>
+<section id="id11">
+<h2>Parâmetros<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<p>df : pd.DataFrame</p>
+<dl class="simple">
+<dt>ano<span class="classifier">list</span></dt><dd><p>Cada valor da lista deve ser um ano do qual você quer saber a nota 1000</p>
+</dd>
+</dl>
+</section>
+<section id="id12">
+<h2>Retorna<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>As linhas do DataFrame são os anos escolhidos e a única coluna a quantidade de notas 1000 neste ano</p>
+</dd>
+</dl>
+</section>
+<section id="id13">
+<h2>Raises<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>Se as colunas “NU_NOTA_REDACAO” e “NU_ANO” não estiverem presentes no DataFrame.</p>
+</dd>
+</dl>
+</section>
+<section id="id14">
+<h2>Exemplo<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;NU_ANO&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">2021</span><span class="p">,</span> <span class="mi">2021</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;NU_NOTA_REDACAO&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">950</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">anos_para_verificar</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">2021</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nota_1000_ano</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">anos_para_verificar</span><span class="p">)</span>
+<span class="go">   NU_ANO  Quantidade de notas 1000</span>
+<span class="go">0    2020                         2</span>
+<span class="go">1    2021                         1</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="analise.nota_unificada_por_estado_e_ano">
+<span class="sig-prename descclassname"><span class="pre">analise.</span></span><span class="sig-name descname"><span class="pre">nota_unificada_por_estado_e_ano</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/analise.html#nota_unificada_por_estado_e_ano"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#analise.nota_unificada_por_estado_e_ano" title="Link to this definition">#</a></dt>
+<dd><p>Calcula a média das notas por estado em um DataFrame, também separado por ano.</p>
+<section id="id15">
+<h2>Parâmetros<a class="headerlink" href="#id15" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame </span></dt><dd><p>O DataFrame contendo colunas de estados, anos e as médias de cada participante.</p>
+</dd>
+</dl>
+</section>
+<section id="id16">
+<h2>Retorna<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>Um novo DataFrame que contém as médias das notas, os estados correspondentes e, opcionalmente, os anos.</p>
+</dd>
+</dl>
+</section>
+<section id="id17">
+<h2>Exemplo<a class="headerlink" href="#id17" title="Link to this heading">#</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;MG&#39;</span><span class="p">,</span> <span class="s1">&#39;SP&#39;</span><span class="p">,</span> <span class="s1">&#39;RJ&#39;</span><span class="p">,</span> <span class="s1">&#39;MG&#39;</span><span class="p">,</span> <span class="s1">&#39;SP&#39;</span><span class="p">,</span> <span class="s1">&#39;MG&#39;</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;NU_ANO&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">2021</span><span class="p">,</span> <span class="mi">2021</span><span class="p">,</span> <span class="mi">2021</span><span class="p">,</span> <span class="mi">2021</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;media&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">92</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">medias_df</span> <span class="o">=</span> <span class="n">nota_unificada_por_estado_e_ano</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">medias_df</span><span class="p">)</span>
+<span class="go">  SG_UF_PROVA  NU_ANO  Nota_unificada</span>
+<span class="go">0          MG    2020            80.0</span>
+<span class="go">1          MG    2021            85.0</span>
+<span class="go">2          RJ    2021            90.0</span>
+<span class="go">3          SP    2020            85.0</span>
+<span class="go">4          SP    2021            88.0</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="analise.renda_media_per_capita_familiar">
+<span class="sig-prename descclassname"><span class="pre">analise.</span></span><span class="sig-name descname"><span class="pre">renda_media_per_capita_familiar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colunas_extras</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/analise.html#renda_media_per_capita_familiar"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#analise.renda_media_per_capita_familiar" title="Link to this definition">#</a></dt>
+<dd><p>Calcula a renda média per capita familiar de cada participante.</p>
+<section id="id18">
+<h2>Parâmetros<a class="headerlink" href="#id18" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>DataFrame contendo a coluna «Q006» (letras) e a coluna «Q005» (números).</p>
+</dd>
+<dt>colunas_extras<span class="classifier">list</span></dt><dd><p>Lista com o nome das colunas que você quer que permaneçam no novo DataFrame.</p>
+</dd>
+</dl>
+</section>
+<section id="id19">
+<h2>Retorna<a class="headerlink" href="#id19" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>Retorna um novo DataFrame com a coluna de renda per capita e as colunas citadas em colunas_extras.</p>
+</dd>
+</dl>
+</section>
+<section id="id20">
+<h2>Raises<a class="headerlink" href="#id20" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>Se o DataFrame não contiver as colunas «Q006» e «Q005».</p>
+</dd>
+<dt>KeyError</dt><dd><p>Se os nomes das colunas não existirem no DataFrame</p>
+</dd>
+<dt>TypeError</dt><dd><p>se o tipo de argumento dado for errado7</p>
+</dd>
+</dl>
+</section>
+<section id="id21">
+<h2>Exemplo<a class="headerlink" href="#id21" title="Link to this heading">#</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Q006&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;Q005&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;Outra_Coluna&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="s1">&#39;W&#39;</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">colunas_extras</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Outra_Coluna&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">renda_media_per_capita_familiar</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">colunas_extras</span><span class="p">)</span>
+<span class="go">   Renda_Per_Capita Outra_Coluna</span>
+<span class="go">0          0.000000            X</span>
+<span class="go">1        249.500000            Y</span>
+<span class="go">2        415.833333            Z</span>
+<span class="go">3        436.625000            W</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="analise.renda_unificada_por_estado">
+<span class="sig-prename descclassname"><span class="pre">analise.</span></span><span class="sig-name descname"><span class="pre">renda_unificada_por_estado</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/analise.html#renda_unificada_por_estado"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#analise.renda_unificada_por_estado" title="Link to this definition">#</a></dt>
+<dd><p>Calcula a média unificada das rendas per capita familiar por estado.</p>
+<section id="id22">
+<h2>Parâmetros<a class="headerlink" href="#id22" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>DataFrame contendo as colunas «SG_UF_PROVA» (código do estado) e «Renda_Per_Capita» (média da renda per capita).</p>
+</dd>
+</dl>
+</section>
+<section id="id23">
+<h2>Retorna<a class="headerlink" href="#id23" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>Retorna um novo DataFrame com a coluna «SG_UF_PROVA» e a média unificada de renda por estado (coluna «Renda_Unificada»).</p>
+</dd>
+</dl>
+</section>
+<section id="id24">
+<h2>Raises<a class="headerlink" href="#id24" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>Se o DataFrame não contiver as colunas «SG_UF_PROVA» e «Renda_Per_Capita.»</p>
+</dd>
+</dl>
+</section>
+<section id="id25">
+<h2>Exemplo<a class="headerlink" href="#id25" title="Link to this heading">#</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df_exemplo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<span class="gp">... </span>    <span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s1">&#39;Renda_Per_Capita&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">800</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s1">&#39;Outra_Coluna&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+<span class="gp">... </span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resultado</span> <span class="o">=</span> <span class="n">renda_unificada_por_estado</span><span class="p">(</span><span class="n">df_exemplo</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
+<span class="go">   SG_UF_PROVA  Renda_unificada</span>
+<span class="go">0            1            600.0</span>
+<span class="go">1            2            700.0</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="analise.separar_regiao">
+<span class="sig-prename descclassname"><span class="pre">analise.</span></span><span class="sig-name descname"><span class="pre">separar_regiao</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regiao</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/analise.html#separar_regiao"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#analise.separar_regiao" title="Link to this definition">#</a></dt>
+<dd><p>Toma o DataFrame e o filtra de acordo com a região escolhida</p>
+<section id="id26">
+<h2>Parâmetros<a class="headerlink" href="#id26" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>DataFrame original</p>
+</dd>
+<dt>regiao<span class="classifier">str</span></dt><dd><p>Uma das cinco regiões brasileiras</p>
+</dd>
+</dl>
+</section>
+<section id="id27">
+<h2>Retorna<a class="headerlink" href="#id27" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>DataFrame filtrado pela região escolhida</p>
+</dd>
+</dl>
+</section>
+<section id="id28">
+<h2>Raises<a class="headerlink" href="#id28" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>Se a entrada fornecida não for uma região válida</p>
+</dd>
+</dl>
+</section>
+<section id="id29">
+<h2>Exemplo<a class="headerlink" href="#id29" title="Link to this heading">#</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;AM&#39;</span><span class="p">,</span> <span class="s1">&#39;SP&#39;</span><span class="p">,</span> <span class="s1">&#39;BA&#39;</span><span class="p">,</span> <span class="s1">&#39;SC&#39;</span><span class="p">,</span> <span class="s1">&#39;GO&#39;</span><span class="p">,</span> <span class="s1">&#39;RS&#39;</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;OutrosDados&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">separar_regiao</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;sudeste&#39;</span><span class="p">)</span>
+<span class="go">  SG_UF_PROVA  OutrosDados</span>
+<span class="go">1          SP            2</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="analise.separar_ufs_e_anos">
+<span class="sig-prename descclassname"><span class="pre">analise.</span></span><span class="sig-name descname"><span class="pre">separar_ufs_e_anos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ufs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anos</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="reference internal" href="_modules/analise.html#separar_ufs_e_anos"><span class="viewcode-link"><span class="pre">[código</span> <span class="pre">fonte]</span></span></a><a class="headerlink" href="#analise.separar_ufs_e_anos" title="Link to this definition">#</a></dt>
+<dd><p>Toma o DataFrame e o filtra por qualquer quantidade de estados e anos.</p>
+<section id="id30">
+<h2>Parâmetros<a class="headerlink" href="#id30" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>df<span class="classifier">pd.DataFrame</span></dt><dd><p>DataFrame original</p>
+</dd>
+<dt>ufs<span class="classifier">list</span></dt><dd><p>Lista com estados que queira separar do DataFrame original. Os estados devem ser
+escritos pela sigla UF.</p>
+</dd>
+<dt>anos<span class="classifier">list</span></dt><dd><p>Lista com anos que queira separar do DataFrame original.</p>
+</dd>
+</dl>
+</section>
+<section id="id31">
+<h2>Retorna<a class="headerlink" href="#id31" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>pd.DataFrame</dt><dd><p>DataFrame filtrado pelos estados e anos escolhidos.</p>
+</dd>
+</dl>
+</section>
+<section id="id32">
+<h2>Raises<a class="headerlink" href="#id32" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>Se a entrada fornecida não tiver estados ou anos válidos.</p>
+</dd>
+</dl>
+</section>
+<section id="id33">
+<h2>Exemplo<a class="headerlink" href="#id33" title="Link to this heading">#</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;SP&#39;</span><span class="p">,</span> <span class="s1">&#39;RJ&#39;</span><span class="p">,</span> <span class="s1">&#39;MG&#39;</span><span class="p">,</span> <span class="s1">&#39;SP&#39;</span><span class="p">,</span> <span class="s1">&#39;RJ&#39;</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;NU_ANO&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">2021</span><span class="p">,</span> <span class="mi">2021</span><span class="p">,</span> <span class="mi">2021</span><span class="p">],</span>
+<span class="gp">... </span>        <span class="s1">&#39;Nota&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">95</span><span class="p">]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">estados_para_filtrar</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SP&#39;</span><span class="p">,</span> <span class="s1">&#39;MG&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">anos_para_filtrar</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2021</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">separar_ufs_e_anos</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">estados_para_filtrar</span><span class="p">,</span> <span class="n">anos_para_filtrar</span><span class="p">)</span>
+<span class="go">  SG_UF_PROVA  NU_ANO  Nota</span>
+<span class="go">2          MG    2021    90</span>
+<span class="go">3          SP    2021    85</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="modules.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">modulos</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="filter.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">próximo</p>
+        <p class="prev-next-title">filter module</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise.calcular_medias_regiao_ano"><code class="docutils literal notranslate"><span class="pre">calcular_medias_regiao_ano()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise.media"><code class="docutils literal notranslate"><span class="pre">media()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise.media_internet"><code class="docutils literal notranslate"><span class="pre">media_internet()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise.media_por_area_de_conhecimento"><code class="docutils literal notranslate"><span class="pre">media_por_area_de_conhecimento()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise.nota_1000_ano"><code class="docutils literal notranslate"><span class="pre">nota_1000_ano()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise.nota_unificada_por_estado_e_ano"><code class="docutils literal notranslate"><span class="pre">nota_unificada_por_estado_e_ano()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise.renda_media_per_capita_familiar"><code class="docutils literal notranslate"><span class="pre">renda_media_per_capita_familiar()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise.renda_unificada_por_estado"><code class="docutils literal notranslate"><span class="pre">renda_unificada_por_estado()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise.separar_regiao"><code class="docutils literal notranslate"><span class="pre">separar_regiao()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analise.separar_ufs_e_anos"><code class="docutils literal notranslate"><span class="pre">separar_ufs_e_anos()</span></code></a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div class="tocsection sourcelink">
+    <a href="_sources/analise.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Exibir Fonte
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, Beatriz, Eduardo, Gabriel, Roberta.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

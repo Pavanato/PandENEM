@@ -1,0 +1,675 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pt" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>visual_bea &#8212; Documentação PandENEM </title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script src="../_static/documentation_options.js?v=f5018ca3"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/translations.js?v=3b002d5c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/visual_bea';</script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Pesquisar" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pt"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Documentação PandENEM </p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../modules.html">
+                        modulos
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Pesquisar" aria-label="Pesquisar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Pesquisar</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Pesquisar" aria-label="Pesquisar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Pesquisar</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../modules.html">
+                        modulos
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Código do módulo</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">visual_bea</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Código fonte de visual_bea</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+
+<div class="viewcode-block" id="frequencia_estado">
+<a class="viewcode-back" href="../visual_bea.html#visual_bea.frequencia_estado">[documentos]</a>
+<span class="k">def</span> <span class="nf">frequencia_estado</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">coluna_estado</span><span class="p">,</span> <span class="n">titulo</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Cria gráfico de barras com todos os estados do Brasil com sua frequencia no DataFrame</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pd.DataFrame</span>
+<span class="sd">        </span>
+<span class="sd">    coluna_estado : str</span>
+<span class="sd">        Nome da coluna com os estados.</span>
+<span class="sd">    titulo : str</span>
+<span class="sd">        Título do gráfico.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="c1"># Contagem da frequência dos estados</span>
+    <span class="n">frequencia_estados</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">coluna_estado</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+    <span class="c1"># Crie o gráfico de barras</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">frequencia_estados</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titulo</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Estado&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequência&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Para não girar os rótulos dos estados</span>
+
+    <span class="c1"># Exibir o gráfico</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+
+<span class="c1"># Exemplo de uso</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Estado&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;SP&#39;</span><span class="p">,</span> <span class="s1">&#39;RJ&#39;</span><span class="p">,</span> <span class="s1">&#39;MG&#39;</span><span class="p">,</span> <span class="s1">&#39;SP&#39;</span><span class="p">,</span> <span class="s1">&#39;MG&#39;</span><span class="p">,</span> <span class="s1">&#39;SP&#39;</span><span class="p">,</span> <span class="s1">&#39;RJ&#39;</span><span class="p">,</span> <span class="s1">&#39;MG&#39;</span><span class="p">,</span> <span class="s1">&#39;RJ&#39;</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">frequencia_estado</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;Estado&#39;</span><span class="p">,</span> <span class="s1">&#39;Frequência dos Estados do Brasil&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="grafico_linha">
+<a class="viewcode-back" href="../visual_bea.html#visual_bea.grafico_linha">[documentos]</a>
+<span class="k">def</span> <span class="nf">grafico_linha</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">column_names</span><span class="p">,</span> <span class="n">x_axis_label</span><span class="p">,</span> <span class="n">y_axis_label</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dataframe : pd.DataFrame</span>
+<span class="sd">        </span>
+<span class="sd">    column_names : list</span>
+<span class="sd">        lista com as colunas que você quer usar.</span>
+<span class="sd">    x_axis_label : str</span>
+<span class="sd">        nome para eixo x.</span>
+<span class="sd">    y_axis_label : str</span>
+<span class="sd">        nome para eixo y.</span>
+<span class="sd">    title : str</span>
+<span class="sd">        </span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">column_names</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="n">x_axis_label</span><span class="p">],</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">column_name</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">column_name</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">x_axis_label</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">y_axis_label</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="grafico_barra">
+<a class="viewcode-back" href="../visual_bea.html#visual_bea.grafico_barra">[documentos]</a>
+<span class="k">def</span> <span class="nf">grafico_barra</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">coluna_x</span><span class="p">,</span> <span class="n">coluna_y</span><span class="p">,</span> <span class="n">titulo</span><span class="p">,</span> <span class="n">xlabel</span><span class="p">,</span> <span class="n">ylabel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Cria um gráfico de barras a partir de um DataFrame.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pd.DataFrame</span>
+<span class="sd">        </span>
+<span class="sd">    coluna_x : str</span>
+<span class="sd">        Nome da coluna para o eixo x</span>
+<span class="sd">    coluna_y : str</span>
+<span class="sd">        Nome da coluna para o eixo y.</span>
+<span class="sd">    titulo : str</span>
+<span class="sd">        </span>
+<span class="sd">    xlabel : str</span>
+<span class="sd">        Nome do eixo x.</span>
+<span class="sd">    ylabel : str</span>
+<span class="sd">        Nome do eixo y.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        DESCRIPTION.</span>
+<span class="sd">    KeyError</span>
+<span class="sd">        DESCRIPTION.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Verifica se o DataFrame não é nulo (None)</span>
+        <span class="k">if</span> <span class="n">df</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;O DataFrame &#39;df&#39; não pode ser nulo.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Verifica se as colunas especificadas existem no DataFrame</span>
+        <span class="k">if</span> <span class="n">coluna_x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">or</span> <span class="n">coluna_y</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;As colunas especificadas não existem no DataFrame.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Extração dos dados do DataFrame</span>
+        <span class="n">x_data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">coluna_x</span><span class="p">]</span>
+        <span class="n">y_data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">coluna_y</span><span class="p">]</span>
+
+        <span class="c1"># Detalhes do gráfico de barras</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titulo</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
+
+        <span class="c1"># Rotaciona os rótulos do eixo x para melhor legibilidade, se necessário</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+
+        <span class="c1"># Exibe o gráfico</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erro ao criar o gráfico de barras: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erro ao criar o gráfico de barras: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Cria um gráfico que combina gráfico de linha com gráfico de barras a partir de um DataFrame.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    df (pd.DataFrame): O DataFrame de onde os dados serão extraídos.</span>
+<span class="sd">    x_col (str): Nome da coluna para o eixo x.</span>
+<span class="sd">    y_linha (str): Nome da coluna para o eixo y do gráfico de linha.</span>
+<span class="sd">    y_col (str): Nome da coluna para o eixo y do gráfico de barras.</span>
+<span class="sd">    titulo (str): Título do gráfico.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">    KeyError: Se uma ou mais colunas não forem encontradas no DataFrame.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    None.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">    &gt;&gt;&gt; data = {&#39;Ano&#39;: [2010, 2011, 2012, 2013, 2014],</span>
+<span class="sd">    ...         &#39;Vendas&#39;: [100, 120, 150, 140, 180],</span>
+<span class="sd">    ...         &#39;Lucro&#39;: [20, 30, 35, 25, 40]}</span>
+<span class="sd">    &gt;&gt;&gt; df = pd.DataFrame(data)</span>
+<span class="sd">    &gt;&gt;&gt; x_col = &#39;Ano&#39;</span>
+<span class="sd">    &gt;&gt;&gt; y_linha = &#39;Vendas&#39;</span>
+<span class="sd">    &gt;&gt;&gt; y_col = &#39;Lucro&#39;</span>
+<span class="sd">    &gt;&gt;&gt; titulo = &#39;Vendas e Lucro Anuais&#39;</span>
+<span class="sd">    &gt;&gt;&gt; grafico_linha_barra(df, x_col, y_linha, y_col, titulo)  # Este comando deve exibir o gráfico</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Verifica se as colunas especificadas existem no DataFrame</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">coluna</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">for</span> <span class="n">coluna</span> <span class="ow">in</span> <span class="p">[</span><span class="n">x_col</span><span class="p">,</span> <span class="n">y_linha</span><span class="p">,</span> <span class="n">y_col</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Uma ou mais colunas não foram encontradas no DataFrame.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Cria um gráfico de linha</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">x_col</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">y_linha</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">y_linha</span><span class="p">)</span>
+
+        <span class="c1"># Cria um gráfico de barras</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">x_col</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">y_col</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">y_col</span><span class="p">)</span>
+
+        <span class="c1"># Configurações do gráfico</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titulo</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">x_col</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Valores&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># Exibe o gráfico</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erro ao criar o gráfico combinado: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="grafico_pizza">
+<a class="viewcode-back" href="../visual_bea.html#visual_bea.grafico_pizza">[documentos]</a>
+<span class="k">def</span> <span class="nf">grafico_pizza</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">coluna</span><span class="p">,</span> <span class="n">titulo</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Cria um gráfico de pizza que mostra a distribuição das frequências dos elementos na coluna.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pd.DataFrame</span>
+<span class="sd">        </span>
+<span class="sd">    coluna : str</span>
+<span class="sd">       Nome da coluna específica a ser usada para o gráfico de pizza</span>
+<span class="sd">    titulo : str</span>
+<span class="sd">    </span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    KeyError</span>
+<span class="sd">        DESCRIPTION.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Verifica se a coluna selecionada existe no DataFrame</span>
+        <span class="k">if</span> <span class="n">coluna</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;A coluna não foi encontrada no DataFrame.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Conta as frequências dos estados na coluna</span>
+        <span class="n">frequencias</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">coluna</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+        <span class="c1"># Cria um gráfico de pizza com base nas frequências</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">frequencias</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">frequencias</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titulo</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>  <span class="c1"># Aspecto igual para que o gráfico seja uma pizza</span>
+
+        <span class="c1"># Exibe o gráfico</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erro ao criar o gráfico de pizza: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+        
+        
+<span class="c1"># colunas específicas</span>
+<div class="viewcode-block" id="grafico_colunas_duplas">
+<a class="viewcode-back" href="../visual_bea.html#visual_bea.grafico_colunas_duplas">[documentos]</a>
+<span class="k">def</span> <span class="nf">grafico_colunas_duplas</span><span class="p">(</span><span class="n">df_renda</span><span class="p">,</span> <span class="n">df_notas</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Gera um gráfico de colunas duplas com as médias unificadas de renda e notas por estado.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df_renda : pd.DataFrame</span>
+<span class="sd">        DataFrame contendo as médias unificadas de renda por estado e a coluna &#39;CO_UF_PROVA&#39;.</span>
+<span class="sd">    df_notas : pd.DataFrame</span>
+<span class="sd">        DataFrame contendo as médias unificadas de notas por estado e a coluna &#39;CO_UF_PROVA&#39;.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        Se as colunas &#39;CO_UF_PROVA&#39; não existirem nos DataFrames..</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Verifica se as colunas &#39;CO_UF_PROVA&#39; existem nos DataFrames</span>
+        <span class="k">if</span> <span class="s1">&#39;CO_UF_PROVA&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df_renda</span><span class="o">.</span><span class="n">columns</span> <span class="ow">or</span> <span class="s1">&#39;CO_UF_PROVA&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df_notas</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;As colunas &#39;CO_UF_PROVA&#39; não existem nos DataFrames.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Mesclar os DataFrames com base na coluna &#39;CO_UF_PROVA&#39; independentemente da ordem</span>
+        <span class="n">df_merged</span> <span class="o">=</span> <span class="n">df_renda</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_notas</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;CO_UF_PROVA&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Configurar as posições das barras no gráfico</span>
+        <span class="n">posicoes</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_merged</span><span class="p">[</span><span class="s1">&#39;CO_UF_PROVA&#39;</span><span class="p">]))</span>
+
+        <span class="c1"># Largura das barras</span>
+        <span class="n">largura</span> <span class="o">=</span> <span class="mf">0.4</span>
+
+        <span class="c1"># Criar o gráfico de colunas duplas</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">posicoes</span><span class="p">,</span> <span class="n">df_merged</span><span class="p">[</span><span class="s1">&#39;Renda_unificada&#39;</span><span class="p">],</span> <span class="n">largura</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Renda unificada&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">([</span><span class="n">pos</span> <span class="o">+</span> <span class="n">largura</span> <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">posicoes</span><span class="p">],</span> <span class="n">df_merged</span><span class="p">[</span><span class="s1">&#39;Nota_unificada&#39;</span><span class="p">],</span> <span class="n">largura</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Nota unificada&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Configurar rótulos dos estados no eixo x</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="n">pos</span> <span class="o">+</span> <span class="n">largura</span> <span class="o">/</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="n">posicoes</span><span class="p">],</span> <span class="n">df_merged</span><span class="p">[</span><span class="s1">&#39;CO_UF_PROVA&#39;</span><span class="p">])</span>
+
+        <span class="c1"># Rotular os eixos</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Estados&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valores&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Adicionar legenda</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+        <span class="c1"># Mostrar o gráfico</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erro ao gerar o gráfico: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, Beatriz, Eduardo, Gabriel, Roberta.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

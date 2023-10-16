@@ -1,0 +1,654 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pt" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>visual_rob &#8212; Documentação PandENEM </title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script src="../_static/documentation_options.js?v=f5018ca3"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/translations.js?v=3b002d5c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/visual_rob';</script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Pesquisar" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pt"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Documentação PandENEM </p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../modules.html">
+                        modulos
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Pesquisar" aria-label="Pesquisar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Pesquisar</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Pesquisar" aria-label="Pesquisar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Pesquisar</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../modules.html">
+                        modulos
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Código do módulo</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">visual_rob</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Código fonte de visual_rob</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+
+<div class="viewcode-block" id="plot_notas_por_estado">
+<a class="viewcode-back" href="../visual_rob.html#visual_rob.plot_notas_por_estado">[documentos]</a>
+<span class="k">def</span> <span class="nf">plot_notas_por_estado</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plota um mapa das médias de notas dos estados brasileiros usando um DataFrame de dados.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : DataFrame</span>
+<span class="sd">        Um DataFrame contendo a média de notas dos estados brasileiros.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+
+<span class="sd">    Description</span>
+<span class="sd">    -----------</span>
+<span class="sd">    Esta função carrega um shapefile dos estados brasileiros usando a biblioteca GeoPandas e cria um mapa das médias</span>
+<span class="sd">    de notas por estado. Ela realiza uma junção entre o DataFrame fornecido e os dados dos estados, garantindo que</span>
+<span class="sd">    todos os estados estejam representados no DataFrame antes de criar o mapa.</span>
+
+<span class="sd">    O resultado é um mapa colorido dos estados brasileiros, onde a intensidade da cor representa a média de notas</span>
+<span class="sd">    de cada estado. Além disso, a função verifica se os valores únicos nos DataFrames correspondem, a fim de evitar</span>
+<span class="sd">    erros na junção.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Carrega o shapefile dos estados brasileiros usando geopandas</span>
+        <span class="n">estados_brasil</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;BR_UF_2022/BR_UF_2022.shp&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Erro: O arquivo shapefile dos estados brasileiros não foi encontrado.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erro ao carregar o shapefile dos estados brasileiros: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="c1"># Define replacements para UFs</span>
+    <span class="n">replacements</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;AC&#39;</span><span class="p">:</span> <span class="s1">&#39;Acre&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;AL&#39;</span><span class="p">:</span> <span class="s1">&#39;Alagoas&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;AP&#39;</span><span class="p">:</span> <span class="s1">&#39;Amapá&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;AM&#39;</span><span class="p">:</span> <span class="s1">&#39;Amazonas&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;BA&#39;</span><span class="p">:</span> <span class="s1">&#39;Bahia&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;CE&#39;</span><span class="p">:</span> <span class="s1">&#39;Ceará&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;DF&#39;</span><span class="p">:</span> <span class="s1">&#39;Distrito Federal&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ES&#39;</span><span class="p">:</span> <span class="s1">&#39;Espírito Santo&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;GO&#39;</span><span class="p">:</span> <span class="s1">&#39;Goiás&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;MA&#39;</span><span class="p">:</span> <span class="s1">&#39;Maranhão&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;MT&#39;</span><span class="p">:</span> <span class="s1">&#39;Mato Grosso&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;MS&#39;</span><span class="p">:</span> <span class="s1">&#39;Mato Grosso do Sul&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;MG&#39;</span><span class="p">:</span> <span class="s1">&#39;Minas Gerais&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;PA&#39;</span><span class="p">:</span> <span class="s1">&#39;Pará&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;PB&#39;</span><span class="p">:</span> <span class="s1">&#39;Paraíba&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;PR&#39;</span><span class="p">:</span> <span class="s1">&#39;Paraná&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;PE&#39;</span><span class="p">:</span> <span class="s1">&#39;Pernambuco&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;PI&#39;</span><span class="p">:</span> <span class="s1">&#39;Piauí&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;RJ&#39;</span><span class="p">:</span> <span class="s1">&#39;Rio de Janeiro&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;RN&#39;</span><span class="p">:</span> <span class="s1">&#39;Rio Grande do Norte&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;RS&#39;</span><span class="p">:</span> <span class="s1">&#39;Rio Grande do Sul&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;RO&#39;</span><span class="p">:</span> <span class="s1">&#39;Rondônia&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;RR&#39;</span><span class="p">:</span> <span class="s1">&#39;Roraima&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;SC&#39;</span><span class="p">:</span> <span class="s1">&#39;Santa Catarina&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;SP&#39;</span><span class="p">:</span> <span class="s1">&#39;São Paulo&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;SE&#39;</span><span class="p">:</span> <span class="s1">&#39;Sergipe&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;TO&#39;</span><span class="p">:</span> <span class="s1">&#39;Tocantins&#39;</span>
+    <span class="p">}</span>
+
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">replacements</span><span class="p">)</span>
+
+    <span class="n">estados_brasileiros</span> <span class="o">=</span> <span class="n">replacements</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+    
+    <span class="c1"># Cria um DataFrame com os estados</span>
+    <span class="n">df_estados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">:</span> <span class="n">estados_brasileiros</span><span class="p">})</span>
+
+    <span class="c1"># Realiza uma junção externa para incluir todos os estados no DataFrame &#39;Estado&#39;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df_estados</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Verifica se os valores únicos correspondem</span>
+    <span class="n">unique_estados</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+    <span class="n">unique_nm_uf</span> <span class="o">=</span> <span class="n">estados_brasil</span><span class="p">[</span><span class="s1">&#39;NM_UF&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">set</span><span class="p">(</span><span class="n">unique_estados</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">(</span><span class="n">unique_nm_uf</span><span class="p">):</span>
+        <span class="c1"># Junta o DataFrame com o GeoDataFrame dos estados brasileiros usando &#39;NM_UF&#39; como chave</span>
+        <span class="n">gdf</span> <span class="o">=</span> <span class="n">estados_brasil</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;NM_UF&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Mapeia os valores da coluna &#39;Nota_unificada&#39; para o novo intervalo de cores (450 a 600)</span>
+        <span class="n">vmin</span> <span class="o">=</span> <span class="mi">490</span>
+        <span class="n">vmax</span> <span class="o">=</span> <span class="mi">580</span>
+        <span class="n">norm</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">)</span>
+
+        <span class="c1"># Configura o plot do mapa</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+        <span class="n">gdf</span><span class="o">.</span><span class="n">boundary</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+        <span class="n">gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;Nota_unificada&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">ano</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;NU_ANO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Obtém o ano a partir do DataFrame</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Média de Notas por Estado no Brasil em </span><span class="si">{</span><span class="n">ano</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Os valores na coluna &#39;Estado&#39; não correspondem aos valores na coluna &#39;NM_UF&#39;.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="plot_grafico_linhas">
+<a class="viewcode-back" href="../visual_rob.html#visual_rob.plot_grafico_linhas">[documentos]</a>
+<span class="k">def</span> <span class="nf">plot_grafico_linhas</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">coluna_x</span><span class="p">,</span> <span class="n">coluna_y</span><span class="p">,</span> <span class="n">titulo</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Gera um gráfico de linhas usando dados de um DataFrame.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pandas.DataFrame</span>
+<span class="sd">        O DataFrame que contém os dados a serem plotados.</span>
+<span class="sd">    coluna_x : str</span>
+<span class="sd">        O nome da coluna a ser usada como eixo X.</span>
+<span class="sd">    coluna_y : str</span>
+<span class="sd">        O nome da coluna a ser usada como eixo Y.</span>
+<span class="sd">    titulo : str</span>
+<span class="sd">        O título do gráfico.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">coluna_x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span> <span class="ow">or</span> <span class="n">coluna_y</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;As colunas especificadas não existem no DataFrame.&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Tamanho da figura</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dataframe</span><span class="p">[</span><span class="n">coluna_x</span><span class="p">],</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">coluna_y</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">coluna_y</span><span class="p">)</span>
+
+        <span class="c1"># Adiciona rótulos e título ao gráfico</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">coluna_x</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">coluna_y</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titulo</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erro: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ocorreu um erro inesperado: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="plot_bar_chart">
+<a class="viewcode-back" href="../visual_rob.html#visual_rob.plot_bar_chart">[documentos]</a>
+<span class="k">def</span> <span class="nf">plot_bar_chart</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">column_names</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plota um gráfico de barras com duas colunas de um DataFrame em barras separadas.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dataframe : pandas.DataFrame</span>
+<span class="sd">        O DataFrame contendo os dados.</span>
+<span class="sd">    column_names : list</span>
+<span class="sd">        Uma lista com os nomes das duas colunas a serem plotadas.</span>
+<span class="sd">    title : str</span>
+<span class="sd">        Título do gráfico.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Verifica se as colunas estão presentes no DataFrame</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">col</span> <span class="ow">in</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">column_names</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Uma ou mais colunas não estão presentes no DataFrame.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="c1"># Seleciona as colunas desejadas</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">column_names</span><span class="p">]</span>
+
+    <span class="c1"># Cria um gráfico de barras</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="plot_multi_grafico_linha">
+<a class="viewcode-back" href="../visual_rob.html#visual_rob.plot_multi_grafico_linha">[documentos]</a>
+<span class="k">def</span> <span class="nf">plot_multi_grafico_linha</span><span class="p">(</span><span class="o">*</span><span class="n">dataframes</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plota um gráfico de linha a partir de um número variável de DataFrames.</span>
+<span class="sd">    Cada DataFrame deve ter uma única linha com os mesmos nomes de coluna.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    *dataframes : DataFrame(s)</span>
+<span class="sd">        Número variável de DataFrames. Cada DataFrame deve conter uma única linha com os mesmos nomes de coluna.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">df</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dataframes</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DataFrame </span><span class="si">{</span><span class="n">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> não é um DataFrame válido. Pulando.&quot;</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Verifica se o DataFrame possui apenas uma linha</span>
+        <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DataFrame </span><span class="si">{</span><span class="n">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> não possui uma única linha. Pulando.&quot;</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Extrai a linha como uma Série</span>
+        <span class="n">dados_da_linha</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># Plota os dados como um gráfico de linha</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dados_da_linha</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">dados_da_linha</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;DF </span><span class="si">{</span><span class="n">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Adiciona rótulos, legenda e título</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Áreas de conhecimento&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Médias&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;2019&#39;</span><span class="p">,</span> <span class="s1">&#39;2020&#39;</span><span class="p">,</span> <span class="s1">&#39;2021&#39;</span><span class="p">,</span> <span class="s1">&#39;2022&#39;</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Média por área de conhecimento&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+    <span class="c1"># Mostra o gráfico</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="plot_scatter">
+<a class="viewcode-back" href="../visual_rob.html#visual_rob.plot_scatter">[documentos]</a>
+<span class="k">def</span> <span class="nf">plot_scatter</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x_column</span><span class="p">,</span> <span class="n">y_column</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Gráfico de Dispersão&quot;</span><span class="p">,</span> <span class="n">x_label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y_label</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Cria um gráfico de dispersão a partir de um DataFrame.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pandas.DataFrame</span>
+<span class="sd">        O DataFrame contendo os dados.</span>
+<span class="sd">    x_column : str</span>
+<span class="sd">        Nome da coluna a ser usada no eixo x.</span>
+<span class="sd">    y_column : str</span>
+<span class="sd">        Nome da coluna a ser usada no eixo y.</span>
+<span class="sd">    title : str, optional</span>
+<span class="sd">        Título do gráfico (opcional).</span>
+<span class="sd">    x_label : str, optional</span>
+<span class="sd">        Rótulo do eixo x (opcional).</span>
+<span class="sd">    y_label : str, optional</span>
+<span class="sd">        Rótulo do eixo y (opcional).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>  <span class="c1"># Define o tamanho da figura</span>
+
+        <span class="k">if</span> <span class="n">x_column</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">or</span> <span class="n">y_column</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;As colunas especificadas não existem no DataFrame.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Obtém os valores das colunas do DataFrame</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">x_column</span><span class="p">]</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">y_column</span><span class="p">]</span>
+
+        <span class="c1"># Cria o gráfico de dispersão, alpha controla a transparência dos pontos</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+        <span class="c1"># Define rótulos dos eixos</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">x_label</span> <span class="k">if</span> <span class="n">x_label</span> <span class="k">else</span> <span class="n">x_column</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">y_label</span> <span class="k">if</span> <span class="n">y_label</span> <span class="k">else</span> <span class="n">y_column</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erro ao plotar gráfico de dispersão: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, Beatriz, Eduardo, Gabriel, Roberta.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

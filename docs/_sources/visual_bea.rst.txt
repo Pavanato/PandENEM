@@ -1,0 +1,7 @@
+visual\_bea module
+==================
+
+.. automodule:: visual_bea
+   :members:
+   :undoc-members:
+   :show-inheritance:

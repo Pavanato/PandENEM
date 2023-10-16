@@ -1,0 +1,7 @@
+visual\_edu module
+==================
+
+.. automodule:: visual_edu
+   :members:
+   :undoc-members:
+   :show-inheritance:

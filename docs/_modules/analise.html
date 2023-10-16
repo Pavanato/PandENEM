@@ -1,0 +1,898 @@
+
+<!DOCTYPE html>
+
+
+<html lang="pt" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>analise &#8212; Documentação PandENEM </title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script src="../_static/documentation_options.js?v=f5018ca3"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/translations.js?v=3b002d5c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/analise';</script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Pesquisar" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="pt"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Documentação PandENEM </p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../modules.html">
+                        modulos
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Pesquisar" aria-label="Pesquisar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Pesquisar</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Pesquisar" aria-label="Pesquisar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Pesquisar</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../modules.html">
+                        modulos
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Código do módulo</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">analise</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Código fonte de analise</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<div class="viewcode-block" id="separar_ufs_e_anos">
+<a class="viewcode-back" href="../analise.html#analise.separar_ufs_e_anos">[documentos]</a>
+<span class="k">def</span> <span class="nf">separar_ufs_e_anos</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">ufs</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">anos</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Toma o DataFrame e o filtra por qualquer quantidade de estados e anos.</span>
+
+<span class="sd">    Parâmetros</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pd.DataFrame</span>
+<span class="sd">        DataFrame original</span>
+<span class="sd">    </span>
+<span class="sd">    ufs : list</span>
+<span class="sd">        Lista com estados que queira separar do DataFrame original. Os estados devem ser</span>
+<span class="sd">        escritos pela sigla UF.</span>
+
+<span class="sd">    anos : list</span>
+<span class="sd">        Lista com anos que queira separar do DataFrame original.</span>
+<span class="sd">    </span>
+<span class="sd">    Retorna</span>
+<span class="sd">    -------</span>
+<span class="sd">    pd.DataFrame</span>
+<span class="sd">        DataFrame filtrado pelos estados e anos escolhidos.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        Se a entrada fornecida não tiver estados ou anos válidos.</span>
+
+<span class="sd">    Exemplo</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; import pandas as pd</span>
+<span class="sd">    &gt;&gt;&gt; data = {&#39;SG_UF_PROVA&#39;: [&#39;SP&#39;, &#39;RJ&#39;, &#39;MG&#39;, &#39;SP&#39;, &#39;RJ&#39;],</span>
+<span class="sd">    ...         &#39;NU_ANO&#39;: [2020, 2020, 2021, 2021, 2021],</span>
+<span class="sd">    ...         &#39;Nota&#39;: [70, 80, 90, 85, 95]}</span>
+<span class="sd">    &gt;&gt;&gt; df = pd.DataFrame(data)</span>
+<span class="sd">    &gt;&gt;&gt; estados_para_filtrar = [&#39;SP&#39;, &#39;MG&#39;]</span>
+<span class="sd">    &gt;&gt;&gt; anos_para_filtrar = [2021]</span>
+<span class="sd">    &gt;&gt;&gt; separar_ufs_e_anos(df, estados_para_filtrar, anos_para_filtrar)</span>
+<span class="sd">      SG_UF_PROVA  NU_ANO  Nota</span>
+<span class="sd">    2          MG    2021    90</span>
+<span class="sd">    3          SP    2021    85</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">ufs</span> <span class="o">=</span> <span class="p">[</span><span class="n">uf</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">uf</span> <span class="ow">in</span> <span class="n">ufs</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="s1">&#39;SG_UF_PROVA&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">or</span> <span class="s1">&#39;NU_ANO&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;As colunas &#39;SG_UF_PROVA&#39; e &#39;NU_ANO&#39; devem estar presentes no DataFrame.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">set</span><span class="p">(</span><span class="n">ufs</span><span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">]):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;A entrada fornecida não contém estados válidos.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">set</span><span class="p">(</span><span class="n">anos</span><span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;NU_ANO&#39;</span><span class="p">]):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;A entrada fornecida não contém anos válidos.&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">ufs</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;NU_ANO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">anos</span><span class="p">))]</span></div>
+
+
+<div class="viewcode-block" id="separar_regiao">
+<a class="viewcode-back" href="../analise.html#analise.separar_regiao">[documentos]</a>
+<span class="k">def</span> <span class="nf">separar_regiao</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">regiao</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Toma o DataFrame e o filtra de acordo com a região escolhida</span>
+
+<span class="sd">    Parâmetros</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pd.DataFrame</span>
+<span class="sd">        DataFrame original</span>
+<span class="sd">    </span>
+<span class="sd">    regiao : str</span>
+<span class="sd">        Uma das cinco regiões brasileiras</span>
+<span class="sd">    </span>
+<span class="sd">    Retorna</span>
+<span class="sd">    -------</span>
+<span class="sd">    pd.DataFrame</span>
+<span class="sd">        DataFrame filtrado pela região escolhida</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        Se a entrada fornecida não for uma região válida</span>
+
+<span class="sd">    Exemplo</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; import pandas as pd</span>
+<span class="sd">    &gt;&gt;&gt; data = {&#39;SG_UF_PROVA&#39;: [&#39;AM&#39;, &#39;SP&#39;, &#39;BA&#39;, &#39;SC&#39;, &#39;GO&#39;, &#39;RS&#39;],</span>
+<span class="sd">    ...         &#39;OutrosDados&#39;: [1, 2, 3, 4, 5, 6]}</span>
+<span class="sd">    &gt;&gt;&gt; df = pd.DataFrame(data)</span>
+<span class="sd">    &gt;&gt;&gt; separar_regiao(df, &#39;sudeste&#39;)</span>
+<span class="sd">      SG_UF_PROVA  OutrosDados</span>
+<span class="sd">    1          SP            2</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">regiao</span> <span class="o">=</span> <span class="n">regiao</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="c1"># Dicionário para mapear as UFs de cada região</span>
+    <span class="n">regioes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;norte&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;AM&quot;</span><span class="p">,</span> <span class="s2">&quot;RR&quot;</span><span class="p">,</span> <span class="s2">&quot;AP&quot;</span><span class="p">,</span> <span class="s2">&quot;PA&quot;</span><span class="p">,</span> <span class="s2">&quot;TO&quot;</span><span class="p">,</span> <span class="s2">&quot;RO&quot;</span><span class="p">,</span> <span class="s2">&quot;AC&quot;</span><span class="p">],</span>
+               <span class="s2">&quot;nordeste&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;MA&quot;</span><span class="p">,</span> <span class="s2">&quot;PI&quot;</span><span class="p">,</span> <span class="s2">&quot;CE&quot;</span><span class="p">,</span> <span class="s2">&quot;RN&quot;</span><span class="p">,</span> <span class="s2">&quot;PE&quot;</span><span class="p">,</span> <span class="s2">&quot;PB&quot;</span><span class="p">,</span> <span class="s2">&quot;SE&quot;</span><span class="p">,</span> <span class="s2">&quot;AL&quot;</span><span class="p">,</span> <span class="s2">&quot;BA&quot;</span><span class="p">],</span>
+               <span class="s2">&quot;centro_oeste&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;MT&quot;</span><span class="p">,</span> <span class="s2">&quot;MS&quot;</span><span class="p">,</span> <span class="s2">&quot;GO&quot;</span><span class="p">],</span>
+               <span class="s2">&quot;sudeste&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;SP&quot;</span><span class="p">,</span> <span class="s2">&quot;RJ&quot;</span><span class="p">,</span> <span class="s2">&quot;ES&quot;</span><span class="p">,</span> <span class="s2">&quot;MG&quot;</span><span class="p">],</span>
+               <span class="s2">&quot;sul&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;PR&quot;</span><span class="p">,</span> <span class="s2">&quot;SC&quot;</span><span class="p">,</span> <span class="s2">&quot;RS&quot;</span><span class="p">]}</span>
+
+    <span class="k">if</span> <span class="s2">&quot;SG_UF_PROVA&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;A DataFrame fornecido não é tem a coluna &#39;SG_UF_PROVA&#39;&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">regiao</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">regioes</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;A entrada fornecida não é uma região válida&quot;</span><span class="p">)</span>
+    
+    <span class="n">filtro</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;SG_UF_PROVA&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">regioes</span><span class="p">[</span><span class="n">regiao</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">filtro</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="media">
+<a class="viewcode-back" href="../analise.html#analise.media">[documentos]</a>
+<span class="k">def</span> <span class="nf">media</span><span class="p">(</span><span class="n">df</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula a média de colunas específicas e adiciona-a ao DataFrame.</span>
+
+<span class="sd">    Parâmetros</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df: pd.DataFrame</span>
+<span class="sd">        O DataFrame que você deseja modificar.</span>
+
+<span class="sd">    Retorna</span>
+<span class="sd">    -------</span>
+<span class="sd">    pd.DataFrame: </span>
+<span class="sd">        O DataFrame modificado com a nova coluna de médias.</span>
+
+<span class="sd">    Exemplo</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; import pandas as pd</span>
+<span class="sd">    &gt;&gt;&gt; data = {&#39;NU_NOTA_CN&#39;: [75, 85, 90, 88, 92],</span>
+<span class="sd">    ...         &#39;NU_NOTA_CH&#39;: [80, 78, 92, 87, 88],</span>
+<span class="sd">    ...         &#39;NU_NOTA_LC&#39;: [92, 89, 78, 90, 85],</span>
+<span class="sd">    ...         &#39;NU_NOTA_MT&#39;: [87, 90, 85, 88, 92],</span>
+<span class="sd">    ...         &#39;NU_NOTA_REDACAO&#39;: [88, 92, 85, 90, 87]}</span>
+<span class="sd">    &gt;&gt;&gt; df = pd.DataFrame(data)</span>
+<span class="sd">    &gt;&gt;&gt; media(df)</span>
+<span class="sd">       NU_NOTA_CN  NU_NOTA_CH  NU_NOTA_LC  NU_NOTA_MT  NU_NOTA_REDACAO  media</span>
+<span class="sd">    0          75          80          92          87               88   84.4</span>
+<span class="sd">    1          85          78          89          90               92   86.8</span>
+<span class="sd">    2          90          92          78          85               85   86.0</span>
+<span class="sd">    3          88          87          90          88               90   88.6</span>
+<span class="sd">    4          92          88          85          92               87   88.8</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">colunas_media</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NU_NOTA_CN&quot;</span><span class="p">,</span> <span class="s2">&quot;NU_NOTA_CH&quot;</span><span class="p">,</span> <span class="s2">&quot;NU_NOTA_LC&quot;</span><span class="p">,</span> <span class="s2">&quot;NU_NOTA_MT&quot;</span><span class="p">,</span> <span class="s2">&quot;NU_NOTA_REDACAO&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">set</span><span class="p">(</span><span class="n">colunas_media</span><span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;O DataFrame deve conter as colunas necessárias para o cálculo da média.&quot;</span><span class="p">)</span>
+        
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;media&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">colunas_media</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+<div class="viewcode-block" id="nota_1000_ano">
+<a class="viewcode-back" href="../analise.html#analise.nota_1000_ano">[documentos]</a>
+<span class="k">def</span> <span class="nf">nota_1000_ano</span><span class="p">(</span><span class="n">df</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">anos</span> <span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Toma o DataFrame e retorna um DataFrame com os anos e a quantidade de notas 1000</span>
+
+<span class="sd">    Parâmetros</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pd.DataFrame</span>
+<span class="sd">    </span>
+<span class="sd">    ano : list</span>
+<span class="sd">        Cada valor da lista deve ser um ano do qual você quer saber a nota 1000</span>
+<span class="sd">    </span>
+<span class="sd">    Retorna</span>
+<span class="sd">    -------</span>
+<span class="sd">    pd.DataFrame</span>
+<span class="sd">        As linhas do DataFrame são os anos escolhidos e a única coluna a quantidade de notas 1000 neste ano</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        Se as colunas &#39;NU_NOTA_REDACAO&#39; e &#39;NU_ANO&#39; não estiverem presentes no DataFrame.</span>
+
+<span class="sd">    Exemplo</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; import pandas as pd</span>
+<span class="sd">    &gt;&gt;&gt; data = {&#39;NU_ANO&#39;: [2020, 2020, 2020, 2021, 2021],</span>
+<span class="sd">    ...         &#39;NU_NOTA_REDACAO&#39;: [1000, 900, 1000, 1000, 950]}</span>
+<span class="sd">    &gt;&gt;&gt; df = pd.DataFrame(data)</span>
+<span class="sd">    &gt;&gt;&gt; anos_para_verificar = [2020, 2021]</span>
+<span class="sd">    &gt;&gt;&gt; nota_1000_ano(df, anos_para_verificar)</span>
+<span class="sd">       NU_ANO  Quantidade de notas 1000</span>
+<span class="sd">    0    2020                         2</span>
+<span class="sd">    1    2021                         1</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="s1">&#39;NU_NOTA_REDACAO&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">or</span> <span class="s1">&#39;NU_ANO&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;As colunas &#39;NU_NOTA_REDACAO&#39; e &#39;NU_ANO&#39; devem estar presentes no DataFrame.&quot;</span><span class="p">)</span>
+    
+    <span class="n">resultados</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ano</span> <span class="ow">in</span> <span class="n">anos</span><span class="p">:</span>
+        <span class="n">ocorrencias</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;NU_ANO&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">ano</span><span class="p">][</span><span class="s1">&#39;NU_NOTA_REDACAO&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">resultados</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;NU_ANO&#39;</span><span class="p">:</span> <span class="n">ano</span><span class="p">,</span> <span class="s1">&#39;Quantidade de notas 1000&#39;</span><span class="p">:</span> <span class="n">ocorrencias</span><span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">resultados</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="renda_media_per_capita_familiar">
+<a class="viewcode-back" href="../analise.html#analise.renda_media_per_capita_familiar">[documentos]</a>
+<span class="k">def</span> <span class="nf">renda_media_per_capita_familiar</span><span class="p">(</span><span class="n">df</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">colunas_extras</span> <span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Calcula a renda média per capita familiar de cada participante.</span>
+
+<span class="sd">    Parâmetros</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pd.DataFrame</span>
+<span class="sd">        DataFrame contendo a coluna &quot;Q006&quot; (letras) e a coluna &quot;Q005&quot; (números).</span>
+<span class="sd">    colunas_extras : list</span>
+<span class="sd">        Lista com o nome das colunas que você quer que permaneçam no novo DataFrame.</span>
+
+<span class="sd">    Retorna</span>
+<span class="sd">    -------</span>
+<span class="sd">    pd.DataFrame</span>
+<span class="sd">        Retorna um novo DataFrame com a coluna de renda per capita e as colunas citadas em colunas_extras.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        Se o DataFrame não contiver as colunas &quot;Q006&quot; e &quot;Q005&quot;.</span>
+<span class="sd">    KeyError</span>
+<span class="sd">        Se os nomes das colunas não existirem no DataFrame</span>
+<span class="sd">    TypeError</span>
+<span class="sd">        se o tipo de argumento dado for errado7</span>
+
+<span class="sd">    Exemplo</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; import pandas as pd</span>
+<span class="sd">    &gt;&gt;&gt; data = {&#39;Q006&#39;: [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;],</span>
+<span class="sd">    ...         &#39;Q005&#39;: [1, 2, 3, 4],</span>
+<span class="sd">    ...         &#39;Outra_Coluna&#39;: [&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;, &#39;W&#39;]}</span>
+<span class="sd">    &gt;&gt;&gt; df = pd.DataFrame(data)</span>
+<span class="sd">    &gt;&gt;&gt; colunas_extras = [&#39;Outra_Coluna&#39;]</span>
+<span class="sd">    &gt;&gt;&gt; renda_media_per_capita_familiar(df, colunas_extras)</span>
+<span class="sd">       Renda_Per_Capita Outra_Coluna</span>
+<span class="sd">    0          0.000000            X</span>
+<span class="sd">    1        249.500000            Y</span>
+<span class="sd">    2        415.833333            Z</span>
+<span class="sd">    3        436.625000            W</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">&#39;Q006&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">or</span> <span class="s1">&#39;Q005&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;O DataFrame deve conter as colunas &#39;Q006&#39; e &#39;Q005&#39;.&quot;</span><span class="p">)</span>
+
+        <span class="n">valores_minimos_maximos</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">998.00</span><span class="p">),</span>
+            <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">998.00</span><span class="p">,</span> <span class="mf">1497.00</span><span class="p">),</span>
+            <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">1497.00</span><span class="p">,</span> <span class="mf">1996.00</span><span class="p">),</span>
+            <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">1996.00</span><span class="p">,</span> <span class="mf">2495.00</span><span class="p">),</span>
+            <span class="s1">&#39;F&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">2495.00</span><span class="p">,</span> <span class="mf">2994.00</span><span class="p">),</span>
+            <span class="s1">&#39;G&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">2994.00</span><span class="p">,</span> <span class="mf">3992.00</span><span class="p">),</span>
+            <span class="s1">&#39;H&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">3992.00</span><span class="p">,</span> <span class="mf">4990.00</span><span class="p">),</span>
+            <span class="s1">&#39;I&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">4990.00</span><span class="p">,</span> <span class="mf">5988.00</span><span class="p">),</span>
+            <span class="s1">&#39;J&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">5988.00</span><span class="p">,</span> <span class="mf">6986.00</span><span class="p">),</span>
+            <span class="s1">&#39;K&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">6986.00</span><span class="p">,</span> <span class="mf">7984.00</span><span class="p">),</span>
+            <span class="s1">&#39;L&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">7984.00</span><span class="p">,</span> <span class="mf">8982.00</span><span class="p">),</span>
+            <span class="s1">&#39;M&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">8982.00</span><span class="p">,</span> <span class="mf">9980.00</span><span class="p">),</span>
+            <span class="s1">&#39;N&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">9980.00</span><span class="p">,</span> <span class="mf">11976.00</span><span class="p">),</span>
+            <span class="s1">&#39;O&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">11976.00</span><span class="p">,</span> <span class="mf">14970.00</span><span class="p">),</span>
+            <span class="s1">&#39;P&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">14970.00</span><span class="p">,</span> <span class="mf">19960.00</span><span class="p">),</span>
+            <span class="s1">&#39;Q&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">19961.00</span><span class="p">,</span> <span class="mf">50000.00</span><span class="p">)</span>
+        <span class="p">}</span>
+    
+        <span class="n">valores_medios</span> <span class="o">=</span> <span class="p">{</span><span class="n">letra</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">valores</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">letra</span><span class="p">,</span> <span class="n">valores</span> <span class="ow">in</span> <span class="n">valores_minimos_maximos</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Q006&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Q006&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">valores_medios</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Renda_Per_Capita&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Q006&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Q005&#39;</span><span class="p">]</span>
+        <span class="n">df_renda_e_colunas_específicas</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Renda_Per_Capita&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">colunas_extras</span><span class="p">]</span>
+    
+        <span class="k">return</span> <span class="n">df_renda_e_colunas_específicas</span>
+
+    <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erro ao acessar coluna: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">typeerro</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erro ao acessar coluna: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">typeerro</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+                  
+<div class="viewcode-block" id="nota_unificada_por_estado_e_ano">
+<a class="viewcode-back" href="../analise.html#analise.nota_unificada_por_estado_e_ano">[documentos]</a>
+<span class="k">def</span> <span class="nf">nota_unificada_por_estado_e_ano</span><span class="p">(</span><span class="n">df</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula a média das notas por estado em um DataFrame, também separado por ano.</span>
+
+<span class="sd">    Parâmetros</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pd.DataFrame </span>
+<span class="sd">        O DataFrame contendo colunas de estados, anos e as médias de cada participante.</span>
+
+<span class="sd">    Retorna</span>
+<span class="sd">    -------</span>
+<span class="sd">    pd.DataFrame</span>
+<span class="sd">        Um novo DataFrame que contém as médias das notas, os estados correspondentes e, opcionalmente, os anos.</span>
+
+
+<span class="sd">    Exemplo</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; data = {&#39;SG_UF_PROVA&#39;: [&#39;MG&#39;, &#39;SP&#39;, &#39;RJ&#39;, &#39;MG&#39;, &#39;SP&#39;, &#39;MG&#39;],</span>
+<span class="sd">    ...         &#39;NU_ANO&#39;: [2020, 2020, 2021, 2021, 2021, 2021],</span>
+<span class="sd">    ...         &#39;media&#39;: [80, 85, 90, 78, 88, 92]}</span>
+<span class="sd">    &gt;&gt;&gt; df = pd.DataFrame(data)</span>
+<span class="sd">    &gt;&gt;&gt; medias_df = nota_unificada_por_estado_e_ano(df)</span>
+<span class="sd">    &gt;&gt;&gt; print(medias_df)</span>
+<span class="sd">      SG_UF_PROVA  NU_ANO  Nota_unificada</span>
+<span class="sd">    0          MG    2020            80.0</span>
+<span class="sd">    1          MG    2021            85.0</span>
+<span class="sd">    2          RJ    2021            90.0</span>
+<span class="sd">    3          SP    2020            85.0</span>
+<span class="sd">    4          SP    2021            88.0</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">,</span> <span class="s1">&#39;media&#39;</span><span class="p">,</span> <span class="s1">&#39;NU_ANO&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;Colunas &#39;SG_UF_PROVA&#39;, &#39;NU_ANO&#39; e &#39;media&#39; não encontradas no DataFrame.&quot;</span><span class="p">)</span>
+
+        <span class="n">medias</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">,</span> <span class="s1">&#39;NU_ANO&#39;</span><span class="p">])[</span><span class="s1">&#39;media&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">medias</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">,</span> <span class="s1">&#39;NU_ANO&#39;</span><span class="p">,</span> <span class="s1">&#39;Nota_unificada&#39;</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">medias</span>
+
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erro ao calcular a média unificada das notas por estado e ano: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="renda_unificada_por_estado">
+<a class="viewcode-back" href="../analise.html#analise.renda_unificada_por_estado">[documentos]</a>
+<span class="k">def</span> <span class="nf">renda_unificada_por_estado</span><span class="p">(</span><span class="n">df</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Calcula a média unificada das rendas per capita familiar por estado.</span>
+
+<span class="sd">    Parâmetros</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pd.DataFrame</span>
+<span class="sd">        DataFrame contendo as colunas &quot;SG_UF_PROVA&quot; (código do estado) e &quot;Renda_Per_Capita&quot; (média da renda per capita).</span>
+
+<span class="sd">    Retorna</span>
+<span class="sd">    -------</span>
+<span class="sd">    pd.DataFrame</span>
+<span class="sd">        Retorna um novo DataFrame com a coluna &quot;SG_UF_PROVA&quot; e a média unificada de renda por estado (coluna &quot;Renda_Unificada&quot;).</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        Se o DataFrame não contiver as colunas &quot;SG_UF_PROVA&quot; e &quot;Renda_Per_Capita.&quot;</span>
+
+<span class="sd">    Exemplo</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; df_exemplo = pd.DataFrame({</span>
+<span class="sd">    ...     &#39;SG_UF_PROVA&#39;: [1, 2, 1, 2],</span>
+<span class="sd">    ...     &#39;Renda_Per_Capita&#39;: [500, 600, 700, 800],</span>
+<span class="sd">    ...     &#39;Outra_Coluna&#39;: [10, 20, 30, 40]</span>
+<span class="sd">    ... })</span>
+<span class="sd">    &gt;&gt;&gt; resultado = renda_unificada_por_estado(df_exemplo)</span>
+<span class="sd">    &gt;&gt;&gt; print(resultado)</span>
+<span class="sd">       SG_UF_PROVA  Renda_unificada</span>
+<span class="sd">    0            1            600.0</span>
+<span class="sd">    1            2            700.0</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">&#39;SG_UF_PROVA&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">or</span> <span class="s1">&#39;Renda_Per_Capita&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;O DataFrame deve conter as colunas &#39;SG_UF_PROVA&#39; e &#39;Renda_Per_Capita&#39;.&quot;</span><span class="p">)</span>
+
+        <span class="n">df_renda_unificada_por_estado</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Renda_Per_Capita&#39;</span><span class="p">:</span> <span class="s1">&#39;mean&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+        <span class="n">df_renda_unificada_por_estado</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Renda_Per_Capita&#39;</span><span class="p">:</span> <span class="s1">&#39;Renda_unificada&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">df_renda_unificada_por_estado</span><span class="p">[[</span><span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">,</span> <span class="s1">&#39;Renda_unificada&#39;</span><span class="p">]]</span>
+
+    <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erro ao acessar coluna: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="media_internet">
+<a class="viewcode-back" href="../analise.html#analise.media_internet">[documentos]</a>
+<span class="k">def</span> <span class="nf">media_internet</span><span class="p">(</span><span class="n">df</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula a média de colunas específicas para linhas com &quot;A&quot; e &quot;B&quot; na coluna &quot;Q025&quot; e retorna um DataFrame com a média dessas médias.</span>
+
+<span class="sd">    Parâmetros</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pd.DataFrame </span>
+<span class="sd">        O DataFrame que você deseja modificar.</span>
+
+<span class="sd">    Retorna</span>
+<span class="sd">    -------</span>
+<span class="sd">    pd.DataFrame    </span>
+<span class="sd">        Um DataFrame com a média das colunas &quot;media_A&quot; e &quot;media_B&quot;.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        Se a coluna Q025 não pertence ao DataFrame dado.</span>
+<span class="sd">        </span>
+<span class="sd">    Exemplo</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; import pandas as pd</span>
+<span class="sd">    &gt;&gt;&gt; data = {&#39;Q025&#39;: [&#39;A&#39;, &#39;A&#39;, &#39;B&#39;, &#39;A&#39;, &#39;B&#39;],</span>
+<span class="sd">    ...         &#39;NU_NOTA_CN&#39;: [75, 85, 90, 88, 92],</span>
+<span class="sd">    ...         &#39;NU_NOTA_CH&#39;: [80, 78, 92, 87, 88],</span>
+<span class="sd">    ...         &#39;NU_NOTA_LC&#39;: [92, 89, 78, 90, 85],</span>
+<span class="sd">    ...         &#39;NU_NOTA_MT&#39;: [87, 90, 85, 88, 92],</span>
+<span class="sd">    ...         &#39;NU_NOTA_REDACAO&#39;: [88, 92, 85, 90, 87]}</span>
+<span class="sd">    &gt;&gt;&gt; df = pd.DataFrame(data)</span>
+<span class="sd">    &gt;&gt;&gt; media_internet(df)</span>
+<span class="sd">       media_sem_internet  media_com_internet</span>
+<span class="sd">    0                86.6                87.4</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">&#39;Q025&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;A coluna &#39;Q025&#39; não está presente no DataFrame.&quot;</span><span class="p">)</span>
+        
+        <span class="n">colunas_media</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NU_NOTA_CN&quot;</span><span class="p">,</span> <span class="s2">&quot;NU_NOTA_CH&quot;</span><span class="p">,</span> <span class="s2">&quot;NU_NOTA_LC&quot;</span><span class="p">,</span> <span class="s2">&quot;NU_NOTA_MT&quot;</span><span class="p">,</span> <span class="s2">&quot;NU_NOTA_REDACAO&quot;</span><span class="p">]</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;media_A&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Q025&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span><span class="p">][</span><span class="n">colunas_media</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;media_B&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Q025&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;B&#39;</span><span class="p">][</span><span class="n">colunas_media</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">media_final</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;media_A&#39;</span><span class="p">,</span> <span class="s1">&#39;media_B&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">df_resultado</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;media_sem_internet&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">media_final</span><span class="p">[</span><span class="s1">&#39;media_A&#39;</span><span class="p">]],</span> <span class="s1">&#39;media_com_internet&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">media_final</span><span class="p">[</span><span class="s1">&#39;media_B&#39;</span><span class="p">]]})</span>
+
+        <span class="k">return</span> <span class="n">df_resultado</span>
+
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erro ao calcular médias por &#39;Q025&#39;: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="calcular_medias_regiao_ano">
+<a class="viewcode-back" href="../analise.html#analise.calcular_medias_regiao_ano">[documentos]</a>
+<span class="k">def</span> <span class="nf">calcular_medias_regiao_ano</span><span class="p">(</span><span class="n">df</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula as médias das notas por ano e região.</span>
+
+<span class="sd">    Parâmetros</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pd.DataFrame </span>
+<span class="sd">        DataFrame contendo os dados das notas.</span>
+
+<span class="sd">    Retorna</span>
+<span class="sd">    -------</span>
+<span class="sd">    pd.DataFrame    </span>
+<span class="sd">        DataFrame com as médias por ano e região.</span>
+<span class="sd">    </span>
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        Se o DataFrame não tem todas as colunas necessárias</span>
+
+<span class="sd">    Exemplo</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; data = {&#39;NU_ANO&#39;: [2021, 2021, 2022, 2022, 2023],</span>
+<span class="sd">    ...         &#39;SG_UF_PROVA&#39;: [&#39;SP&#39;, &#39;RJ&#39;, &#39;SP&#39;, &#39;RJ&#39;, &#39;SP&#39;],</span>
+<span class="sd">    ...         &#39;media&#39;: [7.5, 8.0, 7.8, 8.2, 7.9]}</span>
+<span class="sd">    &gt;&gt;&gt; df = pd.DataFrame(data)</span>
+<span class="sd">    &gt;&gt;&gt; calcular_medias_regiao_ano(df)</span>
+<span class="sd">            Sudeste  Média Brasil</span>
+<span class="sd">    NU_ANO                       </span>
+<span class="sd">    2021       7.75          7.75</span>
+<span class="sd">    2022       8.00          8.00</span>
+<span class="sd">    2023       7.90          7.90</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">required_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;NU_ANO&#39;</span><span class="p">,</span> <span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">,</span> <span class="s1">&#39;media&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">required_columns</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;O DataFrame de entrada não contém todas as colunas necessárias.&quot;</span><span class="p">)</span>
+        
+        <span class="n">mapeamento_regioes</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;Norte&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;AC&#39;</span><span class="p">,</span> <span class="s1">&#39;AM&#39;</span><span class="p">,</span> <span class="s1">&#39;AP&#39;</span><span class="p">,</span> <span class="s1">&#39;PA&#39;</span><span class="p">,</span> <span class="s1">&#39;RO&#39;</span><span class="p">,</span> <span class="s1">&#39;RR&#39;</span><span class="p">,</span> <span class="s1">&#39;TO&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;Nordeste&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;AL&#39;</span><span class="p">,</span> <span class="s1">&#39;BA&#39;</span><span class="p">,</span> <span class="s1">&#39;CE&#39;</span><span class="p">,</span> <span class="s1">&#39;MA&#39;</span><span class="p">,</span> <span class="s1">&#39;PB&#39;</span><span class="p">,</span> <span class="s1">&#39;PE&#39;</span><span class="p">,</span> <span class="s1">&#39;PI&#39;</span><span class="p">,</span> <span class="s1">&#39;RN&#39;</span><span class="p">,</span> <span class="s1">&#39;SE&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;Sudeste&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;ES&#39;</span><span class="p">,</span> <span class="s1">&#39;MG&#39;</span><span class="p">,</span> <span class="s1">&#39;RJ&#39;</span><span class="p">,</span> <span class="s1">&#39;SP&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;Sul&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;PR&#39;</span><span class="p">,</span> <span class="s1">&#39;RS&#39;</span><span class="p">,</span> <span class="s1">&#39;SC&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;Centro-Oeste&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;DF&#39;</span><span class="p">,</span> <span class="s1">&#39;GO&#39;</span><span class="p">,</span> <span class="s1">&#39;MT&#39;</span><span class="p">,</span> <span class="s1">&#39;MS&#39;</span><span class="p">]</span>
+        <span class="p">}</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Região&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="n">estado</span><span class="p">:</span> <span class="n">regiao</span> <span class="k">for</span> <span class="n">regiao</span><span class="p">,</span> <span class="n">estados</span> <span class="ow">in</span> <span class="n">mapeamento_regioes</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">for</span> <span class="n">estado</span> <span class="ow">in</span> <span class="n">estados</span><span class="p">})</span>
+
+        <span class="c1"># Calcular a média do Brasil por ano</span>
+        <span class="n">media_brasil_ano</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;NU_ANO&#39;</span><span class="p">,</span> <span class="s1">&#39;SG_UF_PROVA&#39;</span><span class="p">])[</span><span class="s1">&#39;media&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;NU_ANO&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">media_brasil_ano</span> <span class="o">=</span> <span class="n">media_brasil_ano</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">media_brasil_ano</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;media&#39;</span><span class="p">:</span> <span class="s1">&#39;Média Brasil&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">media_regiao_ano</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;NU_ANO&#39;</span><span class="p">,</span> <span class="s1">&#39;Região&#39;</span><span class="p">])[</span><span class="s1">&#39;media&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+        <span class="n">result_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">media_regiao_ano</span><span class="p">,</span> <span class="n">media_brasil_ano</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;NU_ANO&#39;</span><span class="p">)[</span><span class="s1">&#39;Média Brasil&#39;</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result_df</span>
+    
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erro ao calcular as médias por ano e região: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="media_por_area_de_conhecimento">
+<a class="viewcode-back" href="../analise.html#analise.media_por_area_de_conhecimento">[documentos]</a>
+<span class="k">def</span> <span class="nf">media_por_area_de_conhecimento</span><span class="p">(</span><span class="n">df</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula a média das notas por área de conhecimento e cria um DataFrame.</span>
+
+<span class="sd">    Parâmetros</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pd.DataFrame</span>
+<span class="sd">        Um DataFrame contendo as notas por área de conhecimento.</span>
+
+<span class="sd">    Retorna</span>
+<span class="sd">    -------</span>
+<span class="sd">    pd.DataFrame</span>
+<span class="sd">        Um DataFrame contendo a média das notas por área de conhecimento, com as seguintes colunas: &quot;CN&quot;, &quot;CH&quot;, &quot;LC&quot;, &quot;MT&quot;, &quot;RD&quot;</span>
+<span class="sd">        (Ciências da Natureza, Ciências Humanas, Linguagens e Códigos, Matemática, Redação).</span>
+
+<span class="sd">    Exemplo</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; import pandas as pd</span>
+<span class="sd">    &gt;&gt;&gt; data = {&#39;NU_NOTA_CN&#39;: [650.0, 720.0, 680.0],</span>
+<span class="sd">    ...         &#39;NU_NOTA_CH&#39;: [700.0, 680.0, 720.0],</span>
+<span class="sd">    ...         &#39;NU_NOTA_LC&#39;: [710.0, 690.0, 730.0],</span>
+<span class="sd">    ...         &#39;NU_NOTA_MT&#39;: [720.0, 710.0, 690.0],</span>
+<span class="sd">    ...         &#39;NU_NOTA_REDACAO&#39;: [800, 750, 820]}</span>
+<span class="sd">    &gt;&gt;&gt; df = pd.DataFrame(data)</span>
+<span class="sd">    &gt;&gt;&gt; media_por_area_de_conhecimento(df)</span>
+<span class="sd">               CN     CH     LC          MT     RD</span>
+<span class="sd">    0  683.333333  700.0  710.0  706.666667  790.0</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;O parâmetro &#39;df&#39; deve ser um DataFrame.&quot;</span><span class="p">)</span>
+    
+    <span class="n">colunas_media</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NU_NOTA_CN&quot;</span><span class="p">,</span> <span class="s2">&quot;NU_NOTA_CH&quot;</span><span class="p">,</span> <span class="s2">&quot;NU_NOTA_LC&quot;</span><span class="p">,</span> <span class="s2">&quot;NU_NOTA_MT&quot;</span><span class="p">,</span> <span class="s2">&quot;NU_NOTA_REDACAO&quot;</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">coluna</span> <span class="ow">in</span> <span class="n">colunas_media</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">coluna</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A coluna </span><span class="si">{</span><span class="n">coluna</span><span class="si">}</span><span class="s2"> não está presente no DataFrame.&quot;</span><span class="p">)</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">colunas_media</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;CN&quot;</span><span class="p">,</span> <span class="s2">&quot;CH&quot;</span><span class="p">,</span> <span class="s2">&quot;LC&quot;</span><span class="p">,</span> <span class="s2">&quot;MT&quot;</span><span class="p">,</span> <span class="s2">&quot;RD&quot;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">df</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, Beatriz, Eduardo, Gabriel, Roberta.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

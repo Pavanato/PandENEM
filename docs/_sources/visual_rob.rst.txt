@@ -1,0 +1,7 @@
+visual\_rob module
+==================
+
+.. automodule:: visual_rob
+   :members:
+   :undoc-members:
+   :show-inheritance:
