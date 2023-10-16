@@ -1,6 +1,78 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
+
+def frequencia_estado(df, coluna_estado, titulo):
+    '''
+    Cria um gráfico de barras com a frequência de estados a partir de uma coluna em um DataFrame.
+
+    Parameters:
+    df (pd.DataFrame): 
+        O DataFrame contendo os dados.
+    coluna_estado (str): 
+        Nome da coluna com os estados.
+    titulo (str): 
+        Título do gráfico.
+
+    Returns:
+    None.
+    '''
+    # Contagem da frequência dos estados
+    frequencia_estados = df[coluna_estado].value_counts()
+
+    # Crie o gráfico de barras
+    plt.figure(figsize=(10, 6))
+    frequencia_estados.plot(kind='bar', color='skyblue')
+    plt.title(titulo)
+    plt.xlabel('Estado')
+    plt.ylabel('Frequência')
+    plt.xticks(rotation=0)  # Para não girar os rótulos dos estados
+
+    # Exibir o gráfico
+    plt.show()
+
+# Exemplo de uso
+data = {'Estado': ['SP', 'RJ', 'MG', 'SP', 'MG', 'SP', 'RJ', 'MG', 'RJ']}
+df = pd.DataFrame(data)
+
+frequencia_estado(df, 'Estado', 'Frequência dos Estados do Brasil')
+
+def grafico_linha(dataframe, column_names, x_axis_label, y_axis_label, title):
+    """
+    Cria um gráfico de linhas com marcadores nos pontos a partir de um DataFrame e uma lista de nomes de colunas para as linhas.
+
+    Parâmetros:
+    - dataframe (DataFrame):
+        O DataFrame contendo os dados.
+    - column_names (list):
+        Uma lista de nomes de colunas para as linhas do gráfico.
+    - x_axis_label (str):
+        Rótulo do eixo X.
+    - y_axis_label (str):
+        Rótulo do eixo Y.
+    - title (str):
+        Título do gráfico.
+
+    Exemplo:
+    >>> import pandas as pd
+    >>> data = {'Ano': [2010, 2011, 2012, 2013, 2014],
+    ...         'Vendas_A': [100, 120, 140, 160, 180],
+    ...         'Vendas_B': [80, 90, 110, 120, 130]}
+    >>> df = pd.DataFrame(data)
+    >>> column_names = ['Vendas_A', 'Vendas_B']
+    >>> grafico_linha(df, column_names, 'Ano', 'Vendas', 'Vendas por Ano')
+    """
+    for column_name in column_names:
+        plt.plot(dataframe[x_axis_label], dataframe[column_name], marker='o', label=column_name)
+
+    plt.xlabel(x_axis_label)
+    plt.ylabel(y_axis_label)
+    plt.title(title)
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
 def grafico_barra(df, coluna_x, coluna_y, titulo, xlabel, ylabel):
     '''
     Cria um gráfico de barras a partir de um DataFrame.
@@ -159,6 +231,8 @@ def grafico_pizza(df, coluna, titulo):
     except KeyError as e:
         print(f"Erro ao criar o gráfico de pizza: {str(e)}")
         
+        
+# colunas específicas
 def grafico_colunas_duplas(df_renda, df_notas):
     '''
     Gera um gráfico de colunas duplas com as médias unificadas de renda e notas por estado.
@@ -223,6 +297,6 @@ def grafico_colunas_duplas(df_renda, df_notas):
     except ValueError as e:
         print(f"Erro ao gerar o gráfico: {str(e)}")
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     import doctest
     doctest.testmod()
