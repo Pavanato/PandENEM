@@ -41,18 +41,18 @@ def separar_ufs_e_anos(df: pd.DataFrame, ufs: list, anos: list) -> pd.DataFrame:
     2          MG    2021    90
     3          SP    2021    85
     """
+    
     ufs = [uf.upper() for uf in ufs]
 
     if 'SG_UF_PROVA' not in df.columns or 'NU_ANO' not in df.columns:
         raise ValueError("As colunas 'SG_UF_PROVA' e 'NU_ANO' devem estar presentes no DataFrame.")
-
     if not set(ufs).issubset(df['SG_UF_PROVA']):
         raise ValueError("A entrada fornecida não contém estados válidos.")
-
     if not set(anos).issubset(df['NU_ANO']):
         raise ValueError("A entrada fornecida não contém anos válidos.")
 
     return df[(df['SG_UF_PROVA'].isin(ufs)) & (df['NU_ANO'].isin(anos))]
+
 
 def separar_regiao(df: pd.DataFrame, regiao: str) -> pd.DataFrame:
     """
@@ -88,6 +88,7 @@ def separar_regiao(df: pd.DataFrame, regiao: str) -> pd.DataFrame:
     """
     
     regiao = regiao.lower()
+    # Dicionário para mapear as UFs de cada região
     regioes = {"norte": ["AM", "RR", "AP", "PA", "TO", "RO", "AC"],
                "nordeste": ["MA", "PI", "CE", "RN", "PE", "PB", "SE", "AL", "BA"],
                "centro_oeste": ["MT", "MS", "GO"],
@@ -99,8 +100,9 @@ def separar_regiao(df: pd.DataFrame, regiao: str) -> pd.DataFrame:
     if regiao not in regioes:
         raise ValueError("A entrada fornecida não é uma região válida")
     
-    filt = df["SG_UF_PROVA"].isin(regioes[regiao])
-    return df.loc[filt]
+    filtro = df["SG_UF_PROVA"].isin(regioes[regiao])
+
+    return df.loc[filtro]
 
 def media(df : pd.DataFrame) -> pd.DataFrame:
     """
@@ -115,9 +117,30 @@ def media(df : pd.DataFrame) -> pd.DataFrame:
     -------
     pd.DataFrame: 
         O DataFrame modificado com a nova coluna de médias.
+
+    Exemplo
+    -------
+    >>> import pandas as pd
+    >>> data = {'NU_NOTA_CN': [75, 85, 90, 88, 92],
+    ...         'NU_NOTA_CH': [80, 78, 92, 87, 88],
+    ...         'NU_NOTA_LC': [92, 89, 78, 90, 85],
+    ...         'NU_NOTA_MT': [87, 90, 85, 88, 92],
+    ...         'NU_NOTA_REDACAO': [88, 92, 85, 90, 87]}
+    >>> df = pd.DataFrame(data)
+    >>> media(df)
+       NU_NOTA_CN  NU_NOTA_CH  NU_NOTA_LC  NU_NOTA_MT  NU_NOTA_REDACAO  media
+    0          75          80          92          87               88   84.4
+    1          85          78          89          90               92   86.8
+    2          90          92          78          85               85   86.0
+    3          88          87          90          88               90   88.6
+    4          92          88          85          92               87   88.8
     """
     colunas_media = ["NU_NOTA_CN", "NU_NOTA_CH", "NU_NOTA_LC", "NU_NOTA_MT", "NU_NOTA_REDACAO"]
+    if not set(colunas_media).issubset(df.columns):
+        raise ValueError("O DataFrame deve conter as colunas necessárias para o cálculo da média.")
+        
     df['media'] = df[colunas_media].mean(axis=1)
+
     return df
 
 def nota_1000_ano(df : pd.DataFrame, anos : list) -> pd.DataFrame:
@@ -141,12 +164,23 @@ def nota_1000_ano(df : pd.DataFrame, anos : list) -> pd.DataFrame:
     ValueError
         Se as colunas 'NU_NOTA_REDACAO' e 'NU_ANO' não estiverem presentes no DataFrame.
 
+    Exemplo
+    -------
+    >>> import pandas as pd
+    >>> data = {'NU_ANO': [2020, 2020, 2020, 2021, 2021],
+    ...         'NU_NOTA_REDACAO': [1000, 900, 1000, 1000, 950]}
+    >>> df = pd.DataFrame(data)
+    >>> anos_para_verificar = [2020, 2021]
+    >>> nota_1000_ano(df, anos_para_verificar)
+       NU_ANO  Quantidade de notas 1000
+    0    2020                         2
+    1    2021                         1
+
     """
     if 'NU_NOTA_REDACAO' not in df.columns or 'NU_ANO' not in df.columns:
         raise ValueError("As colunas 'NU_NOTA_REDACAO' e 'NU_ANO' devem estar presentes no DataFrame.")
     
     resultados = []
-
     for ano in anos:
         ocorrencias = (df[df['NU_ANO'] == ano]['NU_NOTA_REDACAO'] == 1000).sum()
         resultados.append({'NU_ANO': ano, 'Quantidade de notas 1000': ocorrencias})
@@ -195,11 +229,9 @@ def renda_media_per_capita_familiar(df : pd.DataFrame, colunas_extras : list) ->
     
     '''
     try:
-        # Verifica se as colunas necessárias estão presentes no DataFrame
         if 'Q006' not in df.columns or 'Q005' not in df.columns:
             raise ValueError("O DataFrame deve conter as colunas 'Q006' e 'Q005'.")
 
-        # Dicionário de valores mínimos e máximos das rendas
         valores_minimos_maximos = {
             'A': (0, 0),
             'B': (0, 998.00),
@@ -217,26 +249,18 @@ def renda_media_per_capita_familiar(df : pd.DataFrame, colunas_extras : list) ->
             'N': (9980.00, 11976.00),
             'O': (11976.00, 14970.00),
             'P': (14970.00, 19960.00),
-            'Q': (19961.00, 50000.00)  # Valor máximo padrão para Q
+            'Q': (19961.00, 50000.00)
         }
     
-        # Calcule as médias das rendas com base no dicionário de valores mínimos e máximos
         valores_medios = {letra: sum(valores) / 2 for letra, valores in valores_minimos_maximos.items()}
-    
-        # Mapeia a coluna "Q006" do DataFrame diretamente para as médias
         df['Q006'] = df['Q006'].map(valores_medios.get)
-    
-        # Divide os valores da coluna "Q006" pelos valores correspondentes na coluna "Q005"
         df['Renda_Per_Capita'] = df['Q006'] / df['Q005']
-    
-        # Crie um novo DataFrame com a coluna "Renda_Per_Capita" e colunas extras
         df_renda_e_colunas_específicas = df[['Renda_Per_Capita'] + colunas_extras]
     
         return df_renda_e_colunas_específicas
 
     except KeyError as e:
         raise ValueError(f"Erro ao acessar coluna: {str(e)}")
-        
     except TypeError as typeerro:
         raise TypeError(f"Erro ao acessar coluna: {str(typeerro)}")
         
@@ -272,11 +296,9 @@ def nota_unificada_por_estado_e_ano(df : pd.DataFrame) -> pd.DataFrame:
     4          SP    2021            88.0
     """
     try:
-        # Verifica se as colunas necessárias existem no DataFrame
         if 'SG_UF_PROVA' not in df.columns or 'media' not in df.columns or 'NU_ANO' not in df.columns:
             raise ValueError("Colunas 'SG_UF_PROVA', 'NU_ANO' e 'media' não encontradas no DataFrame.")
 
-        # Calcula a média das notas por estado e ano
         medias = df.groupby(['SG_UF_PROVA', 'NU_ANO'])['media'].mean().reset_index()
         medias.columns = ['SG_UF_PROVA', 'NU_ANO', 'Nota_unificada']
 
@@ -318,17 +340,13 @@ def renda_unificada_por_estado(df : pd.DataFrame) -> pd.DataFrame:
     1            2            700.0
     '''
     try:
-        # Verifica se as colunas necessárias estão presentes no DataFrame
         if 'SG_UF_PROVA' not in df.columns or 'Renda_Per_Capita' not in df.columns:
             raise ValueError("O DataFrame deve conter as colunas 'SG_UF_PROVA' e 'Renda_Per_Capita'.")
 
-        # Calcula a média da renda per capita por estado
         df_renda_unificada_por_estado = df.groupby('SG_UF_PROVA').agg({'Renda_Per_Capita': 'mean'}).reset_index()
 
-        # Renomeia a coluna "Renda_Per_Capita" para "Renda_unificada"
         df_renda_unificada_por_estado.rename(columns={'Renda_Per_Capita': 'Renda_unificada'}, inplace=True)
         
-
         return df_renda_unificada_por_estado[['SG_UF_PROVA', 'Renda_unificada']]
 
     except KeyError as e:
@@ -347,6 +365,20 @@ def media_internet(df : pd.DataFrame) -> pd.DataFrame:
     -------
     pd.DataFrame    
         Um DataFrame com a média das colunas "media_A" e "media_B".
+
+    Exemplos
+    -------
+    >>> import pandas as pd
+    >>> data = {'Q025': ['A', 'A', 'B', 'A', 'B'],
+    ...         'NU_NOTA_CN': [75, 85, 90, 88, 92],
+    ...         'NU_NOTA_CH': [80, 78, 92, 87, 88],
+    ...         'NU_NOTA_LC': [92, 89, 78, 90, 85],
+    ...         'NU_NOTA_MT': [87, 90, 85, 88, 92],
+    ...         'NU_NOTA_REDACAO': [88, 92, 85, 90, 87]}
+    >>> df = pd.DataFrame(data)
+    >>> media_internet(df)
+       media_sem_internet  media_com_internet
+    0                86.6                87.4
     """
     try:
         # Verifica se a coluna "Q025" está presente no DataFrame
@@ -372,106 +404,6 @@ def media_internet(df : pd.DataFrame) -> pd.DataFrame:
 
     except ValueError as e:
         print(f"Erro ao calcular médias por 'Q025': {str(e)}")
-
-def media_por_estado(df : pd.DataFrame, coluna_media : str) -> pd.DataFrame:
-    """
-    Calcula a média das notas por estado a partir de um DataFrame fornecido. Ela usa uma lista de siglas dos
-    estados brasileiros para iterar e calcular a média das notas para cada estado.
-
-    Parâmetros
-    ----------
-    df : pd.DataFrame
-        Um DataFrame contendo as notas por estado.
-    coluna_media : str
-        O nome da coluna que contém as notas a serem usadas para o cálculo da média.
-
-    Retorna
-    -------
-    pd.DataFrame
-        DataFrame com duas colunas: 'UF' (siglas dos estados) e 'media' (média das notas).
-
-    Exemplos
-    -------
-    >>> import pandas as pd
-    >>> data = {'NU_ANO': [2020, 2020, 2020, 2020, 2020],
-    ...         'SG_UF_PROVA': ['SP', 'RJ', 'MG', 'SP', 'RJ'],
-    ...         'Nota': [70, 80, 90, 85, 95]}
-    >>> df = pd.DataFrame(data)
-    >>> coluna_media = 'Nota'
-    >>> resultado = media_por_estado(df, coluna_media)
-    >>> print(resultado)
-    
-
-    """
-    list_uf = [
-        'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF',
-        'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA',
-        'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS',
-        'RO', 'RR', 'SC', 'SP', 'SE', 'TO'
-    ]
-
-    # Define um índice no DataFrame com base nos anos e nas siglas dos estados
-    df.set_index(['NU_ANO', 'SG_UF_PROVA'], inplace=True)
-
-    data_dict = {}
-    # Calcula a média de notas para cada estado e armazena em um dicionário
-    for uf in list_uf:
-        data_dict[uf] = df.xs(uf, level=1)[str(coluna_media)].mean(axis=0)
-
-    data = {
-        'UF': list(data_dict.keys()),
-        'media': list(data_dict.values())
-    }
-
-    # Converte o dicionário em um DataFrame
-    df_result = pd.DataFrame(data)
-
-    return df_result
-
-def media_por_area_de_conhecimento(df : pd.DataFrame) -> pd.DataFrame:
-    """
-    Calcula a média das notas por área de conhecimento e cria um DataFrame.
-
-    Parâmetros
-    ----------
-    df : pd.DataFrame
-        Um DataFrame contendo as notas por área de conhecimento.
-
-    Retorna
-    -------
-    pd.DataFrame
-        Um DataFrame contendo a média das notas por área de conhecimento, com as seguintes colunas: "CN", "CH", "LC", "MT", "RD"
-        (Ciências da Natureza, Ciências Humanas, Linguagens e Códigos, Matemática, Redação).
-
-    Exemplo
-    -------
-    >>> import pandas as pd
-    >>> data = {'NU_NOTA_CN': [650.0, 720.0, 680.0],
-    ...         'NU_NOTA_CH': [700.0, 680.0, 720.0],
-    ...         'NU_NOTA_LC': [710.0, 690.0, 730.0],
-    ...         'NU_NOTA_MT': [720.0, 710.0, 690.0],
-    ...         'NU_NOTA_REDACAO': [800, 750, 820]}
-    >>> df = pd.DataFrame(data)
-    >>> media_por_area_de_conhecimento(df)
-               CN     CH     LC          MT     RD
-    0  683.333333  700.0  710.0  706.666667  790.0
-    """
-    if not isinstance(df, pd.DataFrame):
-        raise ValueError("O parâmetro 'df' deve ser um DataFrame.")
-    
-    # Lista de colunas que serão usadas para calcular a média
-    colunas_media = ["NU_NOTA_CN", "NU_NOTA_CH", "NU_NOTA_LC", "NU_NOTA_MT", "NU_NOTA_REDACAO"]
-
-    for coluna in colunas_media:
-        if coluna not in df.columns:
-            raise ValueError(f"A coluna {coluna} não está presente no DataFrame.")
-        
-    # Calcula a média das notas em cada coluna e transforma o resultado em um DataFrame
-    df = df[colunas_media].mean().to_frame().T
-    df.columns = ["CN", "CH", "LC", "MT", "RD"]
-
-    return df
-
 
 
 doctest.testmod()
