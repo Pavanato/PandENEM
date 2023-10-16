@@ -9,6 +9,10 @@ Este arquivo contém de forma detalhada os resultados da minha analise dos dados
 - visualização 
 - conclusões
 
+Como já foi dito, o foco do nosso trabalho era relacionar a pandemia da Covid-19 com os rendimentos dos alunos no ENEM dos anos antes e durante ela. 
+No início, pensávamos que seria evidente uma queda do rendimento, já que a pandemia afetou negativamente quase todas as áreas de nossas vidas. Porém, o resultado encotrado não seguiu fielmente esta lógica. Calculando a media das notas do ENEM, não houve uma discrepância muito grande na média. Mas, ao calcularmos os desvio padrão das notas, obtemos um deslocamento das curvas de 2020 e 2021, anos de pico da pandemia, para a esquerda (mais pessoas tiveram notas menores), confirmando assim, a premissa de que a Covid-19 piorou o rendimento dos alunos. 
+
+
 ## Rendimento do Brasil antes e depois da pandemia
 
 Sabemos que a pandemia da covid-19 impactou a vida de todos nós. Por isso, queríamos analisar como que a pandemia afetou as notas dos alunos no ENEM. A análise, apesar de conter os ano 2019 (antes da pandemia), 2020, 2021, 2022 (anos de pandemia)
@@ -16,29 +20,34 @@ Sabemos que a pandemia da covid-19 impactou a vida de todos nós. Por isso, quer
 
 - #### Média das notas e renda do Brasil durante os anos 
 
-![titulo](\IMAGENS_ANALISE\medias_renda_nota.png)
+<img src="IMAGENS_ANALISE/medias_renda_nota.png" alt="2019" width="%"/>
+
+
 
 Neste gráfico podemos perceber que houveram variações significativas ba rebda por participantes, provavelmente devido a ajustes salariais. Já a média das notas nos anos não tiveram grandes alterações. Isto devido a distribuição das notas que segue a distribuição normal.
 - ##### Média das notas no ENEM por ano
 
-![titulo](\IMAGENS_ANALISE\medias_notas.png)
+<img src="IMAGENS_ANALISE/medias_notas.png" alt="" width="%"/>
 
 Sem muitas mudanças na média
 
 
 - #### distribuição normal das notas por ano 
 #### 2019
-![2019](\IMAGENS_ANALISE\2019.png)
+<img src="IMAGENS_ANALISE/2019.png" alt="" width="%"/>
+
 #### 2020
-![titulo](\IMAGENS_ANALISE\2020.png)
+<img src="IMAGENS_ANALISE/2020.png" alt="" width="%"/>
+
 
 
 #### 2021
-![titulo](\IMAGENS_ANALISE\2021.png)
+<img src="IMAGENS_ANALISE/2021.png" alt="" width="%"/>
 
 
 #### 2022
-![titulo](\IMAGENS_ANALISE\2022.png)
+<img src="IMAGENS_ANALISE/2022.png" alt="" width="%"/>
+
 
 A curva de 2019 e 2022 não possui inclinações tão fortes para a esquerda quando dos anos de 2020 e 2021 (é coincidência que estes foram os anos em que os efeitos da pandemia foram mais acentuados? Com certeza não).
  Ao calcularmos os desvio padrão das notas, obtemos um deslocamento das curvas de 2020 e 2021, anos de pico da pandemia, para a esquerda (mais pessoas tiveram notas menores), confirmando assim, a premissa de que a Covid-19 piorou o rendimento dos alunos. 
@@ -133,5 +142,3 @@ piores: Paraná, Pernambuco
 
 <img src="IMAGENS_ANALISE/p2022.png" alt="2019" width="%"/>
 piores: São Paulo, Ceará
-
-
