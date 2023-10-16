@@ -16,9 +16,9 @@ Temos como hipótese se houve uma queda no desempenho de 2019 para 2020 dos part
 
 Com base nisso, podemos analisar o gráfico abaixo, que relaciona a média de todos os alunos em cada matéria em seus respectivos anos.
 
-<img src="imagens\media_materia.png" alt="Descrição da imagem" width="80%"/>
+<img src="imagens\media_certa.png" alt="Descrição da imagem" width="80%"/>
 
-Podemos observar que de todas os tópicos o único que não foi decrescente foi o de Linguagens, Códigos e suas Tecnologias. Então apenas neste critério gera algo congruente com a hipótese de que o desempenho caiu de 2019 para 2020 e depois se elevou.
+Podemos observar que de todas os tópicos o único que não foi crescente foi o de Linguagens, Códigos e suas Tecnologias. Então apenas neste critério gera algo congruente com a hipótese de que o desempenho caiu e depois se elevou.
 
 <h3>Acesso internet</h3>
 
