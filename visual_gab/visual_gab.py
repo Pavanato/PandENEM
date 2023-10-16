@@ -1,68 +1,66 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def plot_grafico_de_barras(dataframe, coluna_x, coluna_y, titulo, rotulo_x, rotulo_y):
+def scatter_plot_a_partir_de_dataframe(df, coluna_x, coluna_y, titulo):
     """
-    Cria e exibe um gráfico de barras a partir de um DataFrame.
+    Crie um gráfico de dispersão a partir de um DataFrame com as colunas x e y especificadas.
 
-    Parâmetros:
-    - dataframe: pd.DataFrame
-        O DataFrame contendo os dados para o gráfico.
-    - coluna_x: str
-        A coluna a ser usada no eixo x.
-    - coluna_y: str
-        A coluna a ser usada no eixo y.
-    - titulo: str
-        O título do gráfico.
-    - rotulo_x: str
-        O rótulo do eixo x.
-    - rotulo_y: str
-        O rótulo do eixo y.
+    Parâmetros
+    ----------
+    df (pd.DataFrame): O DataFrame contendo os dados.
+    coluna_x (str): O nome da coluna para o eixo x.
+    coluna_y (str): O nome da coluna para o eixo y.
+    titulo (str): Título para o gráfico de dispersão (o padrão é "Gráfico de Dispersão").
     """
-    plt.figure(figsize=(10, 6))
-    plt.bar(dataframe[coluna_x], dataframe[coluna_y])
+    # Verifique se as colunas especificadas existem no DataFrame
+    if coluna_x not in df.columns or coluna_y not in df.columns:
+        raise ValueError("As colunas especificadas não existem no DataFrame.")
+
+    # Crie um gráfico de dispersão
+    plt.figure(figsize=(8, 6))
+    plt.scatter(df[coluna_x], df[coluna_y], label=f'{coluna_x} vs {coluna_y}')
+
+    # Defina rótulos e título
+    plt.xlabel(coluna_x)
+    plt.ylabel(coluna_y)
     plt.title(titulo)
-    plt.xlabel(rotulo_x)
-    plt.ylabel(rotulo_y)
-    plt.xticks(rotation=45)  # Rotaciona os rótulos do eixo x, se necessário
+
+    # Exiba o gráfico
+    plt.legend()
+    plt.grid()
     plt.show()
 
-
-def plot_grafico_de_pizza(dataframe, coluna, title):
+def plot_grafico_de_pizza(dataframe, colunas, title):
     """
     Cria e exibe um gráfico de pizza a partir de um DataFrame.
 
-    Parâmetros:
+    Parâmetros
     ----------
     dataframe : pd.DataFrame
         O DataFrame contendo os dados para o gráfico de pizza.
     
-    coluna : str
-        O nome da coluna no DataFrame que contém os valores a serem representados no gráfico de pizza.
+    colunas : list
+        Uma lista de nomes de colunas no DataFrame que contêm os valores a serem combinados no gráfico de pizza.
     
     title : str
         O título do gráfico de pizza.
     """
-    # Extrai os valores da coluna especificada
-    valores = dataframe[coluna]
-
-    # Extrai os rótulos da coluna de índices
-    rotulos = dataframe.index
-
-    # Cria um gráfico de pizza
+    # Somar os valores das colunas especificadas
+    valores = dataframe[colunas].sum()
+    
+    # Cria um gráfico de pizza com a soma total
     plt.figure(figsize=(8, 8))
-    plt.pie(valores, labels=rotulos, autopct='%1.1f%%', startangle=140)
+    plt.pie(valores, labels=valores.index, autopct='%1.1f%%', startangle=140)
     plt.axis('equal')  # Assegura que o gráfico seja um círculo.
     plt.title(title)
     plt.show()
-
-import matplotlib.pyplot as plt
 
 def plot_grafico_de_linha(dataframe, column_names, x_axis_label, y_axis_label, title):
     """
     Cria um gráfico de linhas com marcadores nos pontos a partir de um DataFrame e uma lista de nomes de colunas para as linhas.
 
-    Parâmetros:
+    Parâmetros
+    ----------
     - dataframe: DataFrame
         O DataFrame contendo os dados.
     - column_names: list
@@ -73,15 +71,6 @@ def plot_grafico_de_linha(dataframe, column_names, x_axis_label, y_axis_label, t
         Rótulo do eixo Y.
     - title: str
         Título do gráfico.
-
-    Exemplo:
-    >>> import pandas as pd
-    >>> data = {'Ano': [2010, 2011, 2012, 2013, 2014],
-    ...         'Vendas_A': [100, 120, 140, 160, 180],
-    ...         'Vendas_B': [80, 90, 110, 120, 130]}
-    >>> df = pd.DataFrame(data)
-    >>> column_names = ['Vendas_A', 'Vendas_B']
-    >>> plot_line_chart_with_markers(df, column_names, 'Ano', 'Vendas', 'Vendas por Ano')
     """
     for column_name in column_names:
         plt.plot(dataframe[x_axis_label], dataframe[column_name], marker='o', label=column_name)
@@ -92,15 +81,4 @@ def plot_grafico_de_linha(dataframe, column_names, x_axis_label, y_axis_label, t
     plt.legend()
     plt.grid(True)
     plt.show()
-
-# Exemplo de uso:
-if __name__ == "__main__":
-    import pandas as pd
-
-    data = {'Ano': [2010, 2011, 2012, 2013, 2014],
-            'Vendas_A': [100, 120, 140, 160, 180],
-            'Vendas_B': [80, 90, 110, 120, 130]}
-    df = pd.DataFrame(data)
-    column_names = ['Vendas_A', 'Vendas_B']
-    plot_grafico_de_linha(df, column_names, 'Ano', 'Vendas', 'Vendas por Ano')
 
