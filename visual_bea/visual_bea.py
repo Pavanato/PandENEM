@@ -1,26 +1,27 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
 
 
-
-def frequencia_estado(df, coluna_estado, titulo):
+def frequencia_estado(df, coluna_estado, titulo): 
     '''
-    Cria gráfico de barras com todos os estados do Brasil com sua frequencia no DataFrame
+    Cria um gráfico de barras com a frequência de estados a partir de uma coluna em um DataFrame.
+
     Parameters
     ----------
     df : pd.DataFrame
         
     coluna_estado : str
-        Nome da coluna com os estados.
+           Nome da coluna com os estados
     titulo : str
-        Título do gráfico.
+        
 
     Returns
     -------
     None.
 
     '''
-    
     # Contagem da frequência dos estados
     frequencia_estados = df[coluna_estado].value_counts()
 
@@ -35,133 +36,93 @@ def frequencia_estado(df, coluna_estado, titulo):
     # Exibir o gráfico
     plt.show()
 
-# Exemplo de uso
-data = {'Estado': ['SP', 'RJ', 'MG', 'SP', 'MG', 'SP', 'RJ', 'MG', 'RJ']}
-df = pd.DataFrame(data)
-
-frequencia_estado(df, 'Estado', 'Frequência dos Estados do Brasil')
-
-def grafico_linha(dataframe, column_names, x_axis_label, y_axis_label, title):
-    '''
-    Parameters
-    ----------
-    dataframe : pd.DataFrame
-        
-    column_names : list
-        lista com as colunas que você quer usar.
-    x_axis_label : str
-        nome para eixo x.
-    y_axis_label : str
-        nome para eixo y.
-    title : str
-        
-
-    Returns
-    -------
-    None.
-
-    '''
-    for column_name in column_names:
-        plt.plot(dataframe[x_axis_label], dataframe[column_name], marker='o', label=column_name)
-
-    plt.xlabel(x_axis_label)
-    plt.ylabel(y_axis_label)
-    plt.title(title)
-    plt.legend()
-    plt.grid(True)
-    plt.show()
-
-def grafico_barra(df, coluna_x, coluna_y, titulo, xlabel, ylabel):
+def grafico_barra(df, coluna_x, coluna_y, titulo, xlabel, ylabel, num_divisoes=10):
     '''
     Cria um gráfico de barras a partir de um DataFrame.
 
     Parameters
     ----------
     df : pd.DataFrame
-        
+       
     coluna_x : str
-        Nome da coluna para o eixo x
-    coluna_y : str
-        Nome da coluna para o eixo y.
+        Nome da coluna para o eixo x.
+    coluna_y : list
+        Nome das colunas para o eixo y.
+
     titulo : str
         
     xlabel : str
-        Nome do eixo x.
+        nome eixo x.
     ylabel : str
-        Nome do eixo y.
+        nome eixo y.
+    
+    num_divisoes (int):
+        Número de divisões no eixo y. O padrão é 10.
+
+    Raises:
+    ValueError: Se o DataFrame for nulo (None).
+
+    Returns:
+    None.
+    '''
+ 
+    try:
+        # Verifica se a coluna_x está presente no DataFrame
+        if coluna_x not in df.columns:
+            raise KeyError(f"A coluna {coluna_x} para o eixo x não foi encontrada no DataFrame dado.")
+
+        # Verifica se todas as colunas em coluna_y estão presentes no DataFrame
+        for y_column in coluna_y:
+            if y_column not in df.columns:
+                raise KeyError(f"A coluna {y_column}  para o eixo y não foi encontrada no DataFrame dado.")
+
+        categorias = df[coluna_x]
+        bar_width = 0.35
+        posicoes = np.arange(len(categorias))
+        plt.figure(figsize=(10, 6))
+
+        for i, y_column in enumerate(coluna_y):
+            offset = i * bar_width
+            plt.bar(posicoes + offset, df[y_column], width=bar_width, label=y_column)
+
+        plt.title(titulo)
+        plt.xlabel(xlabel)
+        plt.ylabel(ylabel)
+        plt.xticks(posicoes + bar_width * (len(coluna_y) - 1) / 2, categorias)
+        plt.legend()
+        plt.grid(True)
+        plt.show()
+    
+    except KeyError as e:
+        print(f"Erro: {e}")
+
+
+def grafico_linha_barra(df, x_col, y_linha, y_col, titulo):
+    '''
+    Cria um gráfico que combina gráfico de linha com gráfico de barras a partir de um DataFrame.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+     
+    x_col : str
+        
+    y_linha : str
+       
+    y_col : str
+        
+    titulo : str
+        
 
     Raises
     ------
-    ValueError
-        DESCRIPTION.
-    KeyError
-        DESCRIPTION.
+    KeyError:
+         Se uma ou mais colunas não forem encontradas no DataFrame.
 
     Returns
     -------
     None.
 
-    '''
-    
-    try:
-        # Verifica se o DataFrame não é nulo (None)
-        if df is None:
-            raise ValueError("O DataFrame 'df' não pode ser nulo.")
-
-        # Verifica se as colunas especificadas existem no DataFrame
-        if coluna_x not in df.columns or coluna_y not in df.columns:
-            raise KeyError("As colunas especificadas não existem no DataFrame.")
-
-        # Extração dos dados do DataFrame
-        x_data = df[coluna_x]
-        y_data = df[coluna_y]
-
-        # Detalhes do gráfico de barras
-        plt.figure(figsize=(10, 6))
-        plt.bar(x_data, y_data, color='skyblue')
-        plt.title(titulo)
-        plt.xlabel(xlabel)
-        plt.ylabel(ylabel)
-
-        # Rotaciona os rótulos do eixo x para melhor legibilidade, se necessário
-        plt.xticks(rotation=45)
-
-        # Exibe o gráfico
-        plt.tight_layout()
-        plt.show()
-
-    except ValueError as e:
-        print(f"Erro ao criar o gráfico de barras: {str(e)}")
-    except KeyError as e:
-        print(f"Erro ao criar o gráfico de barras: {str(e)}")
-
-
-    '''
-    Cria um gráfico que combina gráfico de linha com gráfico de barras a partir de um DataFrame.
-
-    Parameters:
-    df (pd.DataFrame): O DataFrame de onde os dados serão extraídos.
-    x_col (str): Nome da coluna para o eixo x.
-    y_linha (str): Nome da coluna para o eixo y do gráfico de linha.
-    y_col (str): Nome da coluna para o eixo y do gráfico de barras.
-    titulo (str): Título do gráfico.
-
-    Raises:
-    KeyError: Se uma ou mais colunas não forem encontradas no DataFrame.
-
-    Returns:
-    None.
-
-    Example:
-    >>> data = {'Ano': [2010, 2011, 2012, 2013, 2014],
-    ...         'Vendas': [100, 120, 150, 140, 180],
-    ...         'Lucro': [20, 30, 35, 25, 40]}
-    >>> df = pd.DataFrame(data)
-    >>> x_col = 'Ano'
-    >>> y_linha = 'Vendas'
-    >>> y_col = 'Lucro'
-    >>> titulo = 'Vendas e Lucro Anuais'
-    >>> grafico_linha_barra(df, x_col, y_linha, y_col, titulo)  # Este comando deve exibir o gráfico
     '''
     try:
         # Verifica se as colunas especificadas existem no DataFrame
@@ -188,6 +149,7 @@ def grafico_barra(df, coluna_x, coluna_y, titulo, xlabel, ylabel):
     except KeyError as e:
         print(f"Erro ao criar o gráfico combinado: {str(e)}")
 
+
 def grafico_pizza(df, coluna, titulo):
     '''
     Cria um gráfico de pizza que mostra a distribuição das frequências dos elementos na coluna.
@@ -197,21 +159,21 @@ def grafico_pizza(df, coluna, titulo):
     df : pd.DataFrame
         
     coluna : str
-       Nome da coluna específica a ser usada para o gráfico de pizza
+        
     titulo : str
-    
-
+  
     Raises
     ------
     KeyError
-        DESCRIPTION.
+       Se a coluna selecionada não for encontrada no DataFrame.
+
 
     Returns
     -------
     None.
 
     '''
-
+    
     try:
         # Verifica se a coluna selecionada existe no DataFrame
         if coluna not in df.columns:
@@ -231,61 +193,172 @@ def grafico_pizza(df, coluna, titulo):
 
     except KeyError as e:
         print(f"Erro ao criar o gráfico de pizza: {str(e)}")
-        
-        
-# colunas específicas
-def grafico_colunas_duplas(df_renda, df_notas):
-    '''
-    Gera um gráfico de colunas duplas com as médias unificadas de renda e notas por estado.
 
-    Parameters
+
+
+def grafico_colunas_duplas_NUMERICA(df, colunas_duplas, título, num_divisoes=10):
+    '''
+    Gera um gráfico de colunas duplas com as colunas especificadas de um DataFrame.
+
+    Parameters:
     ----------
-    df_renda : pd.DataFrame
-        DataFrame contendo as médias unificadas de renda por estado e a coluna 'CO_UF_PROVA'.
-    df_notas : pd.DataFrame
-        DataFrame contendo as médias unificadas de notas por estado e a coluna 'CO_UF_PROVA'.
+    df (pd.DataFrame): 
+        DataFrame contendo as colunas especificadas e uma coluna de categorias (p. ex., estados).
 
-    Raises
-    ------
-    ValueError
-        Se as colunas 'CO_UF_PROVA' não existirem nos DataFrames..
+    colunas_duplas (list):
+        Lista de nomes das colunas que você deseja incluir no gráfico de colunas duplas.
+    
+    título (str):
+        título do gráfico
 
-    Returns
-    -------
-    None.
+    num_divisoes (int):
+        Número de divisões no eixo y. O padrão é 10.
+        
+    Returns:
+    ----------
+    None
+
+    Raises:
+    ValueError: Se a coluna de categorias não existir no DataFrame ou se alguma coluna especificada não existir.
 
     '''
-    
     try:
-        # Verifica se as colunas 'CO_UF_PROVA' existem nos DataFrames
-        if 'CO_UF_PROVA' not in df_renda.columns or 'CO_UF_PROVA' not in df_notas.columns:
-            raise ValueError("As colunas 'CO_UF_PROVA' não existem nos DataFrames.")
+        # Verifica se a coluna de categorias existe no DataFrame
+        if 'NU_ANO' not in df.columns:
+            raise ValueError("A coluna de categorias (p. ex., estados) não existe no DataFrame.")
 
-        # Mesclar os DataFrames com base na coluna 'CO_UF_PROVA' independentemente da ordem
-        df_merged = df_renda.merge(df_notas, on='CO_UF_PROVA', how='outer')
+        # Verifica se todas as colunas especificadas existem no DataFrame
+        for col in colunas_duplas:
+            if col not in df.columns:
+                raise ValueError(f"A coluna '{col}' não existe no DataFrame.")
+
+        # Calcula o valor máximo nas colunas selecionadas
+        valor_maximo = max(df[colunas_duplas].max())
+
+        # Calcula o próximo múltiplo de 10 maior ou igual ao valor máximo
+        proximo_multiplo_10 = np.ceil(valor_maximo / 10) * 10
+
+        # Calcula o intervalo igualmente espaçado
+        intervalo_fixo = proximo_multiplo_10 / num_divisoes
 
         # Configurar as posições das barras no gráfico
-        posicoes = range(len(df_merged['CO_UF_PROVA']))
+        posicoes = range(len(df['NU_ANO']))
 
         # Largura das barras
         largura = 0.4
 
         # Criar o gráfico de colunas duplas
-        plt.bar(posicoes, df_merged['Renda_unificada'], largura, label='Renda unificada')
-        plt.bar([pos + largura for pos in posicoes], df_merged['Nota_unificada'], largura, label='Nota unificada')
+        for i, col in enumerate(colunas_duplas):
+            plt.bar([pos + i * largura for pos in posicoes], df[col], largura, label=col)
 
-        # Configurar rótulos dos estados no eixo x
-        plt.xticks([pos + largura / 2 for pos in posicoes], df_merged['CO_UF_PROVA'])
+        # Configurar rótulos das categorias no eixo x
+        plt.xticks([pos + (len(colunas_duplas) - 1) * largura / 2 for pos in posicoes], df['NU_ANO'])
+
+        # Limitar o eixo y a divisões igualmente espaçadas a partir do zero
+        plt.yticks(np.arange(0, proximo_multiplo_10 + 1, intervalo_fixo))
 
         # Rotular os eixos
-        plt.xlabel('Estados')
+        plt.xlabel('anos')
         plt.ylabel('Valores')
 
         # Adicionar legenda
         plt.legend()
+        plt.title(título)
+
 
         # Mostrar o gráfico
         plt.show()
 
     except ValueError as e:
         print(f"Erro ao gerar o gráfico: {str(e)}")
+
+
+
+# Função para visualizar a distribuição das notas
+def visualizar_distribuicao_notas(df, coluna_nota):
+    '''
+    Plota um gráfico de distribuição das notas de um determinado ano.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        
+    coluna_nota : str
+        Nome da coluna de notas a ser visualizada.
+
+    Returns
+    -------
+    None.
+
+    '''
+   
+    try:
+        plt.figure(figsize=(10, 6))
+        sns.histplot(df[coluna_nota], kde=True)
+        plt.title(f'Distribuição das Notas - {coluna_nota}')
+        plt.xlabel(coluna_nota)
+        plt.ylabel('Frequência')
+        plt.show()
+        
+    except Exception as e:
+        print(f"Erro ao visualizar a distribuição de notas: {str(e)}")
+
+
+
+def graf_bar_par(df : pd.DataFrame, coluna_x : str, coluna_y : list, title : str, xlabel : str, ylabel : str):
+    '''
+    Recebe um DataFrame, nome e lista com colunas e retorna um gráfico
+    
+    Parâmetros
+    ----------
+    df : pd.DataFrame
+    
+    coluna_x : str
+        Coluna que dita os objetos analisados
+    
+    colunas_y : list
+        Lista com o nome das colunas do dataframe
+    
+    title : str
+    
+    xlabel : str
+
+    ylabel : str
+    
+    Returns
+    -------
+    None.
+
+    '''
+
+    try:
+        # Verifica se a coluna_x está presente no DataFrame
+        if coluna_x not in df.columns:
+            raise KeyError(f"A coluna {coluna_x} não foi encontrada no DataFrame dado.")
+
+        # Verifica se todas as colunas em coluna_y estão presentes no DataFrame
+        for y_column in coluna_y:
+            if y_column not in df.columns:
+                raise KeyError(f"A coluna {y_column} não foi encontrada no DataFrame dado.")
+
+        categorias = df[coluna_x]
+        bar_width = 0.35
+        posicoes = np.arange(len(categorias))
+        plt.figure(figsize=(10, 6))
+
+        for i, y_column in enumerate(coluna_y):
+            offset = i * bar_width
+            plt.bar(posicoes + offset, df[y_column], width=bar_width, label=y_column)
+
+        plt.title(title)
+        plt.xlabel(xlabel)
+        plt.ylabel(ylabel)
+        plt.xticks(posicoes + bar_width * (len(coluna_y) - 1) / 2, categorias)
+        plt.legend()
+        plt.grid(True)
+        plt.show()
+    
+    except KeyError as e:
+        print(f"Erro: {e}")
+        
+
