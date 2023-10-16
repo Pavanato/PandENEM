@@ -128,7 +128,14 @@ class TestAnalise(unittest.TestCase):
         df = pd.DataFrame(data)
         with self.assertRaises(ValueError):
             analise.calcular_medias_regiao_ano(df)
+
+#   função calcular_media_regiao_ano
+    def test_raises_coluna_inexistente(self):
+        data = {'NU_ANO': [2021, 2021, 2022, 2022, 2023], 'SG_UF_PROVA': ['SP', 'RJ', 'SP', 'RJ', 'SP']}
+        df = pd.DataFrame(data)
+        with self.assertRaises(ValueError):
+            analise.calcular_medias_regiao_ano(df)
             
             
 if __name__ == "__main__":
-    unittest.main(verbosity = 3)
+    unittest.main()
