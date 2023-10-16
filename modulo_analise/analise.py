@@ -1,5 +1,4 @@
 import pandas as pd
-import doctest
 
 def separar_ufs_e_anos(df: pd.DataFrame, ufs: list, anos: list) -> pd.DataFrame:
     """
@@ -502,5 +501,3 @@ def media_por_area_de_conhecimento(df : pd.DataFrame) -> pd.DataFrame:
     df.columns = ["CN", "CH", "LC", "MT", "RD"]
 
     return df
-
-doctest.testmod()
