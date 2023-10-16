@@ -74,16 +74,24 @@
 
 ### Comparação entre estados durante os anos
 #### 2019
-<img src="imagens\comparacao_2019.png" alt="Descrição da imagem" width="'100%">
+<p float="left">
+<img src="imagens\comparacao_2019.png" alt="Descrição da imagem" width="'80%">
+</p>
 
 #### 2020
-<img src="imagens\comparacao_2020.png" alt="Descrição da imagem" width="'100%">
+<p float="left">
+<img src="imagens\comparacao_2020.png" alt="Descrição da imagem" width="'80%">
+</p>
 
 #### 2021
-<img src="imagens\comparacao_2021.png" alt="Descrição da imagem" width="'100%">
+<p float="left">
+<img src="imagens\comparacao_2021.png" alt="Descrição da imagem" width="'80%">
+</p>
 
 #### 2022
-<img src="imagens\comparacao_2022.png" alt="Descrição da imagem" width="'100%">
+<p float="left">
+<img src="imagens\comparacao_2022.png" alt="Descrição da imagem" width="'80%">
+</p>
 
 ##### Observações:
 
@@ -93,7 +101,9 @@
 
 ## Análise do impacto da falta de internet
 ### Geral
-<img src="imagens\diferenca_media_internet.png" alt="Descrição da imagem" width="100%">
+<p float="left">
+<img src="imagens\diferenca_media_internet.png" alt="Descrição da imagem" width="80%">
+</p>
 
 ##### Observação:
 - Como esperado, a média dos participantes sem disponiblidade à internet é consideravelmente menor aos participantes que tem acesso.
@@ -112,23 +122,33 @@
 </table>
 
 #### 2019
-<img src="imagens\internet_2019.png" alt="Descrição da imagem" width="100%">
+<p float="left">
+<img src="imagens\internet_2019.png" alt="Descrição da imagem" width="80%">
+</p>
 
 #### 2020
-<img src="imagens\internet_2020.png" alt="Descrição da imagem" width="100%">
+<p float="left">
+<img src="imagens\internet_2020.png" alt="Descrição da imagem" width="80%">
+</p>
 
 #### 2021
-<img src="imagens\internet_2021.png" alt="Descrição da imagem" width="100%">
+<p float="left">
+<img src="imagens\internet_2021.png" alt="Descrição da imagem" width="80%">
+</p>
 
 #### 2022
-<img src="imagens\internet_2022.png" alt="Descrição da imagem" width="100%">
+<p float="left">
+<img src="imagens\internet_2022.png" alt="Descrição da imagem" width="80%">
+</p>
 
 ##### Observação:
 - O acesso à internet dos participantes aumentou ao percorrer dos anos. De fato, confirmando a tendência que acontece no Brasil. Mais pessoas conseguindo acesso.
 
 
 ## Quantidade de notas 1000
-<img src="imagens\notas_1000.png" alt="Descrição da imagem" width="100%">
+<p float="left">
+<img src="imagens\notas_1000.png" alt="Descrição da imagem" width="80%">
+</p>
 
 ##### Observação:
 - Como analisado na primeira seção, a média geral de cada estado aumentou (o que conseguimos depreender que a média nacional aumentou). Entretanto a quantidade de notas 1000 na redação diminuiu consideravelmente. Houve uma redução de quase 50% do ano de 2019 para o ano de 2020.
@@ -136,16 +156,24 @@
 ## Renda e nota
 
 #### 2019
-<img src="imagens\renda_2019.png" alt="Descrição da imagem" width="100%">
+<p float="left">
+<img src="imagens\renda_2019.png" alt="Descrição da imagem" width="80%">
+</p>
 
 #### 2020
-<img src="imagens\renda_2020.png" alt="Descrição da imagem" width="100%">
+<p float="left">
+<img src="imagens\renda_2020.png" alt="Descrição da imagem" width="80%">
+</p>
 
 #### 2021
-<img src="imagens\renda_2021.png" alt="Descrição da imagem" width="100%">
+<p float="left">
+<img src="imagens\renda_2021.png" alt="Descrição da imagem" width="80%">
+</p>
 
 #### 2022
-<img src="imagens\renda_2022.png" alt="Descrição da imagem" width="100%">
+<p float="left">
+<img src="imagens\renda_2022.png" alt="Descrição da imagem" width="80%">
+</p>
 
 ##### Observações:
 - Vimos na seção que comparava a média dos estados que 5 estados dominavam as maiores médias, salvo permutações, nesses 4 anos analisados. Conseguimos agora perceber que esses mesmos estados mantêm-se como os estados com as maiores rendas dos participantes do Enem (O Rio de Janeiro em alguns anos uma colocação atrás).
