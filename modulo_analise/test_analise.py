@@ -108,5 +108,27 @@ class TestAnalise(unittest.TestCase):
             analise.renda_unificada_por_estado(df)
 
 
+#   função calcular_medias_regiao_ano
+    def test_calculo_medias(self):
+        data = {'NU_ANO': [2021, 2021, 2022, 2022, 2023],
+                'SG_UF_PROVA': ['SP', 'RJ', 'SP', 'RJ', 'SP'],
+                'media': [7.5, 8.0, 7.8, 8.2, 7.9]}
+        df = pd.DataFrame(data)
+        resultado = analise.calcular_medias_regiao_ano(df)
+        self.assertEqual(resultado.loc[2021, 'Sudeste'], 7.75)
+        self.assertEqual(resultado.loc[2022, 'Sudeste'], 8.00)
+        self.assertEqual(resultado.loc[2023, 'Sudeste'], 7.90)
+        self.assertEqual(resultado.loc[2021, 'Média Brasil'], 7.75)
+        self.assertEqual(resultado.loc[2022, 'Média Brasil'], 8.00)
+        self.assertEqual(resultado.loc[2023, 'Média Brasil'], 7.90)
+
+    def test_excecao_colunas_faltando(self):
+        data = {'NU_ANO': [2021, 2021, 2022, 2022, 2023],
+                'media': [7.5, 8.0, 7.8, 8.2, 7.9]}
+        df = pd.DataFrame(data)
+        with self.assertRaises(ValueError):
+            analise.calcular_medias_regiao_ano(df)
+            
+            
 if __name__ == "__main__":
     unittest.main(verbosity = 3)
