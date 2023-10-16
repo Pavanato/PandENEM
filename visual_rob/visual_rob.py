@@ -1,9 +1,9 @@
 import pandas as pd
 import geopandas as gpd
 import matplotlib.pyplot as plt
+from matplotlib.colors import LinearSegmentedColormap
 
 def plot_notas_por_estado(df):
-
     """
     Plota um mapa das médias de notas dos estados brasileiros usando um DataFrame de dados.
 
@@ -26,37 +26,78 @@ def plot_notas_por_estado(df):
     de cada estado. Além disso, a função verifica se os valores únicos nos DataFrames correspondem, a fim de evitar
     erros na junção.
     """
-    # Carrega o shapefile dos estados brasileiros usando geopandas
-    estados_brasil = gpd.read_file('BR_UF_2022/BR_UF_2022.shp')
+    try:
+        # Carrega o shapefile dos estados brasileiros usando geopandas
+        estados_brasil = gpd.read_file('BR_UF_2022/BR_UF_2022.shp')
+    except FileNotFoundError:
+        print("Erro: O arquivo shapefile dos estados brasileiros não foi encontrado.")
+        return
+    except Exception as e:
+        print(f"Erro ao carregar o shapefile dos estados brasileiros: {str(e)}")
+        return
 
-    estados_brasileiros = [
-        'Acre', 'Alagoas', 'Amapá', 'Amazonas', 'Bahia', 'Ceará', 'Distrito Federal',
-        'Espírito Santo', 'Goiás', 'Maranhão', 'Mato Grosso', 'Mato Grosso do Sul',
-        'Minas Gerais', 'Pará', 'Paraíba', 'Paraná', 'Pernambuco', 'Piauí',
-        'Rio de Janeiro', 'Rio Grande do Norte', 'Rio Grande do Sul', 'Rondônia',
-        'Roraima', 'Santa Catarina', 'São Paulo', 'Sergipe', 'Tocantins'
-    ]
+    # Define replacements para UFs
+    replacements = {
+        'AC': 'Acre',
+        'AL': 'Alagoas',
+        'AP': 'Amapá',
+        'AM': 'Amazonas',
+        'BA': 'Bahia',
+        'CE': 'Ceará',
+        'DF': 'Distrito Federal',
+        'ES': 'Espírito Santo',
+        'GO': 'Goiás',
+        'MA': 'Maranhão',
+        'MT': 'Mato Grosso',
+        'MS': 'Mato Grosso do Sul',
+        'MG': 'Minas Gerais',
+        'PA': 'Pará',
+        'PB': 'Paraíba',
+        'PR': 'Paraná',
+        'PE': 'Pernambuco',
+        'PI': 'Piauí',
+        'RJ': 'Rio de Janeiro',
+        'RN': 'Rio Grande do Norte',
+        'RS': 'Rio Grande do Sul',
+        'RO': 'Rondônia',
+        'RR': 'Roraima',
+        'SC': 'Santa Catarina',
+        'SP': 'São Paulo',
+        'SE': 'Sergipe',
+        'TO': 'Tocantins'
+    }
 
+    df['SG_UF_PROVA'] = df['SG_UF_PROVA'].replace(replacements)
+
+    estados_brasileiros = replacements.values()
+    
     # Cria um DataFrame com os estados
-    df_estados = pd.DataFrame({'Estado': estados_brasileiros})
+    df_estados = pd.DataFrame({'SG_UF_PROVA': estados_brasileiros})
 
     # Realiza uma junção externa para incluir todos os estados no DataFrame 'Estado'
-    df = df_estados.merge(df, on='Estado', how='left')
+    df = df_estados.merge(df, on='SG_UF_PROVA', how='left')
 
     # Verifica se os valores únicos correspondem
-    unique_estados = df['Estado'].unique()
+    unique_estados = df['SG_UF_PROVA'].unique()
     unique_nm_uf = estados_brasil['NM_UF'].unique()
 
     if set(unique_estados) == set(unique_nm_uf):
         # Junta o DataFrame com o GeoDataFrame dos estados brasileiros usando 'NM_UF' como chave
-        gdf = estados_brasil.merge(df, left_on='NM_UF', right_on='Estado', how='left')
+        gdf = estados_brasil.merge(df, left_on='NM_UF', right_on='SG_UF_PROVA', how='left')
+
+        # Mapeia os valores da coluna 'Nota_unificada' para o novo intervalo de cores (450 a 600)
+        vmin = 490
+        vmax = 580
+        norm = plt.Normalize(vmin, vmax)
 
         # Configura o plot do mapa
         fig, ax = plt.subplots(1, 1, figsize=(10, 6))
         gdf.boundary.plot(ax=ax, linewidth=1, color='k')
-        gdf.plot(column='Média_de_Notas', cmap='YlGnBu', ax=ax, legend=True)
+        gdf.plot(column='Nota_unificada', cmap='Blues', norm=norm, ax=ax, legend=True)
 
-        ax.set_title('Média de Notas por Estado no Brasil')
+        ano = df['NU_ANO'].iloc[0] # Obtém o ano a partir do DataFrame
+
+        ax.set_title(f'Média de Notas por Estado no Brasil em {ano}')
         ax.set_axis_off()
 
         plt.show()
@@ -81,22 +122,47 @@ def plot_grafico_linhas(dataframe, coluna_x, coluna_y, titulo):
     Returns
     -------
     None
-    """ 
-    # Tamanho da figura
-    plt.figure(figsize=(8, 6))
-    plt.plot(dataframe[coluna_x], dataframe[coluna_y], marker='o', linestyle='-', color='b', label=coluna_y)
+    """
+    try:
+        if coluna_x not in dataframe.columns or coluna_y not in dataframe.columns:
+            raise ValueError("As colunas especificadas não existem no DataFrame.")
+        
+        # Tamanho da figura
+        plt.figure(figsize=(8, 6))
+        plt.plot(dataframe[coluna_x], dataframe[coluna_y], marker='o', linestyle='-', color='b', label=coluna_y)
+
+        # Adiciona rótulos e título ao gráfico
+        plt.xlabel(coluna_x)
+        plt.ylabel(coluna_y)
+        plt.title(titulo)
+
+        plt.legend()
+
+        plt.grid(True)
+        plt.show()
     
-    # Adiciona rótulos e título ao gráfico
-    plt.xlabel(coluna_x)
-    plt.ylabel(coluna_y)
-    plt.title(titulo)
-    
-    plt.legend()
-    
-    plt.grid(True)
-    plt.show()
+    except ValueError as e:
+        print(f"Erro: {str(e)}")
+    except Exception as e:
+        print(f"Ocorreu um erro inesperado: {str(e)}")
 
 def plot_bar_chart(dataframe, column_names, title):
+    """
+    Plota um gráfico de barras com duas colunas de um DataFrame em barras separadas.
+
+    Parameters
+    ----------
+    dataframe : pandas.DataFrame
+        O DataFrame contendo os dados.
+    column_names : list
+        Uma lista com os nomes das duas colunas a serem plotadas.
+    title : str
+        Título do gráfico.
+
+    Returns
+    -------
+    None
+    """
     # Verifica se as colunas estão presentes no DataFrame
     if not all(col in dataframe.columns for col in column_names):
         print("Uma ou mais colunas não estão presentes no DataFrame.")
@@ -112,34 +178,93 @@ def plot_bar_chart(dataframe, column_names, title):
     
     plt.show()
 
-def criar_grafico_setores(df, coluna):
+def plot_multi_grafico_linha(*dataframes):
     """
-    Cria um gráfico de pizza a partir de uma coluna de um DataFrame.
+    Plota um gráfico de linha a partir de um número variável de DataFrames.
+    Cada DataFrame deve ter uma única linha com os mesmos nomes de coluna.
+
+    Parameters
+    ----------
+    *dataframes : DataFrame(s)
+        Número variável de DataFrames. Cada DataFrame deve conter uma única linha com os mesmos nomes de coluna.
+
+    Returns
+    -------
+    None
+    """
+
+    plt.figure()
+
+    for idx, df in enumerate(dataframes):
+        if not isinstance(df, pd.DataFrame):
+            print(f"DataFrame {idx + 1} não é um DataFrame válido. Pulando.")
+            continue
+
+        # Verifica se o DataFrame possui apenas uma linha
+        if df.shape[0] != 1:
+            print(f"DataFrame {idx + 1} não possui uma única linha. Pulando.")
+            continue
+
+        # Extrai a linha como uma Série
+        dados_da_linha = df.iloc[0]
+
+        # Plota os dados como um gráfico de linha
+        plt.plot(dados_da_linha.index, dados_da_linha.values, marker='o', label=f'DF {idx + 1}')
+
+    # Adiciona rótulos, legenda e título
+    plt.xlabel('Áreas de conhecimento')
+    plt.ylabel('Médias')
+    plt.legend(['2019', '2020', '2021', '2022'])
+    plt.title('Média por área de conhecimento')
+
+    plt.show()
+
+
+    # Mostra o gráfico
+    plt.show()
+
+def plot_scatter(df, x_column, y_column, title="Gráfico de Dispersão", x_label=None, y_label=None):
+    """
+    Cria um gráfico de dispersão a partir de um DataFrame.
 
     Parameters
     ----------
     df : pandas.DataFrame
-        O DataFrame contendo os dados a serem usados para criar o gráfico de pizza.
-    coluna : str
-        O nome da coluna do DataFrame que será usada para criar o gráfico.
+        O DataFrame contendo os dados.
+    x_column : str
+        Nome da coluna a ser usada no eixo x.
+    y_column : str
+        Nome da coluna a ser usada no eixo y.
+    title : str, optional
+        Título do gráfico (opcional).
+    x_label : str, optional
+        Rótulo do eixo x (opcional).
+    y_label : str, optional
+        Rótulo do eixo y (opcional).
 
     Returns
     -------
     None
     """
     try:
-        contagem = df[coluna].value_counts()
+        plt.figure(figsize=(10, 6))  # Define o tamanho da figura
 
-        if not contagem.empty:
-            plt.figure(figsize=(8, 8))
-            plt.pie(contagem, labels=contagem.index, autopct='%1.1f%%', startangle=140)
-            plt.axis('equal')
-            plt.title(f'Distribuição de {coluna}')
-            plt.show()
-        else:
-            raise ValueError(f"A coluna '{coluna}' não contém dados para criar o gráfico de pizza.")
+        if x_column not in df.columns or y_column not in df.columns:
+            raise ValueError("As colunas especificadas não existem no DataFrame.")
 
-    except (KeyError, ValueError) as e:
-        print(f"Erro: {e}")
+        # Obtém os valores das colunas do DataFrame
+        x = df[x_column]
+        y = df[y_column]
+
+        # Cria o gráfico de dispersão, alpha controla a transparência dos pontos
+        plt.scatter(x, y, alpha=0.5)
+
+        # Define rótulos dos eixos
+        plt.xlabel(x_label if x_label else x_column)
+        plt.ylabel(y_label if y_label else y_column)
+
+        plt.title(title)
+
+        plt.show()
     except Exception as e:
-        print(f"Ocorreu um erro inesperado: {e}")
+        print(f"Erro ao plotar gráfico de dispersão: {str(e)}")
