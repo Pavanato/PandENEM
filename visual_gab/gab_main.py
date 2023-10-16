@@ -5,15 +5,10 @@ import sys
 sys.path.append(r'\modulo_analise')
 import analise
 
-# df_2019 = pd.read_csv(r"\PandENEM\2019_filtrado.csv", encoding='unicode_escape', engine='python')
-# df_2020 = pd.read_csv(r"\PandENEM\2020_filtrado.csv", encoding='unicode_escape', engine='python')
-# df_2021 = pd.read_csv(r"\PandENEM\2021_filtrado.csv", encoding='unicode_escape', engine='python')
-# df_2022 = pd.read_csv(r"\PandENEM\2022_filtrado.csv", encoding='unicode_escape', engine='python')
-
-df_2019 = pd.read_csv(r"C:\Users\Acer\Desktop\Apagar\PandENEM\2019_filtrado.csv", encoding='unicode_escape', engine='python')
-df_2020 = pd.read_csv(r"C:\Users\Acer\Desktop\Apagar\PandENEM\2020_filtrado.csv", encoding='unicode_escape', engine='python')
-df_2021 = pd.read_csv(r"C:\Users\Acer\Desktop\Apagar\PandENEM\2021_filtrado.csv", encoding='unicode_escape', engine='python')
-df_2022 = pd.read_csv(r"C:\Users\Acer\Desktop\Apagar\PandENEM\2022_filtrado.csv", encoding='unicode_escape', engine='python')
+df_2019 = pd.read_csv(r"\PandENEM\2019_filtrado.csv", encoding='unicode_escape', engine='python')
+df_2020 = pd.read_csv(r"\PandENEM\2020_filtrado.csv", encoding='unicode_escape', engine='python')
+df_2021 = pd.read_csv(r"\PandENEM\2021_filtrado.csv", encoding='unicode_escape', engine='python')
+df_2022 = pd.read_csv(r"\PandENEM\2022_filtrado.csv", encoding='unicode_escape', engine='python')
 
 lista_dfs = [df_2019, df_2020, df_2021, df_2022]
 
@@ -28,7 +23,7 @@ colunas = ['CN', 'CH', 'LC', 'MT', 'RD']
 df_concat = pd.DataFrame()
 for index, df in enumerate(lista_dfs):
     df = analise.media_por_area_de_conhecimento(df)
-    df_concat = pd.concat([df, df_concat])
+    df_concat = pd.concat([df_concat, df])
 
 df_concat['anos'] = [2019, 2020, 2021, 2022]
 visual.plot_grafico_de_linha(df_concat, colunas, 'anos', 'notas', "Média por matéria em cada ano")
