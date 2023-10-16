@@ -5,19 +5,22 @@ import matplotlib.pyplot as plt
 
 def frequencia_estado(df, coluna_estado, titulo):
     '''
-    Cria um gráfico de barras com a frequência de estados a partir de uma coluna em um DataFrame.
-
-    Parameters:
-    df (pd.DataFrame): 
-        O DataFrame contendo os dados.
-    coluna_estado (str): 
+    Cria gráfico de barras com todos os estados do Brasil com sua frequencia no DataFrame
+    Parameters
+    ----------
+    df : pd.DataFrame
+        
+    coluna_estado : str
         Nome da coluna com os estados.
-    titulo (str): 
+    titulo : str
         Título do gráfico.
 
-    Returns:
+    Returns
+    -------
     None.
+
     '''
+    
     # Contagem da frequência dos estados
     frequencia_estados = df[coluna_estado].value_counts()
 
@@ -39,30 +42,25 @@ df = pd.DataFrame(data)
 frequencia_estado(df, 'Estado', 'Frequência dos Estados do Brasil')
 
 def grafico_linha(dataframe, column_names, x_axis_label, y_axis_label, title):
-    """
-    Cria um gráfico de linhas com marcadores nos pontos a partir de um DataFrame e uma lista de nomes de colunas para as linhas.
+    '''
+    Parameters
+    ----------
+    dataframe : pd.DataFrame
+        
+    column_names : list
+        lista com as colunas que você quer usar.
+    x_axis_label : str
+        nome para eixo x.
+    y_axis_label : str
+        nome para eixo y.
+    title : str
+        
 
-    Parâmetros:
-    - dataframe (DataFrame):
-        O DataFrame contendo os dados.
-    - column_names (list):
-        Uma lista de nomes de colunas para as linhas do gráfico.
-    - x_axis_label (str):
-        Rótulo do eixo X.
-    - y_axis_label (str):
-        Rótulo do eixo Y.
-    - title (str):
-        Título do gráfico.
+    Returns
+    -------
+    None.
 
-    Exemplo:
-    >>> import pandas as pd
-    >>> data = {'Ano': [2010, 2011, 2012, 2013, 2014],
-    ...         'Vendas_A': [100, 120, 140, 160, 180],
-    ...         'Vendas_B': [80, 90, 110, 120, 130]}
-    >>> df = pd.DataFrame(data)
-    >>> column_names = ['Vendas_A', 'Vendas_B']
-    >>> grafico_linha(df, column_names, 'Ano', 'Vendas', 'Vendas por Ano')
-    """
+    '''
     for column_name in column_names:
         plt.plot(dataframe[x_axis_label], dataframe[column_name], marker='o', label=column_name)
 
@@ -77,32 +75,34 @@ def grafico_barra(df, coluna_x, coluna_y, titulo, xlabel, ylabel):
     '''
     Cria um gráfico de barras a partir de um DataFrame.
 
-    Parameters:
-    df (pd.DataFrame): O DataFrame de onde os dados serão extraídos.
-    coluna_x (str): Nome da coluna para o eixo x.
-    coluna_y (str): Nome da coluna para o eixo y.
-    titulo (str): Título do gráfico.
-    xlabel (str): Nome do eixo x.
-    ylabel (str): Nome do eixo y.
+    Parameters
+    ----------
+    df : pd.DataFrame
+        
+    coluna_x : str
+        Nome da coluna para o eixo x
+    coluna_y : str
+        Nome da coluna para o eixo y.
+    titulo : str
+        
+    xlabel : str
+        Nome do eixo x.
+    ylabel : str
+        Nome do eixo y.
 
-    Raises:
-    ValueError: Se o DataFrame for nulo (None).
-    KeyError: Se as colunas especificadas não forem encontradas no DataFrame.
+    Raises
+    ------
+    ValueError
+        DESCRIPTION.
+    KeyError
+        DESCRIPTION.
 
-    Returns:
+    Returns
+    -------
     None.
 
-    Example:
-    >>> data = {'Ano': [2010, 2011, 2012, 2013, 2014],
-    ...         'Vendas': [100, 120, 150, 140, 180]}
-    >>> df = pd.DataFrame(data)
-    >>> coluna_x = 'Ano'
-    >>> coluna_y = 'Vendas'
-    >>> titulo = 'Gráfico de Vendas Anuais'
-    >>> xlabel = 'Ano'
-    >>> ylabel = 'Vendas'
-    >>> grafico_barra(df, coluna_x, coluna_y, titulo, xlabel, ylabel)  # Este comando deve exibir o gráfico
     '''
+    
     try:
         # Verifica se o DataFrame não é nulo (None)
         if df is None:
@@ -136,7 +136,6 @@ def grafico_barra(df, coluna_x, coluna_y, titulo, xlabel, ylabel):
         print(f"Erro ao criar o gráfico de barras: {str(e)}")
 
 
-def grafico_linha_barra(df, x_col, y_linha, y_col, titulo):
     '''
     Cria um gráfico que combina gráfico de linha com gráfico de barras a partir de um DataFrame.
 
@@ -193,24 +192,26 @@ def grafico_pizza(df, coluna, titulo):
     '''
     Cria um gráfico de pizza que mostra a distribuição das frequências dos elementos na coluna.
 
-    Parameters:
-    df (pd.DataFrame): O DataFrame de onde os dados serão extraídos.
-    coluna (str): Nome da coluna específica a ser usada para o gráfico de pizza (coluna dos estados).
-    titulo (str): Título do gráfico.
+    Parameters
+    ----------
+    df : pd.DataFrame
+        
+    coluna : str
+       Nome da coluna específica a ser usada para o gráfico de pizza
+    titulo : str
+    
 
-    Raises:
-    KeyError: Se a coluna selecionada não for encontrada no DataFrame.
+    Raises
+    ------
+    KeyError
+        DESCRIPTION.
 
-    Returns:
+    Returns
+    -------
     None.
 
-    Example:
-    >>> data = {'Estados': ['MG', 'SP', 'RJ', 'MG', 'SP', 'MG'],
-    ...         'Valores': [30, 11, 12, 22, 22222, 22]}
-    >>> df = pd.DataFrame(data)
-    >>> titulo = 'Distribuição de Estados'
-    >>> grafico_pizza(df, 'Estados', titulo)  # Este comando deve exibir o gráfico
     '''
+
     try:
         # Verifica se a coluna selecionada existe no DataFrame
         if coluna not in df.columns:
@@ -237,32 +238,24 @@ def grafico_colunas_duplas(df_renda, df_notas):
     '''
     Gera um gráfico de colunas duplas com as médias unificadas de renda e notas por estado.
 
-    Parameters:
+    Parameters
     ----------
-    df_renda (pd.DataFrame): 
+    df_renda : pd.DataFrame
         DataFrame contendo as médias unificadas de renda por estado e a coluna 'CO_UF_PROVA'.
-
-    df_notas (pd.DataFrame):
+    df_notas : pd.DataFrame
         DataFrame contendo as médias unificadas de notas por estado e a coluna 'CO_UF_PROVA'.
 
-    Returns:
-    ----------
-    None
+    Raises
+    ------
+    ValueError
+        Se as colunas 'CO_UF_PROVA' não existirem nos DataFrames..
 
-    Raises:
-    ValueError: Se as colunas 'CO_UF_PROVA' não existirem nos DataFrames.
+    Returns
+    -------
+    None.
 
-    Example:
-    >>> df_renda = pd.DataFrame({
-    ...     'CO_UF_PROVA': ['MG', 'RJ', 'SP'],
-    ...     'Renda_unificada': [500, 600, 700]
-    ... })
-    >>> df_notas = pd.DataFrame({
-    ...     'CO_UF_PROVA': ['RJ', 'SP', 'MG'],
-    ...     'Nota_unificada': [85, 90, 80]
-    ... })
-    >>> grafico_colunas_duplas(df_renda, df_notas)  # Isso irá gerar o gráfico
     '''
+    
     try:
         # Verifica se as colunas 'CO_UF_PROVA' existem nos DataFrames
         if 'CO_UF_PROVA' not in df_renda.columns or 'CO_UF_PROVA' not in df_notas.columns:
@@ -296,7 +289,3 @@ def grafico_colunas_duplas(df_renda, df_notas):
 
     except ValueError as e:
         print(f"Erro ao gerar o gráfico: {str(e)}")
-
-if _name_ == "_main_":
-    import doctest
-    doctest.testmod()
