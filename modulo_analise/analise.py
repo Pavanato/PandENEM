@@ -394,6 +394,66 @@ def media_internet(df : pd.DataFrame) -> pd.DataFrame:
 
     except ValueError as e:
         print(f"Erro ao calcular médias por 'Q025': {str(e)}")
+        
+import pandas as pd
 
+def calcular_medias_regiao_ano(dataframe):
+    '''
+    Calcula as médias das notas por ano e região.
+
+    Parameters:
+    dataframe (pd.DataFrame): DataFrame contendo os dados das notas.
+
+    Returns:
+    pd.DataFrame: DataFrame com as médias por ano e região.
+    
+    Raises:
+    ValueError: Se as colunas necessárias não estiverem presentes no DataFrame.
+
+    >>> data = {'NU_ANO': [2021, 2021, 2022, 2022, 2023],
+    ...         'SG_UF_PROVA': ['SP', 'RJ', 'SP', 'RJ', 'SP'],
+    ...         'media': [7.5, 8.0, 7.8, 8.2, 7.9]}
+    >>> df = pd.DataFrame(data)
+    >>> calcular_medias_regiao_ano(df)
+    # Deve retornar um DataFrame com as médias por ano e região
+       Centro-Oeste  Nordeste  Norte  Sudeste  Sul  Média Brasil
+    NU_ANO                                                       
+    2021           NaN       NaN    NaN     7.75  NaN         7.75
+    2022           NaN       NaN    NaN     8.00  NaN         8.00
+    2023           NaN       NaN    NaN     7.90  NaN         7.90
+    '''
+
+    try:
+        # Verificar se as colunas necessárias estão presentes no DataFrame
+        required_columns = ['NU_ANO', 'SG_UF_PROVA', 'media']
+        if not all(col in dataframe.columns for col in required_columns):
+            raise ValueError("O DataFrame de entrada não contém todas as colunas necessárias.")
+
+        # Mapeamento de estados para regiões
+        mapeamento_regioes = {
+            'Norte': ['AC', 'AM', 'AP', 'PA', 'RO', 'RR', 'TO'],
+            'Nordeste': ['AL', 'BA', 'CE', 'MA', 'PB', 'PE', 'PI', 'RN', 'SE'],
+            'Sudeste': ['ES', 'MG', 'RJ', 'SP'],
+            'Sul': ['PR', 'RS', 'SC'],
+            'Centro-Oeste': ['DF', 'GO', 'MT', 'MS']
+        }
+
+        # Adicionar a coluna 'Região' com base no mapeamento
+        dataframe['Região'] = dataframe['SG_UF_PROVA'].map({estado: regiao for regiao, estados in mapeamento_regioes.items() for estado in estados})
+
+        # Calcular a média do Brasil por ano
+        media_brasil_ano = dataframe.groupby(['NU_ANO', 'SG_UF_PROVA'])['media'].mean().groupby('NU_ANO').mean()
+        media_brasil_ano = media_brasil_ano.reset_index()
+        media_brasil_ano.rename(columns={'media': 'Média Brasil'}, inplace=True)
+
+        # Calcular a média por ano e região
+        media_regiao_ano = dataframe.groupby(['NU_ANO', 'Região'])['media'].mean().unstack()
+
+        # Concatenar a média das regiões com a média do Brasil
+        result_dataframe = pd.concat([media_regiao_ano, media_brasil_ano.set_index('NU_ANO')['Média Brasil']], axis=1)
+
+        return result_dataframe
+    except ValueError as e:
+        raise ValueError(f"Erro ao calcular as médias por ano e região: {str(e)}")
 
 doctest.testmod()
